@@ -11,7 +11,7 @@ namespace DAL
     {
         private SqlConnection maConnexion;
         private static ConnexionBD uneConnexionBD;
-        private string chaineConnexion = "";
+        private string chaineConnexion;
 
         public string GetchaineConnexion()
         {

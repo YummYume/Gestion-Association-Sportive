@@ -28,5 +28,27 @@ namespace BLL
             string chaine = chset.ConnectionString;
             ConnexionBD.GetConnexionBD().SetchaineConnexion(chaine);
         }
+
+        public static string VerificationConnexion(string login, string mdp)
+        {
+            // Vérifier si le compte existe // le mot de passe correspond
+            if (!UtilisateurDAO.UtilisateurExiste(login))
+            {
+                return "Utilisateur inconnu";
+            }
+            else
+            {
+                if (!UtilisateurDAO.VerifierMotDePasse(login, mdp))
+                {
+                    return "Mot de passe invalide";
+                }
+            }
+            return "";
+        }
+
+        public static string GetDroit(string login)
+        {
+            return UtilisateurDAO.GetDroit(login);
+        }
     }
 }

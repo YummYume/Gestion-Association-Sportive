@@ -45,7 +45,11 @@ namespace DAL
             List<Utilisateur> lesUtilisateurs = new List<Utilisateur>();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = maConnexion;
-            cmd.CommandText = "SELECT Mdp_utilisateur AS mdp FROM UTILISATEUR WHERE Login_utilisateur = '" + login + "'";
+            cmd.CommandText = "SELECT Mdp_utilisateur AS mdp FROM UTILISATEUR WHERE Login_utilisateur = @LOGIN";
+            SqlParameter param = new SqlParameter();
+            param.ParameterName = "@LOGIN";
+            param.Value = login;
+            cmd.Parameters.Add(param);
             SqlDataReader monReader = cmd.ExecuteReader();
 
             while (monReader.Read())
@@ -71,7 +75,11 @@ namespace DAL
             List<Utilisateur> lesUtilisateurs = new List<Utilisateur>();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = maConnexion;
-            cmd.CommandText = "SELECT Droit_utilisateur AS droit FROM UTILISATEUR WHERE Login_utilisateur = '" + login + "'";
+            cmd.CommandText = "SELECT Droit_utilisateur AS droit FROM UTILISATEUR WHERE Login_utilisateur = @LOGIN";
+            SqlParameter param = new SqlParameter();
+            param.ParameterName = "@LOGIN";
+            param.Value = login;
+            cmd.Parameters.Add(param);
             SqlDataReader monReader = cmd.ExecuteReader();
 
             while (monReader.Read())

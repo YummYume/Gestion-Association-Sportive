@@ -24,27 +24,9 @@ namespace GUI
 
         private void buttonConnection_Click(object sender, EventArgs e)
         {
-            string login = textBoxLogin.Text;
-            string mdp = textBoxMdp.Text;
-            string msgErreur = "Erreur :";
-            bool erreur = false;
+            string msgErreur = UtilisateurBLL.VerificationConnexion(textBoxLogin.Text, textBoxMdp.Text);
 
-            // Vérifier si le compte existe // le mot de passe correspond
-            if (!UtilisateurDAO.UtilisateurExiste(login))
-            {
-                msgErreur += "\nUtilisateur inconnu";
-                erreur = true;
-            }
-            else
-            {
-                if (!UtilisateurDAO.VerifierMotDePasse(login, mdp))
-                {
-                    msgErreur += "\nMot de passe invalide";
-                    erreur = true;
-                }
-            }
-
-            if (erreur == true)
+            if (msgErreur != "")
             {
                 labelConnectionFailed.Text = msgErreur;
                 labelConnectionFailed.ForeColor = Color.Red;
@@ -53,7 +35,7 @@ namespace GUI
             {
                 labelConnectionFailed.Text = "Connexion Réussie!\nBienvenue, " + textBoxLogin.Text + ".";
                 labelConnectionFailed.ForeColor = Color.Green;
-                string droitUtilisateur = UtilisateurDAO.GetDroit(login);
+                string droitUtilisateur = UtilisateurBLL.GetDroit(textBoxLogin.Text);
                 switch (droitUtilisateur)
                 {
                     case "admin":
