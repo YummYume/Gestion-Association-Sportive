@@ -71,6 +71,11 @@
     <Compile Include="FormConnexion.Designer.cs">
       <DependentUpon>FormConnexion.cs</DependentUpon>
     </Compile>
+    <Compile Include="PPEDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PPEDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormAdministrateur.resx">
@@ -94,6 +99,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="PPEDataSet.xsc">
+      <DependentUpon>PPEDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="PPEDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PPEDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PPEDataSet.xss">
+      <DependentUpon>PPEDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
