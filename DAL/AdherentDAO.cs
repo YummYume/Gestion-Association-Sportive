@@ -27,6 +27,7 @@ namespace DAL
                 lesAdherents.Add(unAdherent);
             }
 
+            monReader.Close();
             return lesAdherents;
         }
     }
