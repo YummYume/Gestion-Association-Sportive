@@ -19,43 +19,47 @@ namespace GUI
         public FormConnexion()
         {
             InitializeComponent();
-            UtilisateurBLL.SetchaineConnexion(ConfigurationManager.ConnectionStrings["Utilisateur"]);
+            UtilisateurBLL.SetchaineConnexion(ConfigurationManager.ConnectionStrings["VM"]);
         }
 
-        private void buttonConnection_Click(object sender, EventArgs e)
+        private void btnConnection_Click(object sender, EventArgs e)
         {
-            string msgErreur = UtilisateurBLL.VerificationConnexion(textBoxLogin.Text, textBoxMdp.Text);
+            string msgErreur = UtilisateurBLL.VerificationConnexion(this.tbxLogin.Text, this.tbxMdp.Text);
 
             if (msgErreur != "")
             {
-                labelConnectionFailed.Text = msgErreur;
-                labelConnectionFailed.ForeColor = Color.Red;
+                this.lblConnexionMessage.Text = msgErreur;
+                this.lblConnexionMessage.ForeColor = Color.Red;
             }
             else
             {
-                labelConnectionFailed.Text = "Connexion Réussie!\nBienvenue, " + textBoxLogin.Text + ".";
-                labelConnectionFailed.ForeColor = Color.Green;
-                string droitUtilisateur = UtilisateurBLL.GetDroit(textBoxLogin.Text);
+                this.lblConnexionMessage.Text = "Connexion Réussie!\nBienvenue, " + this.tbxLogin.Text + ".";
+                this.lblConnexionMessage.ForeColor = Color.Green;
+                string droitUtilisateur = UtilisateurBLL.GetDroit(this.tbxLogin.Text);
                 switch (droitUtilisateur)
                 {
                     case "admin":
                         FormChoixAcces newAcces;
+                        this.Hide();
                         newAcces = new FormChoixAcces();
-                        newAcces.Show();
+                        newAcces.ShowDialog();
+                        this.Show();
                         break;
                     case "compta":
                         FormComptabilite newCompta;
+                        this.Hide();
                         newCompta = new FormComptabilite();
-                        newCompta.Show();
+                        newCompta.ShowDialog();
+                        this.Show();
                         break;
                     default:
-                        labelProblemeDroit.ForeColor = Color.Red;
-                        labelProblemeDroit.Text += "\nProblème d'accès.";
-                        var t = new Timer();
+                        Timer t = new Timer();
+                        this.lblProblemeDroit.ForeColor = Color.Red;
+                        this.lblProblemeDroit.Text += "\nAccès refusé.";
                         t.Interval = 3000; // 3 secondes
                         t.Tick += (s, error) =>
                         {
-                            labelProblemeDroit.Text = "";
+                            this.lblProblemeDroit.Text = "";
                             t.Stop();
                         };
                         t.Start();
@@ -64,7 +68,7 @@ namespace GUI
             }
         }
 
-        private void textBoxLogin_KeyPress(object sender, KeyPressEventArgs e)
+        private void tbxLogin_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == 32)
             {
@@ -72,7 +76,7 @@ namespace GUI
             }
         }
 
-        private void textBoxMdp_KeyPress(object sender, KeyPressEventArgs e)
+        private void tbxMdp_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == 32)
             {

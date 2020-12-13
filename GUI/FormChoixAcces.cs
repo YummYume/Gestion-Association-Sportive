@@ -17,18 +17,22 @@ namespace GUI
             InitializeComponent();
         }
 
-        private void buttonAccesAdmin_Click(object sender, EventArgs e)
+        private void btnAccesAdmin_Click(object sender, EventArgs e)
         {
             FormAdministrateur newAdmin;
+            this.Hide();
             newAdmin = new FormAdministrateur();
-            newAdmin.Show();
+            newAdmin.ShowDialog();
+            this.Show();
         }
 
-        private void buttonAccesCompta_Click(object sender, EventArgs e)
+        private void btnAccesCompta_Click(object sender, EventArgs e)
         {
             FormComptabilite newCompta;
+            this.Hide();
             newCompta = new FormComptabilite();
-            newCompta.Show();
+            newCompta.ShowDialog();
+            this.Show();
         }
     }
 }

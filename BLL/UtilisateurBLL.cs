@@ -15,11 +15,11 @@ namespace BLL
 
         public static UtilisateurBLL GetUtilisateurBLL()
         {
-            if (unUtilisateurBLL == null)
+            if (UtilisateurBLL.unUtilisateurBLL == null)
             {
-                unUtilisateurBLL = new UtilisateurBLL();
+                UtilisateurBLL.unUtilisateurBLL = new UtilisateurBLL();
             }
-            return unUtilisateurBLL;
+            return UtilisateurBLL.unUtilisateurBLL;
         }
 
         // Définit la chaîne de connexion grâce à la méthode SetchaineConnexion de la DAL

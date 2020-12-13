@@ -28,102 +28,111 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.labelConnectionFailed = new System.Windows.Forms.Label();
-            this.labelMdp = new System.Windows.Forms.Label();
-            this.labelLogin = new System.Windows.Forms.Label();
-            this.buttonConnection = new System.Windows.Forms.Button();
-            this.textBoxLogin = new System.Windows.Forms.TextBox();
-            this.textBoxMdp = new System.Windows.Forms.TextBox();
-            this.labelConnexion = new System.Windows.Forms.Label();
-            this.labelProblemeDroit = new System.Windows.Forms.Label();
+            this.lblConnexionMessage = new System.Windows.Forms.Label();
+            this.lblMdp = new System.Windows.Forms.Label();
+            this.lblLogin = new System.Windows.Forms.Label();
+            this.btnConnexion = new System.Windows.Forms.Button();
+            this.tbxLogin = new System.Windows.Forms.TextBox();
+            this.tbxMdp = new System.Windows.Forms.TextBox();
+            this.lblConnexion = new System.Windows.Forms.Label();
+            this.lblProblemeDroit = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // labelConnectionFailed
+            // lblConnexionMessage
             // 
-            this.labelConnectionFailed.Location = new System.Drawing.Point(12, 254);
-            this.labelConnectionFailed.Name = "labelConnectionFailed";
-            this.labelConnectionFailed.Size = new System.Drawing.Size(643, 43);
-            this.labelConnectionFailed.TabIndex = 13;
-            this.labelConnectionFailed.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblConnexionMessage.Location = new System.Drawing.Point(16, 313);
+            this.lblConnexionMessage.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblConnexionMessage.Name = "lblConnexionMessage";
+            this.lblConnexionMessage.Size = new System.Drawing.Size(857, 53);
+            this.lblConnexionMessage.TabIndex = 13;
+            this.lblConnexionMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // labelMdp
+            // lblMdp
             // 
-            this.labelMdp.AutoSize = true;
-            this.labelMdp.Location = new System.Drawing.Point(262, 161);
-            this.labelMdp.Name = "labelMdp";
-            this.labelMdp.Size = new System.Drawing.Size(77, 13);
-            this.labelMdp.TabIndex = 12;
-            this.labelMdp.Text = "Mot de passe :";
+            this.lblMdp.AutoSize = true;
+            this.lblMdp.Location = new System.Drawing.Point(349, 198);
+            this.lblMdp.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblMdp.Name = "lblMdp";
+            this.lblMdp.Size = new System.Drawing.Size(101, 17);
+            this.lblMdp.TabIndex = 12;
+            this.lblMdp.Text = "Mot de passe :";
             // 
-            // labelLogin
+            // lblLogin
             // 
-            this.labelLogin.AutoSize = true;
-            this.labelLogin.Location = new System.Drawing.Point(262, 106);
-            this.labelLogin.Name = "labelLogin";
-            this.labelLogin.Size = new System.Drawing.Size(39, 13);
-            this.labelLogin.TabIndex = 11;
-            this.labelLogin.Text = "Login :";
+            this.lblLogin.AutoSize = true;
+            this.lblLogin.Location = new System.Drawing.Point(349, 130);
+            this.lblLogin.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblLogin.Name = "lblLogin";
+            this.lblLogin.Size = new System.Drawing.Size(51, 17);
+            this.lblLogin.TabIndex = 11;
+            this.lblLogin.Text = "Login :";
             // 
-            // buttonConnection
+            // btnConnexion
             // 
-            this.buttonConnection.Location = new System.Drawing.Point(262, 222);
-            this.buttonConnection.Name = "buttonConnection";
-            this.buttonConnection.Size = new System.Drawing.Size(142, 23);
-            this.buttonConnection.TabIndex = 3;
-            this.buttonConnection.Text = "Connection";
-            this.buttonConnection.UseVisualStyleBackColor = true;
-            this.buttonConnection.Click += new System.EventHandler(this.buttonConnection_Click);
+            this.btnConnexion.Location = new System.Drawing.Point(349, 273);
+            this.btnConnexion.Margin = new System.Windows.Forms.Padding(4);
+            this.btnConnexion.Name = "btnConnexion";
+            this.btnConnexion.Size = new System.Drawing.Size(189, 28);
+            this.btnConnexion.TabIndex = 3;
+            this.btnConnexion.Text = "Connexion";
+            this.btnConnexion.UseVisualStyleBackColor = true;
+            this.btnConnexion.Click += new System.EventHandler(this.btnConnection_Click);
             // 
-            // textBoxLogin
+            // tbxLogin
             // 
-            this.textBoxLogin.Location = new System.Drawing.Point(262, 124);
-            this.textBoxLogin.Name = "textBoxLogin";
-            this.textBoxLogin.Size = new System.Drawing.Size(142, 20);
-            this.textBoxLogin.TabIndex = 1;
-            this.textBoxLogin.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxLogin_KeyPress);
+            this.tbxLogin.Location = new System.Drawing.Point(349, 153);
+            this.tbxLogin.Margin = new System.Windows.Forms.Padding(4);
+            this.tbxLogin.Name = "tbxLogin";
+            this.tbxLogin.Size = new System.Drawing.Size(188, 22);
+            this.tbxLogin.TabIndex = 1;
+            this.tbxLogin.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxLogin_KeyPress);
             // 
-            // textBoxMdp
+            // tbxMdp
             // 
-            this.textBoxMdp.Location = new System.Drawing.Point(262, 177);
-            this.textBoxMdp.Name = "textBoxMdp";
-            this.textBoxMdp.PasswordChar = '*';
-            this.textBoxMdp.Size = new System.Drawing.Size(142, 20);
-            this.textBoxMdp.TabIndex = 2;
-            this.textBoxMdp.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxMdp_KeyPress);
+            this.tbxMdp.Location = new System.Drawing.Point(349, 218);
+            this.tbxMdp.Margin = new System.Windows.Forms.Padding(4);
+            this.tbxMdp.Name = "tbxMdp";
+            this.tbxMdp.PasswordChar = '*';
+            this.tbxMdp.Size = new System.Drawing.Size(188, 22);
+            this.tbxMdp.TabIndex = 2;
+            this.tbxMdp.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxMdp_KeyPress);
             // 
-            // labelConnexion
+            // lblConnexion
             // 
-            this.labelConnexion.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelConnexion.Location = new System.Drawing.Point(28, 25);
-            this.labelConnexion.Name = "labelConnexion";
-            this.labelConnexion.Size = new System.Drawing.Size(611, 69);
-            this.labelConnexion.TabIndex = 7;
-            this.labelConnexion.Text = "Connexion";
-            this.labelConnexion.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblConnexion.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblConnexion.Location = new System.Drawing.Point(37, 31);
+            this.lblConnexion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblConnexion.Name = "lblConnexion";
+            this.lblConnexion.Size = new System.Drawing.Size(815, 85);
+            this.lblConnexion.TabIndex = 7;
+            this.lblConnexion.Text = "Connexion";
+            this.lblConnexion.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // labelProblemeDroit
+            // lblProblemeDroit
             // 
-            this.labelProblemeDroit.Location = new System.Drawing.Point(12, 304);
-            this.labelProblemeDroit.Name = "labelProblemeDroit";
-            this.labelProblemeDroit.Size = new System.Drawing.Size(643, 26);
-            this.labelProblemeDroit.TabIndex = 14;
-            this.labelProblemeDroit.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblProblemeDroit.Location = new System.Drawing.Point(16, 374);
+            this.lblProblemeDroit.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblProblemeDroit.Name = "lblProblemeDroit";
+            this.lblProblemeDroit.Size = new System.Drawing.Size(857, 32);
+            this.lblProblemeDroit.TabIndex = 14;
+            this.lblProblemeDroit.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // FormConnexion
             // 
-            this.AcceptButton = this.buttonConnection;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AcceptButton = this.btnConnexion;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(667, 334);
-            this.Controls.Add(this.labelProblemeDroit);
-            this.Controls.Add(this.labelConnectionFailed);
-            this.Controls.Add(this.labelMdp);
-            this.Controls.Add(this.labelLogin);
-            this.Controls.Add(this.buttonConnection);
-            this.Controls.Add(this.textBoxLogin);
-            this.Controls.Add(this.textBoxMdp);
-            this.Controls.Add(this.labelConnexion);
+            this.ClientSize = new System.Drawing.Size(889, 411);
+            this.Controls.Add(this.lblProblemeDroit);
+            this.Controls.Add(this.lblConnexionMessage);
+            this.Controls.Add(this.lblMdp);
+            this.Controls.Add(this.lblLogin);
+            this.Controls.Add(this.btnConnexion);
+            this.Controls.Add(this.tbxLogin);
+            this.Controls.Add(this.tbxMdp);
+            this.Controls.Add(this.lblConnexion);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "FormConnexion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -135,14 +144,14 @@
 
         #endregion
 
-        private System.Windows.Forms.Label labelConnectionFailed;
-        private System.Windows.Forms.Label labelMdp;
-        private System.Windows.Forms.Label labelLogin;
-        private System.Windows.Forms.Button buttonConnection;
-        private System.Windows.Forms.TextBox textBoxLogin;
-        private System.Windows.Forms.TextBox textBoxMdp;
-        private System.Windows.Forms.Label labelConnexion;
-        private System.Windows.Forms.Label labelProblemeDroit;
+        private System.Windows.Forms.Label lblConnexionMessage;
+        private System.Windows.Forms.Label lblMdp;
+        private System.Windows.Forms.Label lblLogin;
+        private System.Windows.Forms.Button btnConnexion;
+        private System.Windows.Forms.TextBox tbxLogin;
+        private System.Windows.Forms.TextBox tbxMdp;
+        private System.Windows.Forms.Label lblConnexion;
+        private System.Windows.Forms.Label lblProblemeDroit;
     }
 }
 

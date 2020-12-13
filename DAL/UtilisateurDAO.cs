@@ -16,8 +16,6 @@ namespace DAL
             // Connexion à la BD
             SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
 
-            // Création d'une liste vide d'objets Utilisateurs
-            List<Utilisateur> lesUtilisateurs = new List<Utilisateur>();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = maConnexion;
             cmd.CommandText = "SELECT Login_utilisateur AS login FROM UTILISATEUR";
@@ -31,6 +29,7 @@ namespace DAL
                     return true;
                 }
             }
+
             monReader.Close();
             return false;
         }
@@ -41,8 +40,6 @@ namespace DAL
             // Connexion à la BD
             SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
 
-            // Création d'une liste vide d'objets Utilisateurs
-            List<Utilisateur> lesUtilisateurs = new List<Utilisateur>();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = maConnexion;
             cmd.CommandText = "SELECT Mdp_utilisateur AS mdp FROM UTILISATEUR WHERE Login_utilisateur = @LOGIN";
@@ -60,6 +57,7 @@ namespace DAL
                     return true;
                 }
             }
+
             monReader.Close();
             return false;
         }
@@ -71,8 +69,6 @@ namespace DAL
             // Connexion à la BD
             SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
 
-            // Création d'une liste vide d'objets Utilisateurs
-            List<Utilisateur> lesUtilisateurs = new List<Utilisateur>();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = maConnexion;
             cmd.CommandText = "SELECT Droit_utilisateur AS droit FROM UTILISATEUR WHERE Login_utilisateur = @LOGIN";

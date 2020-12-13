@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BLL;
 
 namespace GUI
 {
@@ -20,8 +21,7 @@ namespace GUI
         private void FormAdministrateur_Load(object sender, EventArgs e)
         {
             // TODO: cette ligne de code charge les données dans la table 'pPEDataSet.ADHERENT'. Vous pouvez la déplacer ou la supprimer selon les besoins.
-            this.aDHERENTTableAdapter.Fill(this.pPEDataSet.ADHERENT);
-
+            this.dtgListeAdherants.DataSource = AdherentBLL.GetInfoBaseAdherents();
         }
     }
 }
