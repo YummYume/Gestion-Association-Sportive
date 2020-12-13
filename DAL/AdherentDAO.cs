@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using BO;
+using System.Data;
 
 namespace DAL
 {
@@ -29,6 +30,25 @@ namespace DAL
 
             monReader.Close();
             return lesAdherents;
+        }
+
+        public static void RemoveAdherent(AdherentMin unAdherent)
+        {
+            // Connexion à la BD
+            SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = maConnexion;
+            cmd.CommandText = "DELETE FROM ADHERENT WHERE Nom_adherent = @nom AND Prenom_adherent = @prenom";
+
+            // Création et bind des paramètres
+            SqlParameter nom = new SqlParameter("@nom", SqlDbType.VarChar, 255);
+            SqlParameter prenom = new SqlParameter("@prenom", SqlDbType.VarChar, 255);
+            nom.Value = unAdherent.Nom;
+            prenom.Value = unAdherent.Prenom;
+            cmd.Parameters.Add(nom);
+            cmd.Parameters.Add(prenom);
+            cmd.ExecuteNonQuery();
         }
     }
 }

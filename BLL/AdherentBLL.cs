@@ -33,5 +33,10 @@ namespace BLL
         {
             return AdherentDAO.GetInfoBaseAdherents();
         }
+
+        public static void RemoveAdherent(AdherentMin unAdherent)
+        {
+            AdherentDAO.RemoveAdherent(unAdherent);
+        }
     }
 }

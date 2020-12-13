@@ -68,13 +68,17 @@
             // 
             this.dtgListeAdherants.AllowUserToAddRows = false;
             this.dtgListeAdherants.AllowUserToDeleteRows = false;
+            this.dtgListeAdherants.AllowUserToResizeColumns = false;
+            this.dtgListeAdherants.AllowUserToResizeRows = false;
             this.dtgListeAdherants.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgListeAdherants.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
+            this.dtgListeAdherants.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dtgListeAdherants.Location = new System.Drawing.Point(42, 94);
             this.dtgListeAdherants.Margin = new System.Windows.Forms.Padding(4);
+            this.dtgListeAdherants.MultiSelect = false;
             this.dtgListeAdherants.Name = "dtgListeAdherants";
             this.dtgListeAdherants.ReadOnly = true;
             this.dtgListeAdherants.RowHeadersWidth = 51;
+            this.dtgListeAdherants.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dtgListeAdherants.Size = new System.Drawing.Size(325, 367);
             this.dtgListeAdherants.TabIndex = 1;
             // 
@@ -87,6 +91,7 @@
             this.btnAjoutEleve.TabIndex = 2;
             this.btnAjoutEleve.Text = "Ajouter élève";
             this.btnAjoutEleve.UseVisualStyleBackColor = true;
+            this.btnAjoutEleve.Click += new System.EventHandler(this.btnAjoutEleve_Click);
             // 
             // btnModifierEleve
             // 
@@ -97,6 +102,7 @@
             this.btnModifierEleve.TabIndex = 3;
             this.btnModifierEleve.Text = "Modifier élève";
             this.btnModifierEleve.UseVisualStyleBackColor = true;
+            this.btnModifierEleve.Click += new System.EventHandler(this.btnModifierEleve_Click);
             // 
             // btnSupprimerEleve
             // 
@@ -107,6 +113,7 @@
             this.btnSupprimerEleve.TabIndex = 4;
             this.btnSupprimerEleve.Text = "Supprimer élève";
             this.btnSupprimerEleve.UseVisualStyleBackColor = true;
+            this.btnSupprimerEleve.Click += new System.EventHandler(this.btnSupprimerEleve_Click);
             // 
             // gbxInfoAdherant
             // 
