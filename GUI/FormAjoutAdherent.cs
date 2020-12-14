@@ -16,5 +16,10 @@ namespace GUI
         {
             InitializeComponent();
         }
+
+        virtual protected void btnValider_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Ajout effectué (c'est faux)");
+        }
     }
 }

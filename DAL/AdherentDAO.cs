@@ -48,6 +48,8 @@ namespace DAL
             prenom.Value = unAdherent.Prenom;
             cmd.Parameters.Add(nom);
             cmd.Parameters.Add(prenom);
+
+            // Execution de la requête
             cmd.ExecuteNonQuery();
         }
     }

@@ -12,7 +12,7 @@ namespace BO
         private string nom;
         private string prenom;
         private DateTime dateDeNaissance;
-        private char sexe;
+        private string sexe;
         private string login;
         private string motDePasse;
         private int numTel;
@@ -23,7 +23,7 @@ namespace BO
         private Utilisateur utilisateur;
         private Classe classe;
 
-        public Adherent(int id, string nom, string prenom, DateTime dateDeNaissance, char sexe, string login, string motDePasse, int numTel, string email, int numTelParent, DateTime dateMAJ, bool archive, Utilisateur utilisateur, Classe classe)
+        public Adherent(int id, string nom, string prenom, DateTime dateDeNaissance, string sexe, string login, string motDePasse, int numTel, string email, int numTelParent, DateTime dateMAJ, bool archive, Utilisateur utilisateur, Classe classe)
         {
             this.Id = id;
             this.Nom = nom;
@@ -45,7 +45,7 @@ namespace BO
         public string Nom { get => nom; set => nom = value; }
         public string Prenom { get => prenom; set => prenom = value; }
         public DateTime DateDeNaissance { get => dateDeNaissance; set => dateDeNaissance = value; }
-        public char Sexe { get => sexe; set => sexe = value; }
+        public string Sexe { get => sexe; set => sexe = value; }
         public string Login { get => login; set => login = value; }
         public string MotDePasse { get => motDePasse; set => motDePasse = value; }
         public int NumTel { get => numTel; set => numTel = value; }

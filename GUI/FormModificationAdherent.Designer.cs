@@ -29,10 +29,17 @@ namespace GUI
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // FormModificationAdherent
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(785, 519);
+            this.Name = "FormModificationAdherent";
             this.Text = "FormModificationAdherent";
+            this.ResumeLayout(false);
+
         }
 
         #endregion

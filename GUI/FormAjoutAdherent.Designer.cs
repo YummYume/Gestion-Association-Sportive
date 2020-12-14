@@ -32,13 +32,15 @@ namespace GUI
             this.flpFormulaire = new System.Windows.Forms.FlowLayoutPanel();
             this.lblNom = new System.Windows.Forms.Label();
             this.tbxNom = new System.Windows.Forms.TextBox();
+            this.lblErrorNom = new System.Windows.Forms.Label();
             this.lblPrenom = new System.Windows.Forms.Label();
             this.tbxPrenom = new System.Windows.Forms.TextBox();
-            this.lblErrorNom = new System.Windows.Forms.Label();
             this.lblErrorPrenom = new System.Windows.Forms.Label();
             this.lblDnd = new System.Windows.Forms.Label();
+            this.dtpDn = new System.Windows.Forms.DateTimePicker();
             this.lblErrorDnd = new System.Windows.Forms.Label();
             this.lblSexe = new System.Windows.Forms.Label();
+            this.lsbSexe = new System.Windows.Forms.ListBox();
             this.lblErrorSexe = new System.Windows.Forms.Label();
             this.lblNumTel = new System.Windows.Forms.Label();
             this.tbxNumTel = new System.Windows.Forms.TextBox();
@@ -50,10 +52,8 @@ namespace GUI
             this.tbxNumTelParent = new System.Windows.Forms.TextBox();
             this.lblErrorNumTelParent = new System.Windows.Forms.Label();
             this.lblClasse = new System.Windows.Forms.Label();
-            this.lblErrorClasse = new System.Windows.Forms.Label();
-            this.dtpDnd = new System.Windows.Forms.DateTimePicker();
-            this.lsbSexe = new System.Windows.Forms.ListBox();
             this.lsbClasse = new System.Windows.Forms.ListBox();
+            this.lblErrorClasse = new System.Windows.Forms.Label();
             this.btnValider = new System.Windows.Forms.Button();
             this.flpFormulaire.SuspendLayout();
             this.SuspendLayout();
@@ -67,7 +67,7 @@ namespace GUI
             this.flpFormulaire.Controls.Add(this.tbxPrenom);
             this.flpFormulaire.Controls.Add(this.lblErrorPrenom);
             this.flpFormulaire.Controls.Add(this.lblDnd);
-            this.flpFormulaire.Controls.Add(this.dtpDnd);
+            this.flpFormulaire.Controls.Add(this.dtpDn);
             this.flpFormulaire.Controls.Add(this.lblErrorDnd);
             this.flpFormulaire.Controls.Add(this.lblSexe);
             this.flpFormulaire.Controls.Add(this.lsbSexe);
@@ -106,6 +106,14 @@ namespace GUI
             this.tbxNom.Size = new System.Drawing.Size(100, 22);
             this.tbxNom.TabIndex = 1;
             // 
+            // lblErrorNom
+            // 
+            this.lblErrorNom.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorNom.Location = new System.Drawing.Point(3, 28);
+            this.lblErrorNom.Name = "lblErrorNom";
+            this.lblErrorNom.Size = new System.Drawing.Size(316, 23);
+            this.lblErrorNom.TabIndex = 4;
+            // 
             // lblPrenom
             // 
             this.lblPrenom.AutoSize = true;
@@ -121,14 +129,6 @@ namespace GUI
             this.tbxPrenom.Name = "tbxPrenom";
             this.tbxPrenom.Size = new System.Drawing.Size(100, 22);
             this.tbxPrenom.TabIndex = 3;
-            // 
-            // lblErrorNom
-            // 
-            this.lblErrorNom.ForeColor = System.Drawing.Color.Red;
-            this.lblErrorNom.Location = new System.Drawing.Point(3, 28);
-            this.lblErrorNom.Name = "lblErrorNom";
-            this.lblErrorNom.Size = new System.Drawing.Size(316, 23);
-            this.lblErrorNom.TabIndex = 4;
             // 
             // lblErrorPrenom
             // 
@@ -147,6 +147,16 @@ namespace GUI
             this.lblDnd.TabIndex = 6;
             this.lblDnd.Text = "Date de naissance";
             // 
+            // dtpDn
+            // 
+            this.dtpDn.CustomFormat = "dd/MM/yyyy";
+            this.dtpDn.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpDn.Location = new System.Drawing.Point(135, 105);
+            this.dtpDn.Name = "dtpDn";
+            this.dtpDn.Size = new System.Drawing.Size(109, 22);
+            this.dtpDn.TabIndex = 24;
+            this.dtpDn.Value = new System.DateTime(2020, 12, 14, 0, 0, 0, 0);
+            // 
             // lblErrorDnd
             // 
             this.lblErrorDnd.ForeColor = System.Drawing.Color.Red;
@@ -163,6 +173,19 @@ namespace GUI
             this.lblSexe.Size = new System.Drawing.Size(39, 17);
             this.lblSexe.TabIndex = 9;
             this.lblSexe.Text = "Sexe";
+            // 
+            // lsbSexe
+            // 
+            this.lsbSexe.FormattingEnabled = true;
+            this.lsbSexe.ItemHeight = 16;
+            this.lsbSexe.Items.AddRange(new object[] {
+            "Homme",
+            "Femme",
+            "Autre"});
+            this.lsbSexe.Location = new System.Drawing.Point(48, 156);
+            this.lsbSexe.Name = "lsbSexe";
+            this.lsbSexe.Size = new System.Drawing.Size(81, 20);
+            this.lsbSexe.TabIndex = 25;
             // 
             // lblErrorSexe
             // 
@@ -253,37 +276,6 @@ namespace GUI
             this.lblClasse.TabIndex = 21;
             this.lblClasse.Text = "Classe";
             // 
-            // lblErrorClasse
-            // 
-            this.lblErrorClasse.ForeColor = System.Drawing.Color.Red;
-            this.lblErrorClasse.Location = new System.Drawing.Point(3, 381);
-            this.lblErrorClasse.Name = "lblErrorClasse";
-            this.lblErrorClasse.Size = new System.Drawing.Size(316, 23);
-            this.lblErrorClasse.TabIndex = 23;
-            // 
-            // dtpDnd
-            // 
-            this.dtpDnd.CustomFormat = "dd/MM/yyyy";
-            this.dtpDnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpDnd.Location = new System.Drawing.Point(135, 105);
-            this.dtpDnd.Name = "dtpDnd";
-            this.dtpDnd.Size = new System.Drawing.Size(109, 22);
-            this.dtpDnd.TabIndex = 24;
-            this.dtpDnd.Value = new System.DateTime(2020, 12, 14, 0, 0, 0, 0);
-            // 
-            // lsbSexe
-            // 
-            this.lsbSexe.FormattingEnabled = true;
-            this.lsbSexe.ItemHeight = 16;
-            this.lsbSexe.Items.AddRange(new object[] {
-            "Homme",
-            "Femme",
-            "Autre"});
-            this.lsbSexe.Location = new System.Drawing.Point(48, 156);
-            this.lsbSexe.Name = "lsbSexe";
-            this.lsbSexe.Size = new System.Drawing.Size(81, 20);
-            this.lsbSexe.TabIndex = 25;
-            // 
             // lsbClasse
             // 
             this.lsbClasse.FormattingEnabled = true;
@@ -293,6 +285,14 @@ namespace GUI
             this.lsbClasse.Size = new System.Drawing.Size(81, 20);
             this.lsbClasse.TabIndex = 26;
             // 
+            // lblErrorClasse
+            // 
+            this.lblErrorClasse.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorClasse.Location = new System.Drawing.Point(3, 381);
+            this.lblErrorClasse.Name = "lblErrorClasse";
+            this.lblErrorClasse.Size = new System.Drawing.Size(316, 23);
+            this.lblErrorClasse.TabIndex = 23;
+            // 
             // btnValider
             // 
             this.btnValider.Location = new System.Drawing.Point(3, 407);
@@ -301,6 +301,7 @@ namespace GUI
             this.btnValider.TabIndex = 27;
             this.btnValider.Text = "Ajouter";
             this.btnValider.UseVisualStyleBackColor = true;
+            this.btnValider.Click += new System.EventHandler(this.btnValider_Click);
             // 
             // FormAjoutAdherent
             // 
@@ -325,7 +326,7 @@ namespace GUI
         protected System.Windows.Forms.Label lblErrorNom;
         protected System.Windows.Forms.Label lblErrorPrenom;
         protected System.Windows.Forms.Label lblDnd;
-        protected System.Windows.Forms.DateTimePicker dtpDnd;
+        protected System.Windows.Forms.DateTimePicker dtpDn;
         protected System.Windows.Forms.Label lblErrorDnd;
         protected System.Windows.Forms.Label lblSexe;
         protected System.Windows.Forms.Label lblErrorSexe;
