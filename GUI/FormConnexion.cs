@@ -18,23 +18,40 @@ namespace GUI
         public FormConnexion()
         {
             InitializeComponent();
-            UtilisateurBLL.SetchaineConnexion(ConfigurationManager.ConnectionStrings["VM"]);
+            UtilisateurBLL.SetchaineConnexion(ConfigurationManager.ConnectionStrings["localhost"]);
         }
 
         private void btnConnection_Click(object sender, EventArgs e)
         {
             string msgErreur = UtilisateurBLL.VerificationConnexion(this.tbxLogin.Text, this.tbxMdp.Text);
+            Timer t = new Timer();
 
             if (msgErreur != "")
             {
                 this.lblConnexionMessage.Text = msgErreur;
                 this.lblConnexionMessage.ForeColor = Color.Red;
+                t.Interval = 3000; // 3 secondes
+                t.Tick += (s, error) =>
+                {
+                    this.lblConnexionMessage.Text = "";
+                    t.Stop();
+                };
+                t.Start();
             }
             else
             {
+                this.tbxMdp.Clear();
                 this.lblConnexionMessage.Text = "Connexion Réussie!\nBienvenue, " + this.tbxLogin.Text + ".";
                 this.lblConnexionMessage.ForeColor = Color.Green;
+                t.Interval = 3000; // 3 secondes
+                t.Tick += (s, error) =>
+                {
+                    this.lblConnexionMessage.Text = "";
+                    t.Stop();
+                };
+                t.Start();
                 string droitUtilisateur = UtilisateurBLL.GetDroit(this.tbxLogin.Text);
+
                 switch (droitUtilisateur)
                 {
                     case "admin":
@@ -52,16 +69,16 @@ namespace GUI
                         this.Show();
                         break;
                     default:
-                        Timer t = new Timer();
+                        Timer tAccesRefuse = new Timer();
                         this.lblProblemeDroit.ForeColor = Color.Red;
                         this.lblProblemeDroit.Text += "\nAccès refusé.";
-                        t.Interval = 3000; // 3 secondes
-                        t.Tick += (s, error) =>
+                        tAccesRefuse.Interval = 3000; // 3 secondes
+                        tAccesRefuse.Tick += (s, error) =>
                         {
                             this.lblProblemeDroit.Text = "";
-                            t.Stop();
+                            tAccesRefuse.Stop();
                         };
-                        t.Start();
+                        tAccesRefuse.Start();
                         break;
                 }
             }
