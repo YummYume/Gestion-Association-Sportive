@@ -23,7 +23,10 @@ namespace GUI
         {
             // TODO: cette ligne de code charge les données dans la table 'PPE.ADHERENT'. Vous pouvez la déplacer ou la supprimer selon les besoins.
             this.dtgListeAdherants.DataSource = AdherentBLL.GetInfoBaseAdherents();
-            this.dtgListeAdherants.Rows[0].Selected = false;
+            if(this.dtgListeAdherants.Rows.Count > 0)
+            {
+                this.dtgListeAdherants.Rows[0].Selected = false;
+            }
         }
 
         private void btnAjoutEleve_Click(object sender, EventArgs e)
