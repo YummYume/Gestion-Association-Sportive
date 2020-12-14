@@ -55,6 +55,12 @@
     <Compile Include="FormAdministrateur.Designer.cs">
       <DependentUpon>FormAdministrateur.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormAjoutAdherent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAjoutAdherent.Designer.cs">
+      <DependentUpon>FormAjoutAdherent.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormChoixAcces.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,10 +79,19 @@
     <Compile Include="FormConnexion.Designer.cs">
       <DependentUpon>FormConnexion.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormModificationAdherent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormModificationAdherent.Designer.cs">
+      <DependentUpon>FormModificationAdherent.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormAdministrateur.resx">
       <DependentUpon>FormAdministrateur.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAjoutAdherent.resx">
+      <DependentUpon>FormAjoutAdherent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormChoixAcces.resx">
       <DependentUpon>FormChoixAcces.cs</DependentUpon>

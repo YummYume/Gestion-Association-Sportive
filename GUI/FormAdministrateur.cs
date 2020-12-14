@@ -48,7 +48,7 @@ namespace GUI
 
         }
 
-        private void dtgListeAdherants_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dtgListeAdherants_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
             if (this.dtgListeAdherants.SelectedCells.Count > 0)
             {
