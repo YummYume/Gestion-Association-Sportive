@@ -18,7 +18,8 @@ namespace GUI
         public FormConnexion()
         {
             InitializeComponent();
-            UtilisateurBLL.SetchaineConnexion(ConfigurationManager.ConnectionStrings["VM"]);
+            UtilisateurBLL.SetchaineConnexion(ConfigurationManager.ConnectionStrings["localhost"]);
+            // localhost
         }
 
         private void btnConnection_Click(object sender, EventArgs e)

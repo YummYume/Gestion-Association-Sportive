@@ -32,6 +32,28 @@ namespace DAL
             return lesAdherents;
         }
 
+        public static List<Adherent> GetFullInfoAdherents()
+        {
+            // Connexion à la BD
+            SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
+
+            List<Adherent> lesAdherents = new List<Adherent>();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = maConnexion;
+            cmd.CommandText = "SELECT ID_adherent as id, Nom_adherent AS nom, Prenom_adherent AS prenom, Ddn_adherent as dateNaissance, Sexe_adherent as sexe, Numtel_adherent as num, Email_adherent as mail, Numparent_adherent as numParent, #ID_classe, Libelle_classe as classe FROM ADHERENT INNER JOIN CLASSE ON (ADHERENT.#ID_classe = CLASSE.ID_classe)";
+            SqlDataReader monReader = cmd.ExecuteReader();
+
+            while (monReader.Read())
+            {
+                Classe uneClasse = new Classe(Convert.ToInt32(monReader["#ID_classe"]), monReader["classe"].ToString());
+                Adherent unAdherent = new Adherent(Convert.ToInt32(monReader["id"]), monReader["nom"].ToString(), monReader["prenom"].ToString(), Convert.ToDateTime(monReader["dateNaissance"]), monReader["sexe"].ToString(), monReader["num"].ToString(), monReader["mail"].ToString(), monReader["numParent"].ToString(), uneClasse);
+                lesAdherents.Add(unAdherent);
+            }
+
+            monReader.Close();
+            return lesAdherents;
+        }
+
         public static void RemoveAdherent(AdherentMin unAdherent)
         {
             // Connexion à la BD
