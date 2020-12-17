@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BLL;
+using BO;
 
 namespace GUI
 {
@@ -15,6 +17,10 @@ namespace GUI
         public FormAjoutAdherent()
         {
             InitializeComponent();
+            foreach (Classe uneClasse in ClasseBLL.GetClasses())
+            {
+                this.lsbClasse.Items.Add(uneClasse.Libelle);
+            }
         }
 
         virtual protected void btnValider_Click(object sender, EventArgs e)

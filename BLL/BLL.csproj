@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdherentBLL.cs" />
+    <Compile Include="ClasseBLL.cs" />
     <Compile Include="UtilisateurBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

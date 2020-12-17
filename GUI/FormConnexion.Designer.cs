@@ -92,7 +92,7 @@
             this.tbxMdp.Location = new System.Drawing.Point(349, 218);
             this.tbxMdp.Margin = new System.Windows.Forms.Padding(4);
             this.tbxMdp.Name = "tbxMdp";
-            this.tbxMdp.PasswordChar = '*';
+            this.tbxMdp.PasswordChar = '●';
             this.tbxMdp.Size = new System.Drawing.Size(188, 22);
             this.tbxMdp.TabIndex = 2;
             this.tbxMdp.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxMdp_KeyPress);

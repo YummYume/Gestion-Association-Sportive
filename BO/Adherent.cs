@@ -71,5 +71,10 @@ namespace BO
         public bool Archive { get => archive; set => archive = value; }
         public Utilisateur Utilisateur { get => utilisateur; set => utilisateur = value; }
         public Classe Classe { get => classe; set => classe = value; }
+
+        public Adherent Clone()
+        {
+            return (Adherent)this.MemberwiseClone();
+        }
     }
 }
