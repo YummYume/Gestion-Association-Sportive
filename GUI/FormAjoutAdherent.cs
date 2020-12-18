@@ -17,15 +17,26 @@ namespace GUI
         public FormAjoutAdherent()
         {
             InitializeComponent();
-            foreach (Classe uneClasse in ClasseBLL.GetClasses())
-            {
-                this.lsbClasse.Items.Add(uneClasse.Libelle);
-            }
         }
 
         virtual protected void btnValider_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Ajout effectué (c'est faux)");
+        }
+
+        private void FormAdherent_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                foreach (Classe uneClasse in ClasseBLL.GetClasses())
+                {
+                    this.lsbClasse.Items.Add(uneClasse.Libelle);
+                }
+            }
+            catch (Exception)
+            {
+                //Fix pour le designer je ne comprend pas pourquoi il fait la gueule
+            }
         }
     }
 }

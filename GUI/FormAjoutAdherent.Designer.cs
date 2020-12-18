@@ -337,6 +337,7 @@ namespace GUI
             this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FormAjoutAdherent";
             this.Text = "FormAjoutAdherent";
+            this.Load += new System.EventHandler(this.FormAdherent_Load);
             this.flpFormulaire.ResumeLayout(false);
             this.flpFormulaire.PerformLayout();
             this.ResumeLayout(false);
