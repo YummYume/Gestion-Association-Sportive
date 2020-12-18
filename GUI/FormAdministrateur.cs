@@ -54,7 +54,18 @@ namespace GUI
             {
                 this.dtgListeAdherants.SelectedCells[0].OwningRow.Selected = true;
             }
-            //TODO Afficher les infos complètes dans la barre latérale
+            List<Adherent> lesAdherents = new List<Adherent>(AdherentBLL.GetFullInfoAdherents());
+            string nom = dtgListeAdherants.CurrentRow.Cells[0].Value.ToString();
+            string prenom = dtgListeAdherants.CurrentRow.Cells[1].Value.ToString();
+
+            Adherent leAdherent = lesAdherents.Find(Adherent => Adherent.Nom == nom && Adherent.Prenom == prenom);
+            lblNom.Text = leAdherent.Nom;
+            lblPrenom.Text = leAdherent.Prenom;
+            lblClasse.Text = leAdherent.Classe.Libelle;
+            lblTel.Text = leAdherent.NumTel;
+            lblTelParent.Text = leAdherent.NumTelParent;
+            lblMail.Text = leAdherent.Email;
+            lblDateNaissance.Text = leAdherent.DateDeNaissance.GetDateTimeFormats('d')[0];
         }
     }
 }

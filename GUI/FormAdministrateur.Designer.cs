@@ -56,10 +56,9 @@
             // lblTitreAdmin
             // 
             this.lblTitreAdmin.Font = new System.Drawing.Font("Microsoft YaHei", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitreAdmin.Location = new System.Drawing.Point(16, 11);
-            this.lblTitreAdmin.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTitreAdmin.Location = new System.Drawing.Point(12, 9);
             this.lblTitreAdmin.Name = "lblTitreAdmin";
-            this.lblTitreAdmin.Size = new System.Drawing.Size(1035, 79);
+            this.lblTitreAdmin.Size = new System.Drawing.Size(776, 64);
             this.lblTitreAdmin.TabIndex = 0;
             this.lblTitreAdmin.Text = "Administrateur";
             this.lblTitreAdmin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -72,14 +71,13 @@
             this.dtgListeAdherants.AllowUserToResizeRows = false;
             this.dtgListeAdherants.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgListeAdherants.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dtgListeAdherants.Location = new System.Drawing.Point(42, 94);
-            this.dtgListeAdherants.Margin = new System.Windows.Forms.Padding(4);
+            this.dtgListeAdherants.Location = new System.Drawing.Point(32, 76);
             this.dtgListeAdherants.MultiSelect = false;
             this.dtgListeAdherants.Name = "dtgListeAdherants";
             this.dtgListeAdherants.ReadOnly = true;
             this.dtgListeAdherants.RowHeadersWidth = 51;
             this.dtgListeAdherants.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dtgListeAdherants.Size = new System.Drawing.Size(325, 367);
+            this.dtgListeAdherants.Size = new System.Drawing.Size(244, 298);
             this.dtgListeAdherants.TabIndex = 1;
             this.dtgListeAdherants.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgListeAdherants_CellEnter);
             this.dtgListeAdherants.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgListeAdherants_CellEnter);
@@ -87,10 +85,9 @@
             // 
             // btnAjoutEleve
             // 
-            this.btnAjoutEleve.Location = new System.Drawing.Point(31, 492);
-            this.btnAjoutEleve.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAjoutEleve.Location = new System.Drawing.Point(23, 400);
             this.btnAjoutEleve.Name = "btnAjoutEleve";
-            this.btnAjoutEleve.Size = new System.Drawing.Size(136, 28);
+            this.btnAjoutEleve.Size = new System.Drawing.Size(102, 23);
             this.btnAjoutEleve.TabIndex = 2;
             this.btnAjoutEleve.Text = "Ajouter élève";
             this.btnAjoutEleve.UseVisualStyleBackColor = true;
@@ -98,10 +95,9 @@
             // 
             // btnModifierEleve
             // 
-            this.btnModifierEleve.Location = new System.Drawing.Point(319, 492);
-            this.btnModifierEleve.Margin = new System.Windows.Forms.Padding(4);
+            this.btnModifierEleve.Location = new System.Drawing.Point(239, 400);
             this.btnModifierEleve.Name = "btnModifierEleve";
-            this.btnModifierEleve.Size = new System.Drawing.Size(136, 28);
+            this.btnModifierEleve.Size = new System.Drawing.Size(102, 23);
             this.btnModifierEleve.TabIndex = 3;
             this.btnModifierEleve.Text = "Modifier élève";
             this.btnModifierEleve.UseVisualStyleBackColor = true;
@@ -109,10 +105,9 @@
             // 
             // btnSupprimerEleve
             // 
-            this.btnSupprimerEleve.Location = new System.Drawing.Point(175, 492);
-            this.btnSupprimerEleve.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSupprimerEleve.Location = new System.Drawing.Point(131, 400);
             this.btnSupprimerEleve.Name = "btnSupprimerEleve";
-            this.btnSupprimerEleve.Size = new System.Drawing.Size(136, 28);
+            this.btnSupprimerEleve.Size = new System.Drawing.Size(102, 23);
             this.btnSupprimerEleve.TabIndex = 4;
             this.btnSupprimerEleve.Text = "Supprimer élève";
             this.btnSupprimerEleve.UseVisualStyleBackColor = true;
@@ -134,11 +129,9 @@
             this.gbxInfoAdherant.Controls.Add(this.lblClasseAdherant);
             this.gbxInfoAdherant.Controls.Add(this.lblPrenomAdherant);
             this.gbxInfoAdherant.Controls.Add(this.lblNomAdherant);
-            this.gbxInfoAdherant.Location = new System.Drawing.Point(428, 94);
-            this.gbxInfoAdherant.Margin = new System.Windows.Forms.Padding(4);
+            this.gbxInfoAdherant.Location = new System.Drawing.Point(321, 76);
             this.gbxInfoAdherant.Name = "gbxInfoAdherant";
-            this.gbxInfoAdherant.Padding = new System.Windows.Forms.Padding(4);
-            this.gbxInfoAdherant.Size = new System.Drawing.Size(599, 300);
+            this.gbxInfoAdherant.Size = new System.Drawing.Size(449, 244);
             this.gbxInfoAdherant.TabIndex = 5;
             this.gbxInfoAdherant.TabStop = false;
             this.gbxInfoAdherant.Text = "Info Adherant";
@@ -146,151 +139,136 @@
             // lblDateNaissance
             // 
             this.lblDateNaissance.AutoSize = true;
-            this.lblDateNaissance.Location = new System.Drawing.Point(149, 265);
-            this.lblDateNaissance.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDateNaissance.Location = new System.Drawing.Point(112, 215);
             this.lblDateNaissance.Name = "lblDateNaissance";
-            this.lblDateNaissance.Size = new System.Drawing.Size(0, 17);
+            this.lblDateNaissance.Size = new System.Drawing.Size(0, 13);
             this.lblDateNaissance.TabIndex = 13;
             // 
             // lblMail
             // 
             this.lblMail.AutoSize = true;
-            this.lblMail.Location = new System.Drawing.Point(112, 225);
-            this.lblMail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblMail.Location = new System.Drawing.Point(84, 183);
             this.lblMail.Name = "lblMail";
-            this.lblMail.Size = new System.Drawing.Size(0, 17);
+            this.lblMail.Size = new System.Drawing.Size(0, 13);
             this.lblMail.TabIndex = 12;
             // 
             // lblTelParent
             // 
             this.lblTelParent.AutoSize = true;
-            this.lblTelParent.Location = new System.Drawing.Point(200, 186);
-            this.lblTelParent.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTelParent.Location = new System.Drawing.Point(150, 151);
             this.lblTelParent.Name = "lblTelParent";
-            this.lblTelParent.Size = new System.Drawing.Size(0, 17);
+            this.lblTelParent.Size = new System.Drawing.Size(0, 13);
             this.lblTelParent.TabIndex = 11;
             // 
             // lblTel
             // 
             this.lblTel.AutoSize = true;
-            this.lblTel.Location = new System.Drawing.Point(149, 144);
-            this.lblTel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTel.Location = new System.Drawing.Point(112, 117);
             this.lblTel.Name = "lblTel";
-            this.lblTel.Size = new System.Drawing.Size(0, 17);
+            this.lblTel.Size = new System.Drawing.Size(0, 13);
             this.lblTel.TabIndex = 10;
             // 
             // lblClasse
             // 
             this.lblClasse.AutoSize = true;
-            this.lblClasse.Location = new System.Drawing.Point(75, 107);
-            this.lblClasse.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblClasse.Location = new System.Drawing.Point(56, 87);
             this.lblClasse.Name = "lblClasse";
-            this.lblClasse.Size = new System.Drawing.Size(0, 17);
+            this.lblClasse.Size = new System.Drawing.Size(0, 13);
             this.lblClasse.TabIndex = 9;
             // 
             // lblPrenom
             // 
             this.lblPrenom.AutoSize = true;
-            this.lblPrenom.Location = new System.Drawing.Point(81, 68);
-            this.lblPrenom.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPrenom.Location = new System.Drawing.Point(61, 55);
             this.lblPrenom.Name = "lblPrenom";
-            this.lblPrenom.Size = new System.Drawing.Size(0, 17);
+            this.lblPrenom.Size = new System.Drawing.Size(0, 13);
             this.lblPrenom.TabIndex = 8;
             // 
             // lblNom
             // 
             this.lblNom.AutoSize = true;
-            this.lblNom.Location = new System.Drawing.Point(64, 30);
-            this.lblNom.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblNom.Location = new System.Drawing.Point(48, 24);
             this.lblNom.Name = "lblNom";
-            this.lblNom.Size = new System.Drawing.Size(0, 17);
+            this.lblNom.Size = new System.Drawing.Size(0, 13);
             this.lblNom.TabIndex = 7;
             // 
             // lblDateNaissanceAdherant
             // 
             this.lblDateNaissanceAdherant.AutoSize = true;
-            this.lblDateNaissanceAdherant.Location = new System.Drawing.Point(8, 265);
-            this.lblDateNaissanceAdherant.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDateNaissanceAdherant.Location = new System.Drawing.Point(6, 215);
             this.lblDateNaissanceAdherant.Name = "lblDateNaissanceAdherant";
-            this.lblDateNaissanceAdherant.Size = new System.Drawing.Size(134, 17);
+            this.lblDateNaissanceAdherant.Size = new System.Drawing.Size(102, 13);
             this.lblDateNaissanceAdherant.TabIndex = 6;
             this.lblDateNaissanceAdherant.Text = "Date de naissance :";
             // 
             // lblMailAdherant
             // 
             this.lblMailAdherant.AutoSize = true;
-            this.lblMailAdherant.Location = new System.Drawing.Point(8, 225);
-            this.lblMailAdherant.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblMailAdherant.Location = new System.Drawing.Point(6, 183);
             this.lblMailAdherant.Name = "lblMailAdherant";
-            this.lblMailAdherant.Size = new System.Drawing.Size(97, 17);
+            this.lblMailAdherant.Size = new System.Drawing.Size(72, 13);
             this.lblMailAdherant.TabIndex = 5;
             this.lblMailAdherant.Text = "Adresse mail :";
             // 
             // lblTelAdherant
             // 
             this.lblTelAdherant.AutoSize = true;
-            this.lblTelAdherant.Location = new System.Drawing.Point(8, 144);
-            this.lblTelAdherant.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTelAdherant.Location = new System.Drawing.Point(6, 117);
             this.lblTelAdherant.Name = "lblTelAdherant";
-            this.lblTelAdherant.Size = new System.Drawing.Size(133, 17);
+            this.lblTelAdherant.Size = new System.Drawing.Size(100, 13);
             this.lblTelAdherant.TabIndex = 4;
             this.lblTelAdherant.Text = "Numéro téléphone :";
             // 
             // lblNumParentAdherant
             // 
             this.lblNumParentAdherant.AutoSize = true;
-            this.lblNumParentAdherant.Location = new System.Drawing.Point(8, 186);
-            this.lblNumParentAdherant.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblNumParentAdherant.Location = new System.Drawing.Point(6, 151);
             this.lblNumParentAdherant.Name = "lblNumParentAdherant";
-            this.lblNumParentAdherant.Size = new System.Drawing.Size(185, 17);
+            this.lblNumParentAdherant.Size = new System.Drawing.Size(138, 13);
             this.lblNumParentAdherant.TabIndex = 3;
             this.lblNumParentAdherant.Text = "Numéro téléphone parents :";
             // 
             // lblClasseAdherant
             // 
             this.lblClasseAdherant.AutoSize = true;
-            this.lblClasseAdherant.Location = new System.Drawing.Point(8, 107);
-            this.lblClasseAdherant.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblClasseAdherant.Location = new System.Drawing.Point(6, 87);
             this.lblClasseAdherant.Name = "lblClasseAdherant";
-            this.lblClasseAdherant.Size = new System.Drawing.Size(58, 17);
+            this.lblClasseAdherant.Size = new System.Drawing.Size(44, 13);
             this.lblClasseAdherant.TabIndex = 2;
             this.lblClasseAdherant.Text = "Classe :";
             // 
             // lblPrenomAdherant
             // 
             this.lblPrenomAdherant.AutoSize = true;
-            this.lblPrenomAdherant.Location = new System.Drawing.Point(8, 68);
-            this.lblPrenomAdherant.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPrenomAdherant.Location = new System.Drawing.Point(6, 55);
             this.lblPrenomAdherant.Name = "lblPrenomAdherant";
-            this.lblPrenomAdherant.Size = new System.Drawing.Size(65, 17);
+            this.lblPrenomAdherant.Size = new System.Drawing.Size(49, 13);
             this.lblPrenomAdherant.TabIndex = 1;
             this.lblPrenomAdherant.Text = "Prénom :";
             // 
             // lblNomAdherant
             // 
             this.lblNomAdherant.AutoSize = true;
-            this.lblNomAdherant.Location = new System.Drawing.Point(8, 30);
-            this.lblNomAdherant.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblNomAdherant.Location = new System.Drawing.Point(6, 24);
             this.lblNomAdherant.Name = "lblNomAdherant";
-            this.lblNomAdherant.Size = new System.Drawing.Size(45, 17);
+            this.lblNomAdherant.Size = new System.Drawing.Size(35, 13);
             this.lblNomAdherant.TabIndex = 0;
             this.lblNomAdherant.Text = "Nom :";
             // 
             // btnAccesStatistique
             // 
-            this.btnAccesStatistique.Location = new System.Drawing.Point(428, 401);
-            this.btnAccesStatistique.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAccesStatistique.Location = new System.Drawing.Point(321, 326);
             this.btnAccesStatistique.Name = "btnAccesStatistique";
-            this.btnAccesStatistique.Size = new System.Drawing.Size(599, 59);
+            this.btnAccesStatistique.Size = new System.Drawing.Size(449, 48);
             this.btnAccesStatistique.TabIndex = 6;
             this.btnAccesStatistique.Text = "Accès statistique";
             this.btnAccesStatistique.UseVisualStyleBackColor = true;
             // 
             // FormAdministrateur
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnAccesStatistique);
             this.Controls.Add(this.gbxInfoAdherant);
             this.Controls.Add(this.btnSupprimerEleve);
@@ -298,7 +276,6 @@
             this.Controls.Add(this.btnAjoutEleve);
             this.Controls.Add(this.dtgListeAdherants);
             this.Controls.Add(this.lblTitreAdmin);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormAdministrateur";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Administrateur";
