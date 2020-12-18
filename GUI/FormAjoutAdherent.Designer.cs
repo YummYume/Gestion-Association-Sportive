@@ -312,6 +312,7 @@ namespace GUI
             this.Controls.Add(this.flpFormulaire);
             this.Name = "FormAjoutAdherent";
             this.Text = "FormAjoutAdherent";
+            this.Load += new System.EventHandler(this.FormAdherent_Load);
             this.flpFormulaire.ResumeLayout(false);
             this.flpFormulaire.PerformLayout();
             this.ResumeLayout(false);
