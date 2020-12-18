@@ -125,5 +125,16 @@ namespace DAL
             // Execution de la requête
             cmd.ExecuteNonQuery();
         }
+
+        public static bool AdherentExiste(AdherentMin unAdherent)
+        {
+            List<AdherentMin> lesAdherents = GetInfoBaseAdherents();
+
+            if (lesAdherents.Exists(leAdherent => unAdherent.Nom == leAdherent.Nom && unAdherent.Prenom == leAdherent.Prenom))
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }

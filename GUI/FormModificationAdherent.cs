@@ -16,7 +16,7 @@ namespace GUI
         private Adherent adherentNonModif;
         private Adherent adherentModif;
 
-        public FormModificationAdherent(Adherent unAdherent) :base()
+        public FormModificationAdherent(Adherent unAdherent, FormAdministrateur leFormAdmin) :base(leFormAdmin)
         {
             InitializeComponent();
             this.btnValider.Text = "Modifier";

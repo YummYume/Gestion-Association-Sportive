@@ -32,7 +32,7 @@ namespace GUI
         private void btnAjoutEleve_Click(object sender, EventArgs e)
         {
             FormAjoutAdherent newAjoutAdherent;
-            newAjoutAdherent = new FormAjoutAdherent();
+            newAjoutAdherent = new FormAjoutAdherent(this);
             newAjoutAdherent.ShowDialog();
         }
 

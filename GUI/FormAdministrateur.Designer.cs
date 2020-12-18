@@ -98,7 +98,7 @@
             this.btnModifierEleve.Location = new System.Drawing.Point(239, 400);
             this.btnModifierEleve.Name = "btnModifierEleve";
             this.btnModifierEleve.Size = new System.Drawing.Size(102, 23);
-            this.btnModifierEleve.TabIndex = 3;
+            this.btnModifierEleve.TabIndex = 4;
             this.btnModifierEleve.Text = "Modifier élève";
             this.btnModifierEleve.UseVisualStyleBackColor = true;
             this.btnModifierEleve.Click += new System.EventHandler(this.btnModifierEleve_Click);
@@ -108,7 +108,7 @@
             this.btnSupprimerEleve.Location = new System.Drawing.Point(131, 400);
             this.btnSupprimerEleve.Name = "btnSupprimerEleve";
             this.btnSupprimerEleve.Size = new System.Drawing.Size(102, 23);
-            this.btnSupprimerEleve.TabIndex = 4;
+            this.btnSupprimerEleve.TabIndex = 3;
             this.btnSupprimerEleve.Text = "Supprimer élève";
             this.btnSupprimerEleve.UseVisualStyleBackColor = true;
             this.btnSupprimerEleve.Click += new System.EventHandler(this.btnSupprimerEleve_Click);
@@ -260,7 +260,7 @@
             this.btnAccesStatistique.Location = new System.Drawing.Point(321, 326);
             this.btnAccesStatistique.Name = "btnAccesStatistique";
             this.btnAccesStatistique.Size = new System.Drawing.Size(449, 48);
-            this.btnAccesStatistique.TabIndex = 6;
+            this.btnAccesStatistique.TabIndex = 5;
             this.btnAccesStatistique.Text = "Accès statistique";
             this.btnAccesStatistique.UseVisualStyleBackColor = true;
             // 
@@ -276,6 +276,8 @@
             this.Controls.Add(this.btnAjoutEleve);
             this.Controls.Add(this.dtgListeAdherants);
             this.Controls.Add(this.lblTitreAdmin);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MaximizeBox = false;
             this.Name = "FormAdministrateur";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Administrateur";
