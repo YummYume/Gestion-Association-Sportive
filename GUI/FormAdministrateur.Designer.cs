@@ -77,7 +77,7 @@
             this.dtgListeAdherants.ReadOnly = true;
             this.dtgListeAdherants.RowHeadersWidth = 51;
             this.dtgListeAdherants.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dtgListeAdherants.Size = new System.Drawing.Size(244, 298);
+            this.dtgListeAdherants.Size = new System.Drawing.Size(252, 298);
             this.dtgListeAdherants.TabIndex = 1;
             this.dtgListeAdherants.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgListeAdherants_CellEnter);
             this.dtgListeAdherants.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgListeAdherants_CellEnter);

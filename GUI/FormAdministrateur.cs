@@ -31,15 +31,25 @@ namespace GUI
 
         private void btnAjoutEleve_Click(object sender, EventArgs e)
         {
-
+            FormAjoutAdherent newAjoutAdherent;
+            newAjoutAdherent = new FormAjoutAdherent();
+            newAjoutAdherent.ShowDialog();
         }
 
         private void btnSupprimerEleve_Click(object sender, EventArgs e)
         {
             if (this.dtgListeAdherants.SelectedRows.Count > 0)
             {
-                AdherentBLL.RemoveAdherent((AdherentMin)this.dtgListeAdherants.SelectedRows[0].DataBoundItem);
-                this.FormAdministrateur_Load(this, new EventArgs());
+                string nom = dtgListeAdherants.CurrentRow.Cells[0].Value.ToString();
+                string prenom = dtgListeAdherants.CurrentRow.Cells[1].Value.ToString();
+                DialogResult reponseMsgBox;
+
+                reponseMsgBox = MessageBox.Show("Voulez vous vraiment supprimer l'adhérent " + nom + " " + prenom + "?", "Suppression d'un adhérent", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (reponseMsgBox == DialogResult.Yes)
+                {
+                    AdherentBLL.RemoveAdherent((AdherentMin)this.dtgListeAdherants.SelectedRows[0].DataBoundItem);
+                    this.FormAdministrateur_Load(this, new EventArgs());
+                }
             }
         }
 

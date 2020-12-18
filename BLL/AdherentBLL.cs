@@ -43,5 +43,10 @@ namespace BLL
         {
             AdherentDAO.RemoveAdherent(unAdherent);
         }
+
+        public static void AddAdherent(Adherent unAdherent)
+        {
+            AdherentDAO.AddAdherent(unAdherent);
+        }
     }
 }

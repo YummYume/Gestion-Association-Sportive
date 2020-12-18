@@ -52,7 +52,21 @@ namespace BO
             this.NumTel = numTel;
             this.Email = email;
             this.NumTelParent = numTelParent;
-            this.Archive = archive;
+            this.Classe = classe;
+        }
+
+        // Constructeur pour ajouter un Adherent (pas d'id)
+        public Adherent(string nom, string prenom, DateTime dateDeNaissance, string sexe, string login, string mdp, string numTel, string email, string numTelParent, Utilisateur utilisateur, Classe classe)
+        {
+            this.Nom = nom;
+            this.Prenom = prenom;
+            this.DateDeNaissance = dateDeNaissance;
+            this.Sexe = sexe;
+            this.Login = login;
+            this.MotDePasse = mdp;
+            this.NumTel = numTel;
+            this.Email = email;
+            this.NumTelParent = numTelParent;
             this.Utilisateur = utilisateur;
             this.Classe = classe;
         }
