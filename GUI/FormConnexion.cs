@@ -53,19 +53,22 @@ namespace GUI
                 t.Start();
                 string droitUtilisateur = UtilisateurBLL.GetDroit(this.tbxLogin.Text);
 
+                // Utilisateur servant de session
+                Utilisateur leUtilisateur = UtilisateurBLL.CreerUtilisateurConnexion(this.tbxLogin.Text);
+
                 switch (droitUtilisateur)
                 {
                     case "admin":
                         FormChoixAcces newAcces;
                         this.Hide();
-                        newAcces = new FormChoixAcces();
+                        newAcces = new FormChoixAcces(leUtilisateur);
                         newAcces.ShowDialog();
                         this.Show();
                         break;
                     case "compta":
                         FormComptabilite newCompta;
                         this.Hide();
-                        newCompta = new FormComptabilite();
+                        newCompta = new FormComptabilite(leUtilisateur);
                         newCompta.ShowDialog();
                         this.Show();
                         break;

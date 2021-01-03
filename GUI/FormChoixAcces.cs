@@ -7,13 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BO;
 
 namespace GUI
 {
     public partial class FormChoixAcces : Form
     {
-        public FormChoixAcces()
+        private Utilisateur leUtilisateur;
+
+        public FormChoixAcces(Utilisateur unUtilisateur)
         {
+            leUtilisateur = unUtilisateur;
             InitializeComponent();
         }
 
@@ -21,7 +25,7 @@ namespace GUI
         {
             FormAdministrateur newAdmin;
             this.Hide();
-            newAdmin = new FormAdministrateur();
+            newAdmin = new FormAdministrateur(leUtilisateur);
             newAdmin.ShowDialog();
             this.Show();
         }
@@ -30,7 +34,7 @@ namespace GUI
         {
             FormComptabilite newCompta;
             this.Hide();
-            newCompta = new FormComptabilite();
+            newCompta = new FormComptabilite(leUtilisateur);
             newCompta.ShowDialog();
             this.Show();
         }

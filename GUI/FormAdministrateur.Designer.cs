@@ -49,6 +49,8 @@
             this.lblPrenomAdherant = new System.Windows.Forms.Label();
             this.lblNomAdherant = new System.Windows.Forms.Label();
             this.btnAccesStatistique = new System.Windows.Forms.Button();
+            this.lblAdministrateurInfo = new System.Windows.Forms.Label();
+            this.lblLoginAdministrateur = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dtgListeAdherants)).BeginInit();
             this.gbxInfoAdherant.SuspendLayout();
             this.SuspendLayout();
@@ -71,7 +73,7 @@
             this.dtgListeAdherants.AllowUserToResizeRows = false;
             this.dtgListeAdherants.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgListeAdherants.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dtgListeAdherants.Location = new System.Drawing.Point(32, 76);
+            this.dtgListeAdherants.Location = new System.Drawing.Point(32, 96);
             this.dtgListeAdherants.MultiSelect = false;
             this.dtgListeAdherants.Name = "dtgListeAdherants";
             this.dtgListeAdherants.ReadOnly = true;
@@ -85,7 +87,7 @@
             // 
             // btnAjoutEleve
             // 
-            this.btnAjoutEleve.Location = new System.Drawing.Point(23, 400);
+            this.btnAjoutEleve.Location = new System.Drawing.Point(23, 414);
             this.btnAjoutEleve.Name = "btnAjoutEleve";
             this.btnAjoutEleve.Size = new System.Drawing.Size(102, 23);
             this.btnAjoutEleve.TabIndex = 2;
@@ -95,7 +97,7 @@
             // 
             // btnModifierEleve
             // 
-            this.btnModifierEleve.Location = new System.Drawing.Point(239, 400);
+            this.btnModifierEleve.Location = new System.Drawing.Point(239, 414);
             this.btnModifierEleve.Name = "btnModifierEleve";
             this.btnModifierEleve.Size = new System.Drawing.Size(102, 23);
             this.btnModifierEleve.TabIndex = 4;
@@ -105,7 +107,7 @@
             // 
             // btnSupprimerEleve
             // 
-            this.btnSupprimerEleve.Location = new System.Drawing.Point(131, 400);
+            this.btnSupprimerEleve.Location = new System.Drawing.Point(131, 414);
             this.btnSupprimerEleve.Name = "btnSupprimerEleve";
             this.btnSupprimerEleve.Size = new System.Drawing.Size(102, 23);
             this.btnSupprimerEleve.TabIndex = 3;
@@ -129,7 +131,7 @@
             this.gbxInfoAdherant.Controls.Add(this.lblClasseAdherant);
             this.gbxInfoAdherant.Controls.Add(this.lblPrenomAdherant);
             this.gbxInfoAdherant.Controls.Add(this.lblNomAdherant);
-            this.gbxInfoAdherant.Location = new System.Drawing.Point(321, 76);
+            this.gbxInfoAdherant.Location = new System.Drawing.Point(321, 96);
             this.gbxInfoAdherant.Name = "gbxInfoAdherant";
             this.gbxInfoAdherant.Size = new System.Drawing.Size(449, 244);
             this.gbxInfoAdherant.TabIndex = 5;
@@ -257,18 +259,37 @@
             // 
             // btnAccesStatistique
             // 
-            this.btnAccesStatistique.Location = new System.Drawing.Point(321, 326);
+            this.btnAccesStatistique.Location = new System.Drawing.Point(321, 346);
             this.btnAccesStatistique.Name = "btnAccesStatistique";
             this.btnAccesStatistique.Size = new System.Drawing.Size(449, 48);
             this.btnAccesStatistique.TabIndex = 5;
             this.btnAccesStatistique.Text = "Accès statistique";
             this.btnAccesStatistique.UseVisualStyleBackColor = true;
             // 
+            // lblAdministrateurInfo
+            // 
+            this.lblAdministrateurInfo.AutoSize = true;
+            this.lblAdministrateurInfo.Location = new System.Drawing.Point(29, 73);
+            this.lblAdministrateurInfo.Name = "lblAdministrateurInfo";
+            this.lblAdministrateurInfo.Size = new System.Drawing.Size(79, 13);
+            this.lblAdministrateurInfo.TabIndex = 6;
+            this.lblAdministrateurInfo.Text = "Administrateur :";
+            // 
+            // lblLoginAdministrateur
+            // 
+            this.lblLoginAdministrateur.AutoSize = true;
+            this.lblLoginAdministrateur.Location = new System.Drawing.Point(108, 73);
+            this.lblLoginAdministrateur.Name = "lblLoginAdministrateur";
+            this.lblLoginAdministrateur.Size = new System.Drawing.Size(0, 13);
+            this.lblLoginAdministrateur.TabIndex = 7;
+            // 
             // FormAdministrateur
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lblLoginAdministrateur);
+            this.Controls.Add(this.lblAdministrateurInfo);
             this.Controls.Add(this.btnAccesStatistique);
             this.Controls.Add(this.gbxInfoAdherant);
             this.Controls.Add(this.btnSupprimerEleve);
@@ -286,6 +307,7 @@
             this.gbxInfoAdherant.ResumeLayout(false);
             this.gbxInfoAdherant.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -312,5 +334,7 @@
         private System.Windows.Forms.Label lblClasse;
         private System.Windows.Forms.Label lblPrenom;
         private System.Windows.Forms.Label lblNom;
+        private System.Windows.Forms.Label lblAdministrateurInfo;
+        private System.Windows.Forms.Label lblLoginAdministrateur;
     }
 }

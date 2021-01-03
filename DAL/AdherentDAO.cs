@@ -40,13 +40,13 @@ namespace DAL
             List<Adherent> lesAdherents = new List<Adherent>();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = maConnexion;
-            cmd.CommandText = "SELECT ID_adherent as id, Nom_adherent AS nom, Prenom_adherent AS prenom, Ddn_adherent as dateNaissance, Sexe_adherent as sexe, Numtel_adherent as num, Email_adherent as mail, Numparent_adherent as numParent, #ID_classe, Libelle_classe as classe FROM ADHERENT INNER JOIN CLASSE ON (ADHERENT.#ID_classe = CLASSE.ID_classe) WHERE Archive_adherent = 0";
+            cmd.CommandText = "SELECT ID_adherent as id, Nom_adherent AS nom, Prenom_adherent AS prenom, Ddn_adherent as dateNaissance, Sexe_adherent as sexe, Login_adherent_adherent as login, Mdp_adherent as mdp, Numtel_adherent as num, Email_adherent as mail, Numparent_adherent as numParent, #ID_classe, Libelle_classe as classe FROM ADHERENT INNER JOIN CLASSE ON (ADHERENT.#ID_classe = CLASSE.ID_classe) WHERE Archive_adherent = 0";
             SqlDataReader monReader = cmd.ExecuteReader();
 
             while (monReader.Read())
             {
                 Classe uneClasse = new Classe(Convert.ToInt32(monReader["#ID_classe"]), monReader["classe"].ToString());
-                Adherent unAdherent = new Adherent(Convert.ToInt32(monReader["id"]), monReader["nom"].ToString(), monReader["prenom"].ToString(), Convert.ToDateTime(monReader["dateNaissance"]), monReader["sexe"].ToString(), monReader["num"].ToString(), monReader["mail"].ToString(), monReader["numParent"].ToString(), uneClasse);
+                Adherent unAdherent = new Adherent(Convert.ToInt32(monReader["id"]), monReader["nom"].ToString(), monReader["prenom"].ToString(), Convert.ToDateTime(monReader["dateNaissance"]), monReader["sexe"].ToString(), monReader["login"].ToString(), monReader["mdp"].ToString(), monReader["num"].ToString(), monReader["mail"].ToString(), monReader["numParent"].ToString(), uneClasse);
                 lesAdherents.Add(unAdherent);
             }
 
@@ -109,6 +109,60 @@ namespace DAL
             archive.Value = 0;
             utilisateur.Value = unAdherent.Utilisateur.Id;
             classe.Value = unAdherent.Classe.Id;
+            cmd.Parameters.Add(nom);
+            cmd.Parameters.Add(prenom);
+            cmd.Parameters.Add(dateNaissance);
+            cmd.Parameters.Add(sexe);
+            cmd.Parameters.Add(login);
+            cmd.Parameters.Add(mdp);
+            cmd.Parameters.Add(numTel);
+            cmd.Parameters.Add(email);
+            cmd.Parameters.Add(numTelParent);
+            cmd.Parameters.Add(archive);
+            cmd.Parameters.Add(utilisateur);
+            cmd.Parameters.Add(classe);
+
+            // Execution de la requête
+            cmd.ExecuteNonQuery();
+        }
+
+        public static void ModifierAdherent(Adherent unAdherent)
+        {
+            // Connexion à la BD
+            SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = maConnexion;
+            cmd.CommandText = "UPDATE dbo.ADHERENT SET Nom_adherent = @nom, Prenom_adherent = @prenom, Ddn_adherent = @ddn, Sexe_adherent = @sexe, Login_adherent_adherent = @login, Mdp_adherent = @mdp, Numtel_adherent = @num, Email_adherent = @email, Numparent_adherent = @numParent, Archive_adherent = @archive, #Id_utilisateur = @utilisateur, #Id_classe = @classe WHERE ID_adherent = @id";
+
+            // Création et bind des paramètres
+            SqlParameter id = new SqlParameter("@id", SqlDbType.Int);
+            SqlParameter nom = new SqlParameter("@nom", SqlDbType.VarChar, 255);
+            SqlParameter prenom = new SqlParameter("@prenom", SqlDbType.VarChar, 255);
+            SqlParameter dateNaissance = new SqlParameter("@ddn", SqlDbType.DateTime);
+            SqlParameter sexe = new SqlParameter("@sexe", SqlDbType.VarChar, 255);
+            SqlParameter login = new SqlParameter("@login", SqlDbType.VarChar, 255);
+            SqlParameter mdp = new SqlParameter("@mdp", SqlDbType.VarChar, 255);
+            SqlParameter numTel = new SqlParameter("@num", SqlDbType.VarChar, 255);
+            SqlParameter email = new SqlParameter("@email", SqlDbType.VarChar, 255);
+            SqlParameter numTelParent = new SqlParameter("@numParent", SqlDbType.VarChar, 255);
+            SqlParameter archive = new SqlParameter("@archive", SqlDbType.Int);
+            SqlParameter utilisateur = new SqlParameter("@utilisateur", SqlDbType.Int);
+            SqlParameter classe = new SqlParameter("@classe", SqlDbType.Int);
+            id.Value = unAdherent.Id;
+            nom.Value = unAdherent.Nom;
+            prenom.Value = unAdherent.Prenom;
+            dateNaissance.Value = unAdherent.DateDeNaissance;
+            sexe.Value = unAdherent.Sexe;
+            login.Value = unAdherent.Login;
+            mdp.Value = unAdherent.MotDePasse;
+            numTel.Value = unAdherent.NumTel;
+            email.Value = unAdherent.Email;
+            numTelParent.Value = unAdherent.NumTelParent;
+            archive.Value = 0;
+            utilisateur.Value = unAdherent.Utilisateur.Id;
+            classe.Value = unAdherent.Classe.Id;
+            cmd.Parameters.Add(id);
             cmd.Parameters.Add(nom);
             cmd.Parameters.Add(prenom);
             cmd.Parameters.Add(dateNaissance);

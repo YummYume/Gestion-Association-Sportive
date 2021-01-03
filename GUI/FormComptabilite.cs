@@ -7,13 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BO;
 
 namespace GUI
 {
     public partial class FormComptabilite : Form
     {
-        public FormComptabilite()
+        private Utilisateur leUtilisateur;
+
+        public FormComptabilite(Utilisateur unUtilisateur)
         {
+            leUtilisateur = unUtilisateur;
             InitializeComponent();
         }
     }

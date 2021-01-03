@@ -68,8 +68,9 @@ namespace GUI
             // 
             this.tbxNom.Location = new System.Drawing.Point(153, 15);
             this.tbxNom.Margin = new System.Windows.Forms.Padding(2);
+            this.tbxNom.MaxLength = 50;
             this.tbxNom.Name = "tbxNom";
-            this.tbxNom.Size = new System.Drawing.Size(76, 20);
+            this.tbxNom.Size = new System.Drawing.Size(95, 20);
             this.tbxNom.TabIndex = 1;
             this.tbxNom.TextChanged += new System.EventHandler(this.tbxNom_TextChanged);
             // 
@@ -87,8 +88,9 @@ namespace GUI
             // 
             this.tbxPrenom.Location = new System.Drawing.Point(167, 49);
             this.tbxPrenom.Margin = new System.Windows.Forms.Padding(2);
+            this.tbxPrenom.MaxLength = 50;
             this.tbxPrenom.Name = "tbxPrenom";
-            this.tbxPrenom.Size = new System.Drawing.Size(76, 20);
+            this.tbxPrenom.Size = new System.Drawing.Size(95, 20);
             this.tbxPrenom.TabIndex = 2;
             this.tbxPrenom.TextChanged += new System.EventHandler(this.tbxPrenom_TextChanged);
             // 
@@ -150,6 +152,7 @@ namespace GUI
             // 
             this.tbxNumTel.Location = new System.Drawing.Point(233, 157);
             this.tbxNumTel.Margin = new System.Windows.Forms.Padding(2);
+            this.tbxNumTel.MaxLength = 50;
             this.tbxNumTel.Name = "tbxNumTel";
             this.tbxNumTel.Size = new System.Drawing.Size(106, 20);
             this.tbxNumTel.TabIndex = 5;
@@ -171,8 +174,9 @@ namespace GUI
             this.tbxEmail.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
             this.tbxEmail.Location = new System.Drawing.Point(156, 184);
             this.tbxEmail.Margin = new System.Windows.Forms.Padding(2);
+            this.tbxEmail.MaxLength = 50;
             this.tbxEmail.Name = "tbxEmail";
-            this.tbxEmail.Size = new System.Drawing.Size(76, 20);
+            this.tbxEmail.Size = new System.Drawing.Size(129, 20);
             this.tbxEmail.TabIndex = 6;
             this.tbxEmail.TextChanged += new System.EventHandler(this.tbxEmail_TextChanged);
             this.tbxEmail.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxEmail_KeyPress);
@@ -191,6 +195,7 @@ namespace GUI
             // 
             this.tbxNumTelParent.Location = new System.Drawing.Point(266, 280);
             this.tbxNumTelParent.Margin = new System.Windows.Forms.Padding(2);
+            this.tbxNumTelParent.MaxLength = 50;
             this.tbxNumTelParent.Name = "tbxNumTelParent";
             this.tbxNumTelParent.Size = new System.Drawing.Size(106, 20);
             this.tbxNumTelParent.TabIndex = 10;
@@ -213,7 +218,7 @@ namespace GUI
             this.lsbClasse.Location = new System.Drawing.Point(160, 314);
             this.lsbClasse.Margin = new System.Windows.Forms.Padding(2);
             this.lsbClasse.Name = "lsbClasse";
-            this.lsbClasse.Size = new System.Drawing.Size(62, 30);
+            this.lsbClasse.Size = new System.Drawing.Size(88, 30);
             this.lsbClasse.TabIndex = 11;
             // 
             // btnValider
@@ -241,8 +246,9 @@ namespace GUI
             // 
             this.tbxLogin.Location = new System.Drawing.Point(157, 217);
             this.tbxLogin.Margin = new System.Windows.Forms.Padding(2);
+            this.tbxLogin.MaxLength = 50;
             this.tbxLogin.Name = "tbxLogin";
-            this.tbxLogin.Size = new System.Drawing.Size(76, 20);
+            this.tbxLogin.Size = new System.Drawing.Size(94, 20);
             this.tbxLogin.TabIndex = 7;
             this.tbxLogin.TextChanged += new System.EventHandler(this.tbxLogin_TextChanged);
             this.tbxLogin.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxLogin_KeyPress);
@@ -261,6 +267,7 @@ namespace GUI
             // 
             this.tbxMdp.Location = new System.Drawing.Point(195, 249);
             this.tbxMdp.Margin = new System.Windows.Forms.Padding(2);
+            this.tbxMdp.MaxLength = 50;
             this.tbxMdp.Name = "tbxMdp";
             this.tbxMdp.Size = new System.Drawing.Size(90, 20);
             this.tbxMdp.TabIndex = 8;

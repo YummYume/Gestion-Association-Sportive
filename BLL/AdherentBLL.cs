@@ -49,6 +49,11 @@ namespace BLL
             AdherentDAO.AddAdherent(unAdherent);
         }
 
+        public static void ModifierAdherent(Adherent unAdherent)
+        {
+            AdherentDAO.ModifierAdherent(unAdherent);
+        }
+
         public static bool AdherentExiste(AdherentMin unAdherent)
         {
             return AdherentDAO.AdherentExiste(unAdherent);

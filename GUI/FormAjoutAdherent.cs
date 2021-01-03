@@ -14,10 +14,13 @@ namespace GUI
 {
     public partial class FormAjoutAdherent : Form
     {
+        private Utilisateur leUtilisateur;
         private FormAdministrateur formAdmin;
-        public FormAjoutAdherent(Form leFormAdmin)
+
+        public FormAjoutAdherent(Utilisateur unUtilisateur, Form leFormAdmin)
         {
             formAdmin = leFormAdmin as FormAdministrateur;
+            leUtilisateur = unUtilisateur;
             InitializeComponent();
         }
 
@@ -43,9 +46,7 @@ namespace GUI
                 {
                     lesTextBox.Add((TextBox)leControle);
                 }
-            }
-            foreach (Control leControle in this.Controls)
-            {
+
                 if (leControle is ListBox)
                 {
                     lesListBox.Add((ListBox)leControle);
@@ -162,7 +163,6 @@ namespace GUI
 
             if (erreur == false)
             {
-                // TODO : ajouter l'admin qui utilise actuellement l'application
                 int idClasse = 1;
                 foreach (Classe laClasse in ClasseBLL.GetClasses())
                 {
@@ -171,22 +171,21 @@ namespace GUI
                         idClasse = laClasse.Id;
                     }
                 }
-                Utilisateur unUtilisateur = new Utilisateur(1, "Lythis", "admin", "admin");
                 Classe uneClasse = new Classe(idClasse, lsbClasse.GetItemText(lsbClasse.SelectedItem));
-                Adherent unAdherent = new Adherent(tbxNom.Text.Trim(), tbxPrenom.Text.Trim(), dtpDn.Value, lsbSexe.GetItemText(lsbSexe.SelectedItem), tbxLogin.Text, tbxMdp.Text, tbxNumTel.Text, tbxEmail.Text, tbxNumTelParent.Text, unUtilisateur, uneClasse);
+                Adherent unAdherent = new Adherent(tbxNom.Text.Trim(), tbxPrenom.Text.Trim(), dtpDn.Value, lsbSexe.GetItemText(lsbSexe.SelectedItem), tbxLogin.Text, tbxMdp.Text, tbxNumTel.Text, tbxEmail.Text, tbxNumTelParent.Text, leUtilisateur, uneClasse);
 
                 try
                 {
                     AdherentBLL.AddAdherent(unAdherent);
                     dgvAdmin[0].DataSource = AdherentBLL.GetInfoBaseAdherents();
                     lblErreur.ForeColor = Color.Green;
-                    if (lsbSexe.SelectedItem.ToString() == "Femme")
+                    if (unAdherent.Sexe == "Femme")
                     {
-                        lblErreur.Text = "Adhérente " + tbxNom.Text + " " + tbxPrenom.Text + " ajoutée avec succès!";
+                        lblErreur.Text = "Adhérente " + unAdherent.Nom + " " + unAdherent.Prenom + " ajoutée avec succès!";
                     }
                     else
                     {
-                        lblErreur.Text = "Adhérent " + tbxNom.Text + " " + tbxPrenom.Text + " ajouté avec succès!";
+                        lblErreur.Text = "Adhérent " + unAdherent.Nom + " " + unAdherent.Prenom + " ajouté avec succès!";
                     }
                     t.Interval = 5000; // 5 secondes
                     t.Tick += (s, error) =>
@@ -231,7 +230,7 @@ namespace GUI
         {
             if (cbxAfficherMdp.Checked == true)
             {
-                tbxMdp.PasswordChar = '*';
+                tbxMdp.PasswordChar = '●';
             }
             else
             {

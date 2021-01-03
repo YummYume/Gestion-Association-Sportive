@@ -91,5 +91,31 @@ namespace DAL
             monReader.Close();
             return droit;
         }
+
+        public static Utilisateur CreerUtilisateurConnexion(string login)
+        {
+            // Connexion à la BD
+            SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = maConnexion;
+            cmd.CommandText = "SELECT * FROM UTILISATEUR WHERE Login_utilisateur = @LOGIN";
+            SqlParameter param = new SqlParameter();
+            param.ParameterName = "@LOGIN";
+            param.Value = login;
+            cmd.Parameters.Add(param);
+            SqlDataReader monReader = cmd.ExecuteReader();
+
+            while (monReader.Read())
+            {
+                if (monReader["Login_utilisateur"].ToString() == login)
+                {
+                    return new Utilisateur(Convert.ToInt32(monReader["ID_utilisateur"]), monReader["Login_utilisateur"].ToString(), monReader["Mdp_utilisateur"].ToString(), monReader["Droit_utilisateur"].ToString());
+                }
+            }
+
+            monReader.Close();
+            return new Utilisateur(0, "Utilisateur", "Introuvable", "null");
+        }
     }
 }

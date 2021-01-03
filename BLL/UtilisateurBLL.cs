@@ -50,5 +50,10 @@ namespace BLL
         {
             return UtilisateurDAO.GetDroit(login);
         }
+
+        public static Utilisateur CreerUtilisateurConnexion(string login)
+        {
+            return UtilisateurDAO.CreerUtilisateurConnexion(login);
+        }
     }
 }

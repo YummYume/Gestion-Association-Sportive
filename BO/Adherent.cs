@@ -41,14 +41,16 @@ namespace BO
             this.Classe = classe;
         }
 
-        // Constructeur pour afficher les données dans la page admin (on retire les champs non affichés sauf l'id)
-        public Adherent(int id, string nom, string prenom, DateTime dateDeNaissance, string sexe, string numTel, string email, string numTelParent, Classe classe)
+        // Constructeur pour afficher les données dans la page admin
+        public Adherent(int id, string nom, string prenom, DateTime dateDeNaissance, string sexe, string login, string mdp, string numTel, string email, string numTelParent, Classe classe)
         {
             this.Id = id;
             this.Nom = nom;
             this.Prenom = prenom;
             this.DateDeNaissance = dateDeNaissance;
             this.Sexe = sexe;
+            this.Login = login;
+            this.MotDePasse = mdp;
             this.NumTel = numTel;
             this.Email = email;
             this.NumTelParent = numTelParent;

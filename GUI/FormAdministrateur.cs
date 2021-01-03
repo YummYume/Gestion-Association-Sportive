@@ -14,8 +14,11 @@ namespace GUI
 {
     public partial class FormAdministrateur : Form
     {
-        public FormAdministrateur()
+        private Utilisateur leUtilisateur;
+
+        public FormAdministrateur(Utilisateur unUtilisateur)
         {
+            leUtilisateur = unUtilisateur;
             InitializeComponent();
         }
 
@@ -27,12 +30,14 @@ namespace GUI
             {
                 this.dtgListeAdherants.Rows[0].Selected = false;
             }
+
+            lblLoginAdministrateur.Text = leUtilisateur.Login;
         }
 
         private void btnAjoutEleve_Click(object sender, EventArgs e)
         {
             FormAjoutAdherent newAjoutAdherent;
-            newAjoutAdherent = new FormAjoutAdherent(this);
+            newAjoutAdherent = new FormAjoutAdherent(leUtilisateur, this);
             newAjoutAdherent.ShowDialog();
         }
 
@@ -55,7 +60,15 @@ namespace GUI
 
         private void btnModifierEleve_Click(object sender, EventArgs e)
         {
+            List<Adherent> lesAdherents = new List<Adherent>(AdherentBLL.GetFullInfoAdherents());
+            string nom = dtgListeAdherants.CurrentRow.Cells[0].Value.ToString();
+            string prenom = dtgListeAdherants.CurrentRow.Cells[1].Value.ToString();
 
+            Adherent leAdherent = lesAdherents.Find(Adherent => Adherent.Nom == nom && Adherent.Prenom == prenom);
+
+            FormModificationAdherent newModificationAdherent;
+            newModificationAdherent = new FormModificationAdherent(leUtilisateur, leAdherent, this);
+            newModificationAdherent.ShowDialog();
         }
 
         private void dtgListeAdherants_CellEnter(object sender, DataGridViewCellEventArgs e)
