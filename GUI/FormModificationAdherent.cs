@@ -398,6 +398,20 @@ namespace GUI
             {
                 lblLoginModif.Text = "";
             }
+
+            if (AdherentBLL.LoginExiste(tbxLogin.Text.Trim()) && tbxLogin.Text.Trim() != leAdherent.Login)
+            {
+                btnValider.Enabled = false;
+                tbxLogin.BackColor = Color.Red;
+                lblErreur.ForeColor = Color.Red;
+                lblErreur.Text = "Le login '" + tbxLogin.Text + "' existe déjà!";
+            }
+            else
+            {
+                btnValider.Enabled = true;
+                tbxLogin.BackColor = Color.White;
+                lblErreur.Text = "";
+            }
         }
 
         private void tbxMdp_TextChanged(object sender, EventArgs e)

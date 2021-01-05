@@ -58,5 +58,10 @@ namespace BLL
         {
             return AdherentDAO.AdherentExiste(unAdherent);
         }
+
+        public static bool LoginExiste(string login)
+        {
+            return AdherentDAO.LoginExiste(login);
+        }
     }
 }

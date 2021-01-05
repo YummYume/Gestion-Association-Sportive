@@ -77,6 +77,7 @@
             // tbxLogin
             // 
             this.tbxLogin.Location = new System.Drawing.Point(262, 124);
+            this.tbxLogin.MaxLength = 50;
             this.tbxLogin.Name = "tbxLogin";
             this.tbxLogin.Size = new System.Drawing.Size(142, 20);
             this.tbxLogin.TabIndex = 1;
@@ -85,6 +86,7 @@
             // tbxMdp
             // 
             this.tbxMdp.Location = new System.Drawing.Point(262, 177);
+            this.tbxMdp.MaxLength = 50;
             this.tbxMdp.Name = "tbxMdp";
             this.tbxMdp.PasswordChar = '●';
             this.tbxMdp.Size = new System.Drawing.Size(142, 20);

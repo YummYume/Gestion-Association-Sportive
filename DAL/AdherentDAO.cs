@@ -190,5 +190,28 @@ namespace DAL
             }
             return false;
         }
+
+        public static bool LoginExiste(string login)
+        {
+            // Connexion à la BD
+            SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = maConnexion;
+            cmd.CommandText = "SELECT Login_adherent_adherent as leLogin FROM ADHERENT";
+            SqlDataReader monReader = cmd.ExecuteReader();
+
+            while (monReader.Read())
+            {
+                if (monReader["leLogin"].ToString() == login)
+                {
+                    monReader.Close();
+                    return true;
+                }
+            }
+
+            monReader.Close();
+            return false;
+        }
     }
 }
