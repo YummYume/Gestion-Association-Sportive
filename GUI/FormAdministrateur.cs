@@ -14,11 +14,11 @@ namespace GUI
 {
     public partial class FormAdministrateur : Form
     {
-        private Utilisateur leUtilisateur;
+        private Utilisateur unUtilisateur;
 
         public FormAdministrateur(Utilisateur unUtilisateur)
         {
-            leUtilisateur = unUtilisateur;
+            this.unUtilisateur = unUtilisateur;
             InitializeComponent();
         }
 
@@ -31,13 +31,13 @@ namespace GUI
                 this.dtgListeAdherants.Rows[0].Selected = false;
             }
 
-            lblLoginAdministrateur.Text = leUtilisateur.Login;
+            lblLoginAdministrateur.Text = unUtilisateur.Login;
         }
 
         private void btnAjoutEleve_Click(object sender, EventArgs e)
         {
             FormAjoutAdherent newAjoutAdherent;
-            newAjoutAdherent = new FormAjoutAdherent(leUtilisateur, this);
+            newAjoutAdherent = new FormAjoutAdherent(unUtilisateur, this);
             newAjoutAdherent.ShowDialog();
         }
 
@@ -67,7 +67,7 @@ namespace GUI
             Adherent leAdherent = lesAdherents.Find(Adherent => Adherent.Nom == nom && Adherent.Prenom == prenom);
 
             FormModificationAdherent newModificationAdherent;
-            newModificationAdherent = new FormModificationAdherent(leUtilisateur, leAdherent, this);
+            newModificationAdherent = new FormModificationAdherent(unUtilisateur, leAdherent, this);
             newModificationAdherent.ShowDialog();
         }
 

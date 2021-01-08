@@ -13,28 +13,26 @@ namespace GUI
 {
     public partial class FormChoixAcces : Form
     {
-        private Utilisateur leUtilisateur;
+        private Utilisateur unUtilisateur;
 
         public FormChoixAcces(Utilisateur unUtilisateur)
         {
-            leUtilisateur = unUtilisateur;
+            this.unUtilisateur = unUtilisateur;
             InitializeComponent();
         }
 
         private void btnAccesAdmin_Click(object sender, EventArgs e)
         {
-            FormAdministrateur newAdmin;
             this.Hide();
-            newAdmin = new FormAdministrateur(leUtilisateur);
+            FormAdministrateur newAdmin = new FormAdministrateur(unUtilisateur);
             newAdmin.ShowDialog();
             this.Show();
         }
 
         private void btnAccesCompta_Click(object sender, EventArgs e)
         {
-            FormComptabilite newCompta;
             this.Hide();
-            newCompta = new FormComptabilite(leUtilisateur);
+            FormComptabilite newCompta = new FormComptabilite(unUtilisateur);
             newCompta.ShowDialog();
             this.Show();
         }
