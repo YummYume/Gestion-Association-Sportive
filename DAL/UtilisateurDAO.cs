@@ -110,7 +110,12 @@ namespace DAL
             {
                 if (monReader["Login_utilisateur"].ToString() == login)
                 {
-                    return new Utilisateur(Convert.ToInt32(monReader["ID_utilisateur"]), monReader["Login_utilisateur"].ToString(), monReader["Mdp_utilisateur"].ToString(), monReader["Droit_utilisateur"].ToString());
+                    int idUtilisateur = Convert.ToInt32(monReader["ID_utilisateur"]);
+                    string loginUtilisateur = monReader["Login_utilisateur"].ToString();
+                    string mdpUtilisateur = monReader["Mdp_utilisateur"].ToString();
+                    string droitUtilisateur = monReader["Droit_utilisateur"].ToString();
+                    monReader.Close();
+                    return new Utilisateur(idUtilisateur, loginUtilisateur, mdpUtilisateur, droitUtilisateur);
                 }
             }
 
