@@ -44,7 +44,11 @@
   <ItemGroup>
     <Compile Include="AdherentMin.cs" />
     <Compile Include="Adherent.cs" />
+    <Compile Include="Budget.cs" />
     <Compile Include="Classe.cs" />
+    <Compile Include="Evenement.cs" />
+    <Compile Include="Flux.cs" />
+    <Compile Include="TypeFlux.cs" />
     <Compile Include="Utilisateur.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

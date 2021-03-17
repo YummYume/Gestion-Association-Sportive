@@ -20,5 +20,10 @@ namespace GUI
             leUtilisateur = unUtilisateur;
             InitializeComponent();
         }
+
+        private void FormComptabilite_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

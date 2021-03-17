@@ -22,13 +22,6 @@ namespace BLL
             return ClasseBLL.uneClasseBLL;
         }
 
-        // Définit la chaîne de connexion grâce à la méthode SetchaineConnexion de la DAL
-        public static void SetchaineConnexion(ConnectionStringSettings chset)
-        {
-            string chaine = chset.ConnectionString;
-            ConnexionBD.GetConnexionBD().SetchaineConnexion(chaine);
-        }
-
         public static List<Classe> GetClasses()
         {
             return ClasseDAO.GetClasses();
