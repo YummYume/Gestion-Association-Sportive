@@ -46,6 +46,7 @@
     <Compile Include="AdherentBLL.cs" />
     <Compile Include="BudgetBLL.cs" />
     <Compile Include="ClasseBLL.cs" />
+    <Compile Include="FluxBLL.cs" />
     <Compile Include="UtilisateurBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -10,10 +10,10 @@ namespace BO
     {
         private int id;
         private string libelle;
-        private int montantInitial;
+        private float montantInitial;
         private DateTime dateCreation;
 
-        public Budget(int id, string libelle, int montantInitial, DateTime dateCreation)
+        public Budget(int id, string libelle, float montantInitial, DateTime dateCreation)
         {
             this.id = id;
             this.libelle = libelle;
@@ -21,9 +21,16 @@ namespace BO
             this.dateCreation = dateCreation;
         }
 
+        public Budget(string libelle, float montantInitial, DateTime dateCreation)
+        {
+            this.libelle = libelle;
+            this.montantInitial = montantInitial;
+            this.dateCreation = dateCreation;
+        }
+
         public int Id { get => id; set => id = value; }
         public string Libelle { get => libelle; set => libelle = value; }
-        public int MontantInitial { get => montantInitial; set => montantInitial = value; }
+        public float MontantInitial { get => montantInitial; set => montantInitial = value; }
         public DateTime DateCreation { get => dateCreation; set => dateCreation = value; }
     }
 }

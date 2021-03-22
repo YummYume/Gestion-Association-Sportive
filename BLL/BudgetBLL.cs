@@ -31,6 +31,23 @@ namespace BLL
             return BudgetDAO.getBudgetEPS(year);
         }
 
+        public static Budget GetBudgetTotal(string year, Budget budget)
+        {
+            List<Flux> fluxDebit = FluxBLL.GetFluxDebit(year, null, budget);
+            List<Flux> fluxCredit = FluxBLL.GetFluxCredit(year, null, budget);
+
+            foreach (Flux flux in fluxDebit)
+            {
+                budget.MontantInitial -= flux.Montant;
+            }
+            foreach (Flux flux in fluxCredit)
+            {
+                budget.MontantInitial += flux.Montant;
+            }
+
+            return budget;
+        }
+
         public static void AddBudget(Budget unBudget)
         {
             BudgetDAO.AddBudget(unBudget);

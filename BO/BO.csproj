@@ -48,6 +48,7 @@
     <Compile Include="Classe.cs" />
     <Compile Include="Evenement.cs" />
     <Compile Include="Flux.cs" />
+    <Compile Include="FluxMin.cs" />
     <Compile Include="TypeFlux.cs" />
     <Compile Include="Utilisateur.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

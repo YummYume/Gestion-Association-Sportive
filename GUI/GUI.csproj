@@ -49,6 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormAjoutFlux.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAjoutFlux.Designer.cs">
+      <DependentUpon>FormAjoutFlux.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormAdministrateur.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,6 +91,12 @@
     <Compile Include="FormModificationAdherent.Designer.cs">
       <DependentUpon>FormModificationAdherent.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormModifierFlux.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormModifierFlux.Designer.cs">
+      <DependentUpon>FormModifierFlux.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormAdministrateur.resx">
@@ -92,6 +104,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormAjoutAdherent.resx">
       <DependentUpon>FormAjoutAdherent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAjoutFlux.resx">
+      <DependentUpon>FormAjoutFlux.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormChoixAcces.resx">
       <DependentUpon>FormChoixAcces.cs</DependentUpon>

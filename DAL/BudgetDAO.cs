@@ -19,7 +19,7 @@ namespace DAL
             Budget budgetAS = new Budget(0, "null", 0, DateTime.Now);
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = maConnexion;
-            cmd.CommandText = "SELECT Libelle_budget AS libelle, Montantinitial_budget AS montantInitial, DateCreation_budget AS dateCreation FROM BUDGET WHERE Libelle_budget = 'AS' AND DateCreation_budget LIKE '@YEAR*'";
+            cmd.CommandText = "SELECT ID_budget as id, Libelle_budget AS libelle, Montantinitial_budget AS montantInitial, DateCreation_budget AS dateCreation FROM BUDGET WHERE Libelle_budget = 'AS' AND DATEPART(yy, DateCreation_budget) = @YEAR";
             SqlParameter param = new SqlParameter();
             param.ParameterName = "@YEAR";
             param.Value = year;
@@ -32,7 +32,7 @@ namespace DAL
                 {
                     budgetAS.Id = (int)monReader["id"];
                     budgetAS.Libelle = (string)monReader["libelle"];
-                    budgetAS.MontantInitial = (int)monReader["monstantInitial"];
+                    budgetAS.MontantInitial = float.Parse(monReader["montantInitial"].ToString());
                     budgetAS.DateCreation = (DateTime)monReader["dateCreation"];
                 }
             }
@@ -49,7 +49,7 @@ namespace DAL
             Budget budgetEPS = new Budget(0, "null", 0, DateTime.Now);
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = maConnexion;
-            cmd.CommandText = "SELECT Libelle_budget AS libelle, Montantinitial_budget AS montantInitial, DateCreation_budget AS dateCreation FROM dbo.BUDGET WHERE Libelle_budget = 'EPS' AND DateCreation_budget LIKE '@YEAR*'";
+            cmd.CommandText = "SELECT ID_budget as id, Libelle_budget AS libelle, Montantinitial_budget AS montantInitial, DateCreation_budget AS dateCreation FROM dbo.BUDGET WHERE Libelle_budget = 'EPS' AND DATEPART(yy, DateCreation_budget) = @YEAR";
             SqlParameter param = new SqlParameter();
             param.ParameterName = "@YEAR";
             param.Value = year;
@@ -62,7 +62,7 @@ namespace DAL
                 {
                     budgetEPS.Id = (int)monReader["id"];
                     budgetEPS.Libelle = (string)monReader["libelle"];
-                    budgetEPS.MontantInitial = (int)monReader["monstantInitial"];
+                    budgetEPS.MontantInitial = float.Parse(monReader["montantInitial"].ToString());
                     budgetEPS.DateCreation = (DateTime)monReader["dateCreation"];
                 }
             }

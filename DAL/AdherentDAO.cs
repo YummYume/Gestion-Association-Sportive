@@ -40,7 +40,7 @@ namespace DAL
             List<Adherent> lesAdherents = new List<Adherent>();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = maConnexion;
-            cmd.CommandText = "SELECT ID_adherent as id, Nom_adherent AS nom, Prenom_adherent AS prenom, Ddn_adherent as dateNaissance, Sexe_adherent as sexe, Login_adherent_adherent as login, Mdp_adherent as mdp, Numtel_adherent as num, Email_adherent as mail, Numparent_adherent as numParent, #ID_classe, Libelle_classe as classe FROM ADHERENT INNER JOIN CLASSE ON (ADHERENT.#ID_classe = CLASSE.ID_classe) WHERE Archive_adherent = 0";
+            cmd.CommandText = "SELECT ID_adherent as id, Nom_adherent AS nom, Prenom_adherent AS prenom, Ddn_adherent as dateNaissance, Sexe_adherent as sexe, Login_adherent as login, Mdp_adherent as mdp, Numtel_adherent as num, Email_adherent as mail, Numparent_adherent as numParent, #ID_classe, Libelle_classe as classe FROM ADHERENT INNER JOIN CLASSE ON (ADHERENT.#ID_classe = CLASSE.ID_classe) WHERE Archive_adherent = 0";
             SqlDataReader monReader = cmd.ExecuteReader();
 
             while (monReader.Read())
@@ -82,7 +82,7 @@ namespace DAL
 
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = maConnexion;
-            cmd.CommandText = "INSERT INTO dbo.ADHERENT (Nom_adherent, Prenom_adherent, Ddn_adherent, Sexe_adherent, Login_adherent_adherent, Mdp_adherent, Numtel_adherent, Email_adherent, Numparent_adherent, Archive_adherent, #Id_utilisateur, #Id_classe) VALUES (@nom, @prenom, @ddn, @sexe, @login, @mdp, @num, @email, @numParent, @archive, @utilisateur, @classe)";
+            cmd.CommandText = "INSERT INTO dbo.ADHERENT (Nom_adherent, Prenom_adherent, Ddn_adherent, Sexe_adherent, Login_adherent, Mdp_adherent, Numtel_adherent, Email_adherent, Numparent_adherent, Archive_adherent, #Id_utilisateur, #Id_classe) VALUES (@nom, @prenom, @ddn, @sexe, @login, @mdp, @num, @email, @numParent, @archive, @utilisateur, @classe)";
 
             // Création et bind des paramètres
             SqlParameter nom = new SqlParameter("@nom", SqlDbType.VarChar, 255);
@@ -133,7 +133,7 @@ namespace DAL
 
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = maConnexion;
-            cmd.CommandText = "UPDATE dbo.ADHERENT SET Nom_adherent = @nom, Prenom_adherent = @prenom, Ddn_adherent = @ddn, Sexe_adherent = @sexe, Login_adherent_adherent = @login, Mdp_adherent = @mdp, Numtel_adherent = @num, Email_adherent = @email, Numparent_adherent = @numParent, Archive_adherent = @archive, #Id_utilisateur = @utilisateur, #Id_classe = @classe WHERE ID_adherent = @id";
+            cmd.CommandText = "UPDATE dbo.ADHERENT SET Nom_adherent = @nom, Prenom_adherent = @prenom, Ddn_adherent = @ddn, Sexe_adherent = @sexe, Login_adherent = @login, Mdp_adherent = @mdp, Numtel_adherent = @num, Email_adherent = @email, Numparent_adherent = @numParent, Archive_adherent = @archive, #Id_utilisateur = @utilisateur, #Id_classe = @classe WHERE ID_adherent = @id";
 
             // Création et bind des paramètres
             SqlParameter id = new SqlParameter("@id", SqlDbType.Int);
@@ -198,7 +198,7 @@ namespace DAL
 
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = maConnexion;
-            cmd.CommandText = "SELECT Login_adherent_adherent as leLogin FROM ADHERENT";
+            cmd.CommandText = "SELECT Login_adherent as leLogin FROM ADHERENT";
             SqlDataReader monReader = cmd.ExecuteReader();
 
             while (monReader.Read())

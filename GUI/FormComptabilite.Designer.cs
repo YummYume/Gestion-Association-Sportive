@@ -30,8 +30,8 @@
         {
             this.lblSetBudgetAS = new System.Windows.Forms.Label();
             this.lblSetBudgetEPS = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txbBudgetEPS = new System.Windows.Forms.TextBox();
+            this.txbBudgetAS = new System.Windows.Forms.TextBox();
             this.lblTitreCompta = new System.Windows.Forms.Label();
             this.btnSetBudgetEPS = new System.Windows.Forms.Button();
             this.btnSetBudgetAS = new System.Windows.Forms.Button();
@@ -48,19 +48,16 @@
             this.rdbSweetPrisNon = new System.Windows.Forms.RadioButton();
             this.rdbSweetPrisOui = new System.Windows.Forms.RadioButton();
             this.lblInformations = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dtgDebit = new System.Windows.Forms.DataGridView();
             this.lblDebit = new System.Windows.Forms.Label();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dtgCredit = new System.Windows.Forms.DataGridView();
             this.lblCredit = new System.Windows.Forms.Label();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.dtgFiltres = new System.Windows.Forms.DataGridView();
             this.lblResultats = new System.Windows.Forms.Label();
-            this.btnDebitAjouter = new System.Windows.Forms.Button();
-            this.btnDebitModifier = new System.Windows.Forms.Button();
-            this.btnDebitSupprimer = new System.Windows.Forms.Button();
-            this.btnCreditSupprimer = new System.Windows.Forms.Button();
-            this.btnCreditModifier = new System.Windows.Forms.Button();
-            this.btnCreditAjouter = new System.Windows.Forms.Button();
-            this.dataGridView4 = new System.Windows.Forms.DataGridView();
+            this.btnFluxAjouter = new System.Windows.Forms.Button();
+            this.btnFluxModifier = new System.Windows.Forms.Button();
+            this.btnFluxSupprimer = new System.Windows.Forms.Button();
+            this.dtgFluxAdherant = new System.Windows.Forms.DataGridView();
             this.lblFluxAdherant = new System.Windows.Forms.Label();
             this.lblAnnee = new System.Windows.Forms.Label();
             this.gbxInfoAdherant = new System.Windows.Forms.GroupBox();
@@ -79,10 +76,14 @@
             this.lblNomAdherant = new System.Windows.Forms.Label();
             this.btnModifierBudgetEPS = new System.Windows.Forms.Button();
             this.btnModifierBudgetAS = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
+            this.btnEnvoyerModifEPS = new System.Windows.Forms.Button();
+            this.btnAnnulerModifEPS = new System.Windows.Forms.Button();
+            this.btnEnvoyerModifAS = new System.Windows.Forms.Button();
+            this.btnAnnulerModifAS = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgDebit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgCredit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgFiltres)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgFluxAdherant)).BeginInit();
             this.gbxInfoAdherant.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -104,19 +105,23 @@
             this.lblSetBudgetEPS.TabIndex = 1;
             this.lblSetBudgetEPS.Text = "Budget EPS :";
             // 
-            // textBox1
+            // txbBudgetEPS
             // 
-            this.textBox1.Location = new System.Drawing.Point(91, 93);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 2;
+            this.txbBudgetEPS.Location = new System.Drawing.Point(91, 93);
+            this.txbBudgetEPS.Name = "txbBudgetEPS";
+            this.txbBudgetEPS.Size = new System.Drawing.Size(100, 20);
+            this.txbBudgetEPS.TabIndex = 2;
+            this.txbBudgetEPS.Visible = false;
+            this.txbBudgetEPS.TextChanged += new System.EventHandler(this.txbBudgetEPS_TextChanged);
             // 
-            // textBox2
+            // txbBudgetAS
             // 
-            this.textBox2.Location = new System.Drawing.Point(91, 119);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 3;
+            this.txbBudgetAS.Location = new System.Drawing.Point(91, 119);
+            this.txbBudgetAS.Name = "txbBudgetAS";
+            this.txbBudgetAS.Size = new System.Drawing.Size(100, 20);
+            this.txbBudgetAS.TabIndex = 3;
+            this.txbBudgetAS.Visible = false;
+            this.txbBudgetAS.TextChanged += new System.EventHandler(this.txbBudgetAS_TextChanged);
             // 
             // lblTitreCompta
             // 
@@ -136,6 +141,7 @@
             this.btnSetBudgetEPS.TabIndex = 6;
             this.btnSetBudgetEPS.Text = "Envoyer";
             this.btnSetBudgetEPS.UseVisualStyleBackColor = true;
+            this.btnSetBudgetEPS.Click += new System.EventHandler(this.btnSetBudgetEPS_Click);
             // 
             // btnSetBudgetAS
             // 
@@ -145,11 +151,13 @@
             this.btnSetBudgetAS.TabIndex = 7;
             this.btnSetBudgetAS.Text = "Envoyer";
             this.btnSetBudgetAS.UseVisualStyleBackColor = true;
+            this.btnSetBudgetAS.Visible = false;
+            this.btnSetBudgetAS.Click += new System.EventHandler(this.btnSetBudgetAS_Click);
             // 
             // lblBudgetEPS
             // 
             this.lblBudgetEPS.AutoSize = true;
-            this.lblBudgetEPS.Location = new System.Drawing.Point(91, 100);
+            this.lblBudgetEPS.Location = new System.Drawing.Point(91, 97);
             this.lblBudgetEPS.Name = "lblBudgetEPS";
             this.lblBudgetEPS.Size = new System.Drawing.Size(13, 13);
             this.lblBudgetEPS.TabIndex = 8;
@@ -271,13 +279,14 @@
             this.lblInformations.TabIndex = 20;
             this.lblInformations.Text = "Informations :";
             // 
-            // dataGridView1
+            // dtgDebit
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(656, 142);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(399, 200);
-            this.dataGridView1.TabIndex = 21;
+            this.dtgDebit.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgDebit.Location = new System.Drawing.Point(656, 142);
+            this.dtgDebit.Name = "dtgDebit";
+            this.dtgDebit.Size = new System.Drawing.Size(399, 200);
+            this.dtgDebit.TabIndex = 21;
+            this.dtgDebit.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgDebit_CellEnter);
             // 
             // lblDebit
             // 
@@ -289,13 +298,14 @@
             this.lblDebit.TabIndex = 22;
             this.lblDebit.Text = "Débit(s) :";
             // 
-            // dataGridView2
+            // dtgCredit
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(656, 388);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(399, 200);
-            this.dataGridView2.TabIndex = 23;
+            this.dtgCredit.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgCredit.Location = new System.Drawing.Point(656, 388);
+            this.dtgCredit.Name = "dtgCredit";
+            this.dtgCredit.Size = new System.Drawing.Size(399, 200);
+            this.dtgCredit.TabIndex = 23;
+            this.dtgCredit.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgCredit_CellEnter);
             // 
             // lblCredit
             // 
@@ -307,13 +317,13 @@
             this.lblCredit.TabIndex = 24;
             this.lblCredit.Text = "Crédit(s) :";
             // 
-            // dataGridView3
+            // dtgFiltres
             // 
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Location = new System.Drawing.Point(247, 189);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.Size = new System.Drawing.Size(322, 130);
-            this.dataGridView3.TabIndex = 25;
+            this.dtgFiltres.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgFiltres.Location = new System.Drawing.Point(247, 189);
+            this.dtgFiltres.Name = "dtgFiltres";
+            this.dtgFiltres.Size = new System.Drawing.Size(287, 130);
+            this.dtgFiltres.TabIndex = 25;
             // 
             // lblResultats
             // 
@@ -325,67 +335,45 @@
             this.lblResultats.TabIndex = 26;
             this.lblResultats.Text = "Résultats :";
             // 
-            // btnDebitAjouter
+            // btnFluxAjouter
             // 
-            this.btnDebitAjouter.Location = new System.Drawing.Point(575, 142);
-            this.btnDebitAjouter.Name = "btnDebitAjouter";
-            this.btnDebitAjouter.Size = new System.Drawing.Size(75, 20);
-            this.btnDebitAjouter.TabIndex = 27;
-            this.btnDebitAjouter.Text = "Ajouter";
-            this.btnDebitAjouter.UseVisualStyleBackColor = true;
+            this.btnFluxAjouter.Enabled = false;
+            this.btnFluxAjouter.Location = new System.Drawing.Point(540, 142);
+            this.btnFluxAjouter.Name = "btnFluxAjouter";
+            this.btnFluxAjouter.Size = new System.Drawing.Size(110, 20);
+            this.btnFluxAjouter.TabIndex = 27;
+            this.btnFluxAjouter.Text = "Ajouter un flux";
+            this.btnFluxAjouter.UseVisualStyleBackColor = true;
             // 
-            // btnDebitModifier
+            // btnFluxModifier
             // 
-            this.btnDebitModifier.Location = new System.Drawing.Point(575, 168);
-            this.btnDebitModifier.Name = "btnDebitModifier";
-            this.btnDebitModifier.Size = new System.Drawing.Size(75, 20);
-            this.btnDebitModifier.TabIndex = 28;
-            this.btnDebitModifier.Text = "Modifier";
-            this.btnDebitModifier.UseVisualStyleBackColor = true;
+            this.btnFluxModifier.Enabled = false;
+            this.btnFluxModifier.Location = new System.Drawing.Point(540, 168);
+            this.btnFluxModifier.Name = "btnFluxModifier";
+            this.btnFluxModifier.Size = new System.Drawing.Size(110, 20);
+            this.btnFluxModifier.TabIndex = 28;
+            this.btnFluxModifier.Text = "Modifier le flux";
+            this.btnFluxModifier.UseVisualStyleBackColor = true;
+            this.btnFluxModifier.Click += new System.EventHandler(this.btnFluxModifier_Click);
             // 
-            // btnDebitSupprimer
+            // btnFluxSupprimer
             // 
-            this.btnDebitSupprimer.Location = new System.Drawing.Point(575, 194);
-            this.btnDebitSupprimer.Name = "btnDebitSupprimer";
-            this.btnDebitSupprimer.Size = new System.Drawing.Size(75, 20);
-            this.btnDebitSupprimer.TabIndex = 29;
-            this.btnDebitSupprimer.Text = "Supprimer";
-            this.btnDebitSupprimer.UseVisualStyleBackColor = true;
+            this.btnFluxSupprimer.Enabled = false;
+            this.btnFluxSupprimer.Location = new System.Drawing.Point(540, 194);
+            this.btnFluxSupprimer.Name = "btnFluxSupprimer";
+            this.btnFluxSupprimer.Size = new System.Drawing.Size(110, 20);
+            this.btnFluxSupprimer.TabIndex = 29;
+            this.btnFluxSupprimer.Text = "Supprimer le flux";
+            this.btnFluxSupprimer.UseVisualStyleBackColor = true;
+            this.btnFluxSupprimer.Click += new System.EventHandler(this.btnFluxSupprimer_Click);
             // 
-            // btnCreditSupprimer
+            // dtgFluxAdherant
             // 
-            this.btnCreditSupprimer.Location = new System.Drawing.Point(575, 440);
-            this.btnCreditSupprimer.Name = "btnCreditSupprimer";
-            this.btnCreditSupprimer.Size = new System.Drawing.Size(75, 20);
-            this.btnCreditSupprimer.TabIndex = 32;
-            this.btnCreditSupprimer.Text = "Supprimer";
-            this.btnCreditSupprimer.UseVisualStyleBackColor = true;
-            // 
-            // btnCreditModifier
-            // 
-            this.btnCreditModifier.Location = new System.Drawing.Point(575, 414);
-            this.btnCreditModifier.Name = "btnCreditModifier";
-            this.btnCreditModifier.Size = new System.Drawing.Size(75, 20);
-            this.btnCreditModifier.TabIndex = 31;
-            this.btnCreditModifier.Text = "Modifier";
-            this.btnCreditModifier.UseVisualStyleBackColor = true;
-            // 
-            // btnCreditAjouter
-            // 
-            this.btnCreditAjouter.Location = new System.Drawing.Point(575, 388);
-            this.btnCreditAjouter.Name = "btnCreditAjouter";
-            this.btnCreditAjouter.Size = new System.Drawing.Size(75, 20);
-            this.btnCreditAjouter.TabIndex = 30;
-            this.btnCreditAjouter.Text = "Ajouter";
-            this.btnCreditAjouter.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView4
-            // 
-            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView4.Location = new System.Drawing.Point(247, 365);
-            this.dataGridView4.Name = "dataGridView4";
-            this.dataGridView4.Size = new System.Drawing.Size(322, 223);
-            this.dataGridView4.TabIndex = 33;
+            this.dtgFluxAdherant.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgFluxAdherant.Location = new System.Drawing.Point(247, 365);
+            this.dtgFluxAdherant.Name = "dtgFluxAdherant";
+            this.dtgFluxAdherant.Size = new System.Drawing.Size(287, 223);
+            this.dtgFluxAdherant.TabIndex = 33;
             // 
             // lblFluxAdherant
             // 
@@ -548,6 +536,7 @@
             this.btnModifierBudgetEPS.Text = "Modifier";
             this.btnModifierBudgetEPS.UseVisualStyleBackColor = true;
             this.btnModifierBudgetEPS.Visible = false;
+            this.btnModifierBudgetEPS.Click += new System.EventHandler(this.btnModifierBudgetEPS_Click);
             // 
             // btnModifierBudgetAS
             // 
@@ -558,30 +547,76 @@
             this.btnModifierBudgetAS.Text = "Modifier";
             this.btnModifierBudgetAS.UseVisualStyleBackColor = true;
             this.btnModifierBudgetAS.Visible = false;
+            this.btnModifierBudgetAS.Click += new System.EventHandler(this.btnModifierBudgetAS_Click);
+            // 
+            // btnEnvoyerModifEPS
+            // 
+            this.btnEnvoyerModifEPS.Location = new System.Drawing.Point(198, 93);
+            this.btnEnvoyerModifEPS.Name = "btnEnvoyerModifEPS";
+            this.btnEnvoyerModifEPS.Size = new System.Drawing.Size(75, 20);
+            this.btnEnvoyerModifEPS.TabIndex = 39;
+            this.btnEnvoyerModifEPS.Text = "Envoyer";
+            this.btnEnvoyerModifEPS.UseVisualStyleBackColor = true;
+            this.btnEnvoyerModifEPS.Visible = false;
+            this.btnEnvoyerModifEPS.Click += new System.EventHandler(this.btnEnvoyerModifEPS_Click);
+            // 
+            // btnAnnulerModifEPS
+            // 
+            this.btnAnnulerModifEPS.Location = new System.Drawing.Point(278, 93);
+            this.btnAnnulerModifEPS.Name = "btnAnnulerModifEPS";
+            this.btnAnnulerModifEPS.Size = new System.Drawing.Size(75, 20);
+            this.btnAnnulerModifEPS.TabIndex = 40;
+            this.btnAnnulerModifEPS.Text = "Annuler";
+            this.btnAnnulerModifEPS.UseVisualStyleBackColor = true;
+            this.btnAnnulerModifEPS.Visible = false;
+            this.btnAnnulerModifEPS.Click += new System.EventHandler(this.btnAnnulerModifEPS_Click);
+            // 
+            // btnEnvoyerModifAS
+            // 
+            this.btnEnvoyerModifAS.Location = new System.Drawing.Point(198, 118);
+            this.btnEnvoyerModifAS.Name = "btnEnvoyerModifAS";
+            this.btnEnvoyerModifAS.Size = new System.Drawing.Size(75, 20);
+            this.btnEnvoyerModifAS.TabIndex = 41;
+            this.btnEnvoyerModifAS.Text = "Envoyer";
+            this.btnEnvoyerModifAS.UseVisualStyleBackColor = true;
+            this.btnEnvoyerModifAS.Visible = false;
+            this.btnEnvoyerModifAS.Click += new System.EventHandler(this.btnEnvoyerModifAS_Click);
+            // 
+            // btnAnnulerModifAS
+            // 
+            this.btnAnnulerModifAS.Location = new System.Drawing.Point(278, 118);
+            this.btnAnnulerModifAS.Name = "btnAnnulerModifAS";
+            this.btnAnnulerModifAS.Size = new System.Drawing.Size(75, 20);
+            this.btnAnnulerModifAS.TabIndex = 42;
+            this.btnAnnulerModifAS.Text = "Annuler";
+            this.btnAnnulerModifAS.UseVisualStyleBackColor = true;
+            this.btnAnnulerModifAS.Visible = false;
+            this.btnAnnulerModifAS.Click += new System.EventHandler(this.btnAnnulerModifAS_Click);
             // 
             // FormComptabilite
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 600);
+            this.Controls.Add(this.btnAnnulerModifAS);
+            this.Controls.Add(this.btnEnvoyerModifAS);
+            this.Controls.Add(this.btnAnnulerModifEPS);
+            this.Controls.Add(this.btnEnvoyerModifEPS);
             this.Controls.Add(this.btnModifierBudgetAS);
             this.Controls.Add(this.btnModifierBudgetEPS);
             this.Controls.Add(this.gbxInfoAdherant);
             this.Controls.Add(this.lblAnnee);
             this.Controls.Add(this.lblFluxAdherant);
-            this.Controls.Add(this.dataGridView4);
-            this.Controls.Add(this.btnCreditSupprimer);
-            this.Controls.Add(this.btnCreditModifier);
-            this.Controls.Add(this.btnCreditAjouter);
-            this.Controls.Add(this.btnDebitSupprimer);
-            this.Controls.Add(this.btnDebitModifier);
-            this.Controls.Add(this.btnDebitAjouter);
+            this.Controls.Add(this.dtgFluxAdherant);
+            this.Controls.Add(this.btnFluxSupprimer);
+            this.Controls.Add(this.btnFluxModifier);
+            this.Controls.Add(this.btnFluxAjouter);
             this.Controls.Add(this.lblResultats);
-            this.Controls.Add(this.dataGridView3);
+            this.Controls.Add(this.dtgFiltres);
             this.Controls.Add(this.lblCredit);
-            this.Controls.Add(this.dataGridView2);
+            this.Controls.Add(this.dtgCredit);
             this.Controls.Add(this.lblDebit);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dtgDebit);
             this.Controls.Add(this.lblInformations);
             this.Controls.Add(this.rdbSweetPrisNon);
             this.Controls.Add(this.rdbSweetPrisOui);
@@ -598,17 +633,17 @@
             this.Controls.Add(this.btnSetBudgetAS);
             this.Controls.Add(this.btnSetBudgetEPS);
             this.Controls.Add(this.lblTitreCompta);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txbBudgetAS);
+            this.Controls.Add(this.txbBudgetEPS);
             this.Controls.Add(this.lblSetBudgetEPS);
             this.Controls.Add(this.lblSetBudgetAS);
             this.Name = "FormComptabilite";
             this.Text = "FormComptabilite";
             this.Load += new System.EventHandler(this.FormComptabilite_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgDebit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgCredit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgFiltres)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgFluxAdherant)).EndInit();
             this.gbxInfoAdherant.ResumeLayout(false);
             this.gbxInfoAdherant.PerformLayout();
             this.ResumeLayout(false);
@@ -620,8 +655,8 @@
 
         private System.Windows.Forms.Label lblSetBudgetAS;
         private System.Windows.Forms.Label lblSetBudgetEPS;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txbBudgetEPS;
+        private System.Windows.Forms.TextBox txbBudgetAS;
         private System.Windows.Forms.Label lblTitreCompta;
         private System.Windows.Forms.Button btnSetBudgetEPS;
         private System.Windows.Forms.Button btnSetBudgetAS;
@@ -638,19 +673,16 @@
         private System.Windows.Forms.RadioButton rdbSweetPrisNon;
         private System.Windows.Forms.RadioButton rdbSweetPrisOui;
         private System.Windows.Forms.Label lblInformations;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dtgDebit;
         private System.Windows.Forms.Label lblDebit;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView dtgCredit;
         private System.Windows.Forms.Label lblCredit;
-        private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.DataGridView dtgFiltres;
         private System.Windows.Forms.Label lblResultats;
-        private System.Windows.Forms.Button btnDebitAjouter;
-        private System.Windows.Forms.Button btnDebitModifier;
-        private System.Windows.Forms.Button btnDebitSupprimer;
-        private System.Windows.Forms.Button btnCreditSupprimer;
-        private System.Windows.Forms.Button btnCreditModifier;
-        private System.Windows.Forms.Button btnCreditAjouter;
-        private System.Windows.Forms.DataGridView dataGridView4;
+        private System.Windows.Forms.Button btnFluxAjouter;
+        private System.Windows.Forms.Button btnFluxModifier;
+        private System.Windows.Forms.Button btnFluxSupprimer;
+        private System.Windows.Forms.DataGridView dtgFluxAdherant;
         private System.Windows.Forms.Label lblFluxAdherant;
         private System.Windows.Forms.Label lblAnnee;
         private System.Windows.Forms.GroupBox gbxInfoAdherant;
@@ -669,5 +701,9 @@
         private System.Windows.Forms.Label lblNomAdherant;
         private System.Windows.Forms.Button btnModifierBudgetEPS;
         private System.Windows.Forms.Button btnModifierBudgetAS;
+        private System.Windows.Forms.Button btnEnvoyerModifEPS;
+        private System.Windows.Forms.Button btnAnnulerModifEPS;
+        private System.Windows.Forms.Button btnEnvoyerModifAS;
+        private System.Windows.Forms.Button btnAnnulerModifAS;
     }
 }

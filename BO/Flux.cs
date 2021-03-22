@@ -16,8 +16,9 @@ namespace BO
         private Adherent adherent;
         private TypeFlux typeFlux;
         private Evenement evenement;
+        private Budget budget;
 
-        public Flux(int id, string libelle, DateTime date, float montant, string prelevementEff, Adherent adherent, TypeFlux typeFlux, Evenement evenement)
+        public Flux(int id, string libelle, DateTime date, float montant, string prelevementEff, Adherent adherent, TypeFlux typeFlux, Evenement evenement, Budget budget)
         {
             this.id = id;
             this.libelle = libelle;
@@ -27,6 +28,7 @@ namespace BO
             this.adherent = adherent;
             this.typeFlux = typeFlux;
             this.evenement = evenement;
+            this.budget = budget;
         }
 
         public int Id { get => id; set => id = value; }
@@ -37,5 +39,6 @@ namespace BO
         public Adherent Adherent { get => adherent; set => adherent = value; }
         public TypeFlux TypeFlux { get => typeFlux; set => typeFlux = value; }
         public Evenement Evenement { get => evenement; set => evenement = value; }
+        public Budget Budget { get => budget; set => budget = value; }
     }
 }

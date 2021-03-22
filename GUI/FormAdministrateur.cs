@@ -24,7 +24,6 @@ namespace GUI
 
         private void FormAdministrateur_Load(object sender, EventArgs e)
         {
-            // TODO: cette ligne de code charge les données dans la table 'PPE.ADHERENT'. Vous pouvez la déplacer ou la supprimer selon les besoins.
             this.dtgListeAdherants.DataSource = AdherentBLL.GetInfoBaseAdherents();
             if(this.dtgListeAdherants.Rows.Count > 0)
             {

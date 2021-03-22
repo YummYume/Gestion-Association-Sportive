@@ -21,14 +21,14 @@ namespace BLL
             return FluxBLL.unFluxBLL;
         }
 
-        public static List<Flux> GetFluxDebit(string year)
+        public static List<Flux> GetFluxDebit(string year, Adherent adherent = null, Budget budget = null)
         {
-            return FluxDAO.GetFlux(new TypeFlux(1, "Débit"), year);
+            return FluxDAO.GetFlux(new TypeFlux(1, "Débit"), year, adherent, budget);
         }
 
-        public static List<Flux> GetFluxCredit(string year)
+        public static List<Flux> GetFluxCredit(string year, Adherent adherent = null, Budget budget = null)
         {
-            return FluxDAO.GetFlux(new TypeFlux(2, "Crédit"), year);
+            return FluxDAO.GetFlux(new TypeFlux(2, "Crédit"), year, adherent, budget);
         }
 
         public static List<Flux> GetFluxYear(TypeFlux typeFlux, string year)
@@ -61,9 +61,14 @@ namespace BLL
             FluxDAO.ModifierFlux(unFlux);
         }
 
-        public static void SupprimerFlux(Flux unFlux)
+        public static void SupprimerFlux(FluxMin unFlux)
         {
             FluxDAO.SupprimerFlux(unFlux);
+        }
+
+        public static List<FluxMin> GetBaseFluxInfo(TypeFlux typeFlux, string year = null)
+        {
+            return FluxDAO.GetBaseFluxInfo(typeFlux, year);
         }
     }
 }
