@@ -67,7 +67,7 @@ namespace GUI
             // 
             // lblErreur
             // 
-            this.lblErreur.Location = new System.Drawing.Point(32, 347);
+            this.lblErreur.Location = new System.Drawing.Point(32, 308);
             this.lblErreur.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblErreur.Name = "lblErreur";
             this.lblErreur.Size = new System.Drawing.Size(237, 28);
@@ -101,7 +101,7 @@ namespace GUI
             this.dtpDate.Location = new System.Drawing.Point(75, 51);
             this.dtpDate.Margin = new System.Windows.Forms.Padding(2);
             this.dtpDate.Name = "dtpDate";
-            this.dtpDate.Size = new System.Drawing.Size(83, 20);
+            this.dtpDate.Size = new System.Drawing.Size(91, 20);
             this.dtpDate.TabIndex = 52;
             this.dtpDate.Value = new System.DateTime(2020, 12, 14, 0, 0, 0, 0);
             // 
@@ -127,7 +127,7 @@ namespace GUI
             // lblClasse
             // 
             this.lblClasse.AutoSize = true;
-            this.lblClasse.Location = new System.Drawing.Point(32, 238);
+            this.lblClasse.Location = new System.Drawing.Point(34, 276);
             this.lblClasse.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblClasse.Name = "lblClasse";
             this.lblClasse.Size = new System.Drawing.Size(47, 13);
@@ -137,7 +137,7 @@ namespace GUI
             // lsbBudget
             // 
             this.lsbBudget.FormattingEnabled = true;
-            this.lsbBudget.Location = new System.Drawing.Point(83, 232);
+            this.lsbBudget.Location = new System.Drawing.Point(85, 270);
             this.lsbBudget.Margin = new System.Windows.Forms.Padding(2);
             this.lsbBudget.Name = "lsbBudget";
             this.lsbBudget.Size = new System.Drawing.Size(88, 30);
@@ -145,7 +145,7 @@ namespace GUI
             // 
             // btnValider
             // 
-            this.btnValider.Location = new System.Drawing.Point(32, 280);
+            this.btnValider.Location = new System.Drawing.Point(32, 343);
             this.btnValider.Margin = new System.Windows.Forms.Padding(2);
             this.btnValider.Name = "btnValider";
             this.btnValider.Size = new System.Drawing.Size(237, 56);
@@ -157,7 +157,7 @@ namespace GUI
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(32, 197);
+            this.label1.Location = new System.Drawing.Point(32, 218);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(56, 13);
@@ -170,7 +170,7 @@ namespace GUI
             this.lsbAdherant.Location = new System.Drawing.Point(92, 190);
             this.lsbAdherant.Margin = new System.Windows.Forms.Padding(2);
             this.lsbAdherant.Name = "lsbAdherant";
-            this.lsbAdherant.Size = new System.Drawing.Size(88, 30);
+            this.lsbAdherant.Size = new System.Drawing.Size(134, 69);
             this.lsbAdherant.TabIndex = 73;
             // 
             // label2
@@ -189,14 +189,14 @@ namespace GUI
             this.lsbEvenement.Location = new System.Drawing.Point(105, 149);
             this.lsbEvenement.Margin = new System.Windows.Forms.Padding(2);
             this.lsbEvenement.Name = "lsbEvenement";
-            this.lsbEvenement.Size = new System.Drawing.Size(88, 30);
+            this.lsbEvenement.Size = new System.Drawing.Size(121, 30);
             this.lsbEvenement.TabIndex = 75;
             // 
             // FormAjoutFlux
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(302, 354);
+            this.ClientSize = new System.Drawing.Size(302, 410);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lsbEvenement);
             this.Controls.Add(this.label1);
@@ -212,8 +212,12 @@ namespace GUI
             this.Controls.Add(this.lblClasse);
             this.Controls.Add(this.lsbBudget);
             this.Controls.Add(this.btnValider);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MaximizeBox = false;
             this.Name = "FormAjoutFlux";
-            this.Text = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Ajouter Flux";
+            this.Load += new System.EventHandler(this.FormAjoutFlux_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -11,6 +11,7 @@ namespace BO
         private int id;
         private string nom;
         private string prenom;
+        private string nomComplet;
         private DateTime dateDeNaissance;
         private string sexe;
         private string login;
@@ -23,11 +24,17 @@ namespace BO
         private Utilisateur utilisateur;
         private Classe classe;
 
+        public Adherent(int id)
+        {
+            this.Id = id;
+        }
+
         public Adherent(int id, string nom, string prenom, DateTime dateDeNaissance, string sexe, string login, string motDePasse, string numTel, string email, string numTelParent, DateTime dateMAJ, bool archive, Utilisateur utilisateur, Classe classe)
         {
             this.Id = id;
             this.Nom = nom;
             this.Prenom = prenom;
+            this.nomComplet = nom + " " + prenom;
             this.DateDeNaissance = dateDeNaissance;
             this.Sexe = sexe;
             this.Login = login;
@@ -47,6 +54,7 @@ namespace BO
             this.Id = id;
             this.Nom = nom;
             this.Prenom = prenom;
+            this.nomComplet = nom + " " + prenom;
             this.DateDeNaissance = dateDeNaissance;
             this.Sexe = sexe;
             this.Login = login;
@@ -62,6 +70,7 @@ namespace BO
         {
             this.Nom = nom;
             this.Prenom = prenom;
+            this.nomComplet = nom + " " + prenom;
             this.DateDeNaissance = dateDeNaissance;
             this.Sexe = sexe;
             this.Login = login;
@@ -87,6 +96,7 @@ namespace BO
         public bool Archive { get => archive; set => archive = value; }
         public Utilisateur Utilisateur { get => utilisateur; set => utilisateur = value; }
         public Classe Classe { get => classe; set => classe = value; }
+        public string NomComplet { get => nomComplet; set => nomComplet = value; }
 
         public Adherent Clone()
         {

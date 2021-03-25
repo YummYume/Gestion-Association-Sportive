@@ -11,6 +11,11 @@ namespace BO
         private int id;
         private string libelle;
 
+        public Classe(int id)
+        {
+            this.Id = id;
+        }
+
         public Classe(int id, string libelle)
         {
             this.Id = id;

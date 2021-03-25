@@ -79,7 +79,7 @@ namespace DAL
 
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = maConnexion;
-            cmd.CommandText = "SELECT Libelle_flux AS libelleFLux, Date_flux AS dateFlux, Montant_flux as montantFlux, Libelle_budget as libelleBudget FROM dbo.FLUX LEFT JOIN dbo.BUDGET ON FLUX.#ID_budget = BUDGET.ID_budget WHERE #ID_typeflux = @FLUX ";
+            cmd.CommandText = "SELECT ID_flux as idFlux, Libelle_flux AS libelleFLux, Date_flux AS dateFlux, Montant_flux as montantFlux, Libelle_budget as libelleBudget FROM dbo.FLUX LEFT JOIN dbo.BUDGET ON FLUX.#ID_budget = BUDGET.ID_budget WHERE #ID_typeflux = @FLUX ";
             SqlParameter fluxParam = new SqlParameter();
             fluxParam.ParameterName = "@FLUX";
             fluxParam.Value = typeFlux.Id;
@@ -99,7 +99,7 @@ namespace DAL
             {
                 while (monReader.Read())
                 {
-                    FluxMin flux = new FluxMin((string)monReader["libelleFlux"], (DateTime)monReader["dateFlux"], (monReader["montantFlux"].ToString()), (string)monReader["libelleBudget"]);
+                    FluxMin flux = new FluxMin((int)monReader["idFlux"], (string)monReader["libelleFlux"], (DateTime)monReader["dateFlux"], (monReader["montantFlux"].ToString()), (string)monReader["libelleBudget"]);
 
                     lesFlux.Add(flux);
                 }
@@ -191,15 +191,12 @@ namespace DAL
 
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = maConnexion;
-            cmd.CommandText = "DELETE FROM dbo.FLUX WHERE Libelle_flux = @LIBELLE AND Date_flux = @DATE";
+            cmd.CommandText = "DELETE FROM dbo.FLUX WHERE ID_flux = @ID";
 
             // Création et bind des paramètres
-            SqlParameter nom = new SqlParameter("@LIBELLE", SqlDbType.Int);
-            SqlParameter date = new SqlParameter("@DATE", SqlDbType.DateTime);
-            nom.Value = unFlux.Libelle;
-            date.Value = unFlux.Date;
-            cmd.Parameters.Add(nom);
-            cmd.Parameters.Add(date);
+            SqlParameter id = new SqlParameter("@ID", SqlDbType.Int);
+            id.Value = unFlux.Id;
+            cmd.Parameters.Add(id);
 
             // Execution de la requête
             cmd.ExecuteNonQuery();

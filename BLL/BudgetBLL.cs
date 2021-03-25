@@ -21,14 +21,19 @@ namespace BLL
             return BudgetBLL.unBudgetBLL;
         }
 
+        public static List<Budget> GetBudget(string year)
+        {
+            return BudgetDAO.GetBudget(year);
+        }
+
         public static Budget GetBudgetAS(string year)
         {
-            return BudgetDAO.getBudgetAS(year);
+            return BudgetDAO.GetBudgetAS(year);
         }
 
         public static Budget GetBudgetEPS(string year)
         {
-            return BudgetDAO.getBudgetEPS(year);
+            return BudgetDAO.GetBudgetEPS(year);
         }
 
         public static Budget GetBudgetTotal(string year, Budget budget)

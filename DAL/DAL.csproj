@@ -45,6 +45,7 @@
     <Compile Include="AdherentDAO.cs" />
     <Compile Include="BudgetDAO.cs" />
     <Compile Include="ClasseDAO.cs" />
+    <Compile Include="EvenementDAO.cs" />
     <Compile Include="FluxDAO.cs" />
     <Compile Include="UtilisateurDAO.cs" />
     <Compile Include="ConnexionBD.cs" />

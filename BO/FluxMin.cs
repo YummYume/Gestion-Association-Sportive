@@ -14,13 +14,18 @@ namespace BO
         private string montant;
         private string budget;
 
-        public FluxMin(string libelle, DateTime date, string montant, string budget, int id)
+        public FluxMin(int id)
         {
+            this.Id = id;
+        }
+
+        public FluxMin(int id, string libelle, DateTime date, string montant, string budget)
+        {
+            this.id = id;
             this.libelle = libelle;
             this.date = date;
             this.montant = montant + "€";
             this.budget = budget;
-            this.id = id;
         }
 
         public string Libelle { get => libelle; set => libelle = value; }

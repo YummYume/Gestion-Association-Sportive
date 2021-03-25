@@ -18,6 +18,11 @@ namespace BO
         private Evenement evenement;
         private Budget budget;
 
+        public Flux(int id)
+        {
+            this.Id = id;
+        }
+
         public Flux(int id, string libelle, DateTime date, float montant, string prelevementEff, Adherent adherent, TypeFlux typeFlux, Evenement evenement, Budget budget)
         {
             this.id = id;

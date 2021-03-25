@@ -35,8 +35,8 @@
             this.lblTitreCompta = new System.Windows.Forms.Label();
             this.btnSetBudgetEPS = new System.Windows.Forms.Button();
             this.btnSetBudgetAS = new System.Windows.Forms.Button();
-            this.lblBudgetEPS = new System.Windows.Forms.Label();
-            this.lblBudgetAS = new System.Windows.Forms.Label();
+            this.lblBudgetEPSInitial = new System.Windows.Forms.Label();
+            this.lblBudgetASInitial = new System.Windows.Forms.Label();
             this.lblFiltreAdherant = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.lblFiltreClasse = new System.Windows.Forms.Label();
@@ -80,6 +80,10 @@
             this.btnAnnulerModifEPS = new System.Windows.Forms.Button();
             this.btnEnvoyerModifAS = new System.Windows.Forms.Button();
             this.btnAnnulerModifAS = new System.Windows.Forms.Button();
+            this.lblSetBudgetEPSInitial = new System.Windows.Forms.Label();
+            this.lblSetBudgetASInitial = new System.Windows.Forms.Label();
+            this.lblBudgetAS = new System.Windows.Forms.Label();
+            this.lblBudgetEPS = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dtgDebit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgCredit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgFiltres)).BeginInit();
@@ -107,18 +111,18 @@
             // 
             // txbBudgetEPS
             // 
-            this.txbBudgetEPS.Location = new System.Drawing.Point(91, 93);
+            this.txbBudgetEPS.Location = new System.Drawing.Point(250, 93);
             this.txbBudgetEPS.Name = "txbBudgetEPS";
-            this.txbBudgetEPS.Size = new System.Drawing.Size(100, 20);
+            this.txbBudgetEPS.Size = new System.Drawing.Size(71, 20);
             this.txbBudgetEPS.TabIndex = 2;
             this.txbBudgetEPS.Visible = false;
             this.txbBudgetEPS.TextChanged += new System.EventHandler(this.txbBudgetEPS_TextChanged);
             // 
             // txbBudgetAS
             // 
-            this.txbBudgetAS.Location = new System.Drawing.Point(91, 119);
+            this.txbBudgetAS.Location = new System.Drawing.Point(250, 119);
             this.txbBudgetAS.Name = "txbBudgetAS";
-            this.txbBudgetAS.Size = new System.Drawing.Size(100, 20);
+            this.txbBudgetAS.Size = new System.Drawing.Size(71, 20);
             this.txbBudgetAS.TabIndex = 3;
             this.txbBudgetAS.Visible = false;
             this.txbBudgetAS.TextChanged += new System.EventHandler(this.txbBudgetAS_TextChanged);
@@ -128,14 +132,14 @@
             this.lblTitreCompta.Font = new System.Drawing.Font("Microsoft YaHei", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitreCompta.Location = new System.Drawing.Point(12, 9);
             this.lblTitreCompta.Name = "lblTitreCompta";
-            this.lblTitreCompta.Size = new System.Drawing.Size(1043, 64);
+            this.lblTitreCompta.Size = new System.Drawing.Size(1104, 64);
             this.lblTitreCompta.TabIndex = 4;
             this.lblTitreCompta.Text = "Comptabilité";
             this.lblTitreCompta.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnSetBudgetEPS
             // 
-            this.btnSetBudgetEPS.Location = new System.Drawing.Point(197, 93);
+            this.btnSetBudgetEPS.Location = new System.Drawing.Point(324, 93);
             this.btnSetBudgetEPS.Name = "btnSetBudgetEPS";
             this.btnSetBudgetEPS.Size = new System.Drawing.Size(75, 20);
             this.btnSetBudgetEPS.TabIndex = 6;
@@ -145,7 +149,7 @@
             // 
             // btnSetBudgetAS
             // 
-            this.btnSetBudgetAS.Location = new System.Drawing.Point(197, 119);
+            this.btnSetBudgetAS.Location = new System.Drawing.Point(324, 119);
             this.btnSetBudgetAS.Name = "btnSetBudgetAS";
             this.btnSetBudgetAS.Size = new System.Drawing.Size(75, 20);
             this.btnSetBudgetAS.TabIndex = 7;
@@ -154,23 +158,23 @@
             this.btnSetBudgetAS.Visible = false;
             this.btnSetBudgetAS.Click += new System.EventHandler(this.btnSetBudgetAS_Click);
             // 
-            // lblBudgetEPS
+            // lblBudgetEPSInitial
             // 
-            this.lblBudgetEPS.AutoSize = true;
-            this.lblBudgetEPS.Location = new System.Drawing.Point(91, 97);
-            this.lblBudgetEPS.Name = "lblBudgetEPS";
-            this.lblBudgetEPS.Size = new System.Drawing.Size(13, 13);
-            this.lblBudgetEPS.TabIndex = 8;
-            this.lblBudgetEPS.Text = "0";
+            this.lblBudgetEPSInitial.AutoSize = true;
+            this.lblBudgetEPSInitial.Location = new System.Drawing.Point(250, 97);
+            this.lblBudgetEPSInitial.Name = "lblBudgetEPSInitial";
+            this.lblBudgetEPSInitial.Size = new System.Drawing.Size(13, 13);
+            this.lblBudgetEPSInitial.TabIndex = 8;
+            this.lblBudgetEPSInitial.Text = "0";
             // 
-            // lblBudgetAS
+            // lblBudgetASInitial
             // 
-            this.lblBudgetAS.AutoSize = true;
-            this.lblBudgetAS.Location = new System.Drawing.Point(91, 123);
-            this.lblBudgetAS.Name = "lblBudgetAS";
-            this.lblBudgetAS.Size = new System.Drawing.Size(13, 13);
-            this.lblBudgetAS.TabIndex = 9;
-            this.lblBudgetAS.Text = "0";
+            this.lblBudgetASInitial.AutoSize = true;
+            this.lblBudgetASInitial.Location = new System.Drawing.Point(250, 123);
+            this.lblBudgetASInitial.Name = "lblBudgetASInitial";
+            this.lblBudgetASInitial.Size = new System.Drawing.Size(13, 13);
+            this.lblBudgetASInitial.TabIndex = 9;
+            this.lblBudgetASInitial.Text = "0";
             // 
             // lblFiltreAdherant
             // 
@@ -284,7 +288,8 @@
             this.dtgDebit.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgDebit.Location = new System.Drawing.Point(656, 142);
             this.dtgDebit.Name = "dtgDebit";
-            this.dtgDebit.Size = new System.Drawing.Size(399, 200);
+            this.dtgDebit.ReadOnly = true;
+            this.dtgDebit.Size = new System.Drawing.Size(440, 200);
             this.dtgDebit.TabIndex = 21;
             this.dtgDebit.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgDebit_CellEnter);
             // 
@@ -303,7 +308,8 @@
             this.dtgCredit.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgCredit.Location = new System.Drawing.Point(656, 388);
             this.dtgCredit.Name = "dtgCredit";
-            this.dtgCredit.Size = new System.Drawing.Size(399, 200);
+            this.dtgCredit.ReadOnly = true;
+            this.dtgCredit.Size = new System.Drawing.Size(440, 200);
             this.dtgCredit.TabIndex = 23;
             this.dtgCredit.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgCredit_CellEnter);
             // 
@@ -337,13 +343,13 @@
             // 
             // btnFluxAjouter
             // 
-            this.btnFluxAjouter.Enabled = false;
             this.btnFluxAjouter.Location = new System.Drawing.Point(540, 142);
             this.btnFluxAjouter.Name = "btnFluxAjouter";
             this.btnFluxAjouter.Size = new System.Drawing.Size(110, 20);
             this.btnFluxAjouter.TabIndex = 27;
             this.btnFluxAjouter.Text = "Ajouter un flux";
             this.btnFluxAjouter.UseVisualStyleBackColor = true;
+            this.btnFluxAjouter.Click += new System.EventHandler(this.btnFluxAjouter_Click);
             // 
             // btnFluxModifier
             // 
@@ -529,7 +535,7 @@
             // 
             // btnModifierBudgetEPS
             // 
-            this.btnModifierBudgetEPS.Location = new System.Drawing.Point(198, 93);
+            this.btnModifierBudgetEPS.Location = new System.Drawing.Point(325, 93);
             this.btnModifierBudgetEPS.Name = "btnModifierBudgetEPS";
             this.btnModifierBudgetEPS.Size = new System.Drawing.Size(75, 20);
             this.btnModifierBudgetEPS.TabIndex = 37;
@@ -540,7 +546,7 @@
             // 
             // btnModifierBudgetAS
             // 
-            this.btnModifierBudgetAS.Location = new System.Drawing.Point(198, 118);
+            this.btnModifierBudgetAS.Location = new System.Drawing.Point(325, 118);
             this.btnModifierBudgetAS.Name = "btnModifierBudgetAS";
             this.btnModifierBudgetAS.Size = new System.Drawing.Size(75, 20);
             this.btnModifierBudgetAS.TabIndex = 38;
@@ -551,7 +557,7 @@
             // 
             // btnEnvoyerModifEPS
             // 
-            this.btnEnvoyerModifEPS.Location = new System.Drawing.Point(198, 93);
+            this.btnEnvoyerModifEPS.Location = new System.Drawing.Point(325, 93);
             this.btnEnvoyerModifEPS.Name = "btnEnvoyerModifEPS";
             this.btnEnvoyerModifEPS.Size = new System.Drawing.Size(75, 20);
             this.btnEnvoyerModifEPS.TabIndex = 39;
@@ -562,7 +568,7 @@
             // 
             // btnAnnulerModifEPS
             // 
-            this.btnAnnulerModifEPS.Location = new System.Drawing.Point(278, 93);
+            this.btnAnnulerModifEPS.Location = new System.Drawing.Point(405, 93);
             this.btnAnnulerModifEPS.Name = "btnAnnulerModifEPS";
             this.btnAnnulerModifEPS.Size = new System.Drawing.Size(75, 20);
             this.btnAnnulerModifEPS.TabIndex = 40;
@@ -573,7 +579,7 @@
             // 
             // btnEnvoyerModifAS
             // 
-            this.btnEnvoyerModifAS.Location = new System.Drawing.Point(198, 118);
+            this.btnEnvoyerModifAS.Location = new System.Drawing.Point(325, 118);
             this.btnEnvoyerModifAS.Name = "btnEnvoyerModifAS";
             this.btnEnvoyerModifAS.Size = new System.Drawing.Size(75, 20);
             this.btnEnvoyerModifAS.TabIndex = 41;
@@ -584,7 +590,7 @@
             // 
             // btnAnnulerModifAS
             // 
-            this.btnAnnulerModifAS.Location = new System.Drawing.Point(278, 118);
+            this.btnAnnulerModifAS.Location = new System.Drawing.Point(405, 118);
             this.btnAnnulerModifAS.Name = "btnAnnulerModifAS";
             this.btnAnnulerModifAS.Size = new System.Drawing.Size(75, 20);
             this.btnAnnulerModifAS.TabIndex = 42;
@@ -593,11 +599,51 @@
             this.btnAnnulerModifAS.Visible = false;
             this.btnAnnulerModifAS.Click += new System.EventHandler(this.btnAnnulerModifAS_Click);
             // 
+            // lblSetBudgetEPSInitial
+            // 
+            this.lblSetBudgetEPSInitial.AutoSize = true;
+            this.lblSetBudgetEPSInitial.Location = new System.Drawing.Point(147, 98);
+            this.lblSetBudgetEPSInitial.Name = "lblSetBudgetEPSInitial";
+            this.lblSetBudgetEPSInitial.Size = new System.Drawing.Size(97, 13);
+            this.lblSetBudgetEPSInitial.TabIndex = 44;
+            this.lblSetBudgetEPSInitial.Text = "Budget EPS initial :";
+            // 
+            // lblSetBudgetASInitial
+            // 
+            this.lblSetBudgetASInitial.AutoSize = true;
+            this.lblSetBudgetASInitial.Location = new System.Drawing.Point(147, 123);
+            this.lblSetBudgetASInitial.Name = "lblSetBudgetASInitial";
+            this.lblSetBudgetASInitial.Size = new System.Drawing.Size(90, 13);
+            this.lblSetBudgetASInitial.TabIndex = 43;
+            this.lblSetBudgetASInitial.Text = "Budget AS initial :";
+            // 
+            // lblBudgetAS
+            // 
+            this.lblBudgetAS.AutoSize = true;
+            this.lblBudgetAS.Location = new System.Drawing.Point(88, 123);
+            this.lblBudgetAS.Name = "lblBudgetAS";
+            this.lblBudgetAS.Size = new System.Drawing.Size(13, 13);
+            this.lblBudgetAS.TabIndex = 46;
+            this.lblBudgetAS.Text = "0";
+            // 
+            // lblBudgetEPS
+            // 
+            this.lblBudgetEPS.AutoSize = true;
+            this.lblBudgetEPS.Location = new System.Drawing.Point(88, 99);
+            this.lblBudgetEPS.Name = "lblBudgetEPS";
+            this.lblBudgetEPS.Size = new System.Drawing.Size(13, 13);
+            this.lblBudgetEPS.TabIndex = 45;
+            this.lblBudgetEPS.Text = "0";
+            // 
             // FormComptabilite
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 600);
+            this.ClientSize = new System.Drawing.Size(1112, 600);
+            this.Controls.Add(this.lblBudgetAS);
+            this.Controls.Add(this.lblBudgetEPS);
+            this.Controls.Add(this.lblSetBudgetEPSInitial);
+            this.Controls.Add(this.lblSetBudgetASInitial);
             this.Controls.Add(this.btnAnnulerModifAS);
             this.Controls.Add(this.btnEnvoyerModifAS);
             this.Controls.Add(this.btnAnnulerModifEPS);
@@ -628,8 +674,8 @@
             this.Controls.Add(this.lblFiltreClasse);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.lblFiltreAdherant);
-            this.Controls.Add(this.lblBudgetAS);
-            this.Controls.Add(this.lblBudgetEPS);
+            this.Controls.Add(this.lblBudgetASInitial);
+            this.Controls.Add(this.lblBudgetEPSInitial);
             this.Controls.Add(this.btnSetBudgetAS);
             this.Controls.Add(this.btnSetBudgetEPS);
             this.Controls.Add(this.lblTitreCompta);
@@ -637,8 +683,10 @@
             this.Controls.Add(this.txbBudgetEPS);
             this.Controls.Add(this.lblSetBudgetEPS);
             this.Controls.Add(this.lblSetBudgetAS);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "FormComptabilite";
-            this.Text = "FormComptabilite";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Comptabilité";
             this.Load += new System.EventHandler(this.FormComptabilite_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgDebit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgCredit)).EndInit();
@@ -660,8 +708,8 @@
         private System.Windows.Forms.Label lblTitreCompta;
         private System.Windows.Forms.Button btnSetBudgetEPS;
         private System.Windows.Forms.Button btnSetBudgetAS;
-        private System.Windows.Forms.Label lblBudgetEPS;
-        private System.Windows.Forms.Label lblBudgetAS;
+        private System.Windows.Forms.Label lblBudgetEPSInitial;
+        private System.Windows.Forms.Label lblBudgetASInitial;
         private System.Windows.Forms.Label lblFiltreAdherant;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label lblFiltreClasse;
@@ -705,5 +753,9 @@
         private System.Windows.Forms.Button btnAnnulerModifEPS;
         private System.Windows.Forms.Button btnEnvoyerModifAS;
         private System.Windows.Forms.Button btnAnnulerModifAS;
+        private System.Windows.Forms.Label lblSetBudgetEPSInitial;
+        private System.Windows.Forms.Label lblSetBudgetASInitial;
+        private System.Windows.Forms.Label lblBudgetAS;
+        private System.Windows.Forms.Label lblBudgetEPS;
     }
 }

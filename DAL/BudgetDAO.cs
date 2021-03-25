@@ -11,7 +11,36 @@ namespace DAL
 {
     public class BudgetDAO
     {
-        public static Budget getBudgetAS(string year)
+        public static List<Budget> GetBudget(string year)
+        {
+            // Connexion à la BD
+            SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
+
+            List<Budget> listeBudget = new List<Budget>();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = maConnexion;
+            cmd.CommandText = "SELECT ID_budget as id, Libelle_budget AS libelle, Montantinitial_budget AS montantInitial, DateCreation_budget AS dateCreation FROM BUDGET WHERE DATEPART(yy, DateCreation_budget) = @YEAR";
+            SqlParameter param = new SqlParameter();
+            param.ParameterName = "@YEAR";
+            param.Value = year;
+            cmd.Parameters.Add(param);
+            SqlDataReader monReader = cmd.ExecuteReader();
+
+            if (monReader.HasRows)
+            {
+                while (monReader.Read())
+                {
+                    Budget budget = new Budget((int)monReader["id"], (string)monReader["libelle"], float.Parse(monReader["montantInitial"].ToString()), (DateTime)monReader["dateCreation"]);
+
+                    listeBudget.Add(budget);
+                }
+            }
+
+            monReader.Close();
+            return listeBudget;
+        }
+
+        public static Budget GetBudgetAS(string year)
         {
             // Connexion à la BD
             SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
@@ -41,7 +70,7 @@ namespace DAL
             return budgetAS;
         }
 
-        public static Budget getBudgetEPS(string year)
+        public static Budget GetBudgetEPS(string year)
         {
             // Connexion à la BD
             SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();

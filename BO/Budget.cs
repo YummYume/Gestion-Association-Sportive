@@ -13,6 +13,11 @@ namespace BO
         private float montantInitial;
         private DateTime dateCreation;
 
+        public Budget(int id)
+        {
+            this.Id = id;
+        }
+
         public Budget(int id, string libelle, float montantInitial, DateTime dateCreation)
         {
             this.id = id;

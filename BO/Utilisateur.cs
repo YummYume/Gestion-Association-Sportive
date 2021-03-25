@@ -13,6 +13,11 @@ namespace BO
         private string mdp;
         private string droit;
 
+        public Utilisateur(int id)
+        {
+            this.Id = id;
+        }
+
         public Utilisateur(int id, string login, string mdp, string droit)
         {
             this.Id = id;

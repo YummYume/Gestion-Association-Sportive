@@ -163,16 +163,7 @@ namespace GUI
 
             if (erreur == false)
             {
-                int idClasse = 1;
-                foreach (Classe laClasse in ClasseBLL.GetClasses())
-                {
-                    if (laClasse.Libelle == lsbClasse.GetItemText(lsbClasse.SelectedItem))
-                    {
-                        idClasse = laClasse.Id;
-                    }
-                }
-                Classe uneClasse = new Classe(idClasse, lsbClasse.GetItemText(lsbClasse.SelectedItem));
-                Adherent unAdherent = new Adherent(tbxNom.Text.Trim(), tbxPrenom.Text.Trim(), dtpDn.Value, lsbSexe.GetItemText(lsbSexe.SelectedItem), tbxLogin.Text, tbxMdp.Text, tbxNumTel.Text, tbxEmail.Text, tbxNumTelParent.Text, leUtilisateur, uneClasse);
+                Adherent unAdherent = new Adherent(tbxNom.Text.Trim(), tbxPrenom.Text.Trim(), dtpDn.Value, lsbSexe.GetItemText(lsbSexe.SelectedItem), tbxLogin.Text, tbxMdp.Text, tbxNumTel.Text, tbxEmail.Text, tbxNumTelParent.Text, leUtilisateur, new Classe(Int32.Parse(lsbClasse.SelectedValue.ToString())));
 
                 try
                 {
@@ -215,14 +206,13 @@ namespace GUI
         {
             try
             {
-                foreach (Classe uneClasse in ClasseBLL.GetClasses())
-                {
-                    this.lsbClasse.Items.Add(uneClasse.Libelle);
-                }
+                this.lsbClasse.ValueMember = "id";
+                this.lsbClasse.DisplayMember = "libelle";
+                this.lsbClasse.DataSource = ClasseBLL.GetClasses();
             }
             catch (Exception)
             {
-                //Fix pour le designer je ne comprend pas pourquoi il fait la gueule
+                
             }
         }
 

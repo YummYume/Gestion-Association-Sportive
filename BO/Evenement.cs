@@ -14,6 +14,11 @@ namespace BO
         private string lieu;
         private float cout;
 
+        public Evenement(int id)
+        {
+            this.Id = id;
+        }
+
         public Evenement(int id, string libelle, DateTime date, string lieu, float cout)
         {
             this.id = id;

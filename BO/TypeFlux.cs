@@ -11,6 +11,11 @@ namespace BO
         private int id;
         private string libelle;
 
+        public TypeFlux(int id)
+        {
+            this.Id = id;
+        }
+
         public TypeFlux(int id, string libelle)
         {
             this.id = id;
