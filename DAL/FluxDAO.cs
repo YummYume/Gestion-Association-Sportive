@@ -56,11 +56,17 @@ namespace DAL
             {
                 while (monReader.Read())
                 {
+                    bool prelevementFlux = false;
+                    if (monReader["prelevementFlux"].ToString() == "1")
+                    {
+                        prelevementFlux = true;
+                    }
+
                     Classe classe = new Classe((int)monReader["idClasse"], (string)monReader["libelleClasse"]);
                     adherent = new Adherent((int)monReader["idAdherent"], (string)monReader["nomAdherent"], (string)monReader["prenomAdherent"], (DateTime)monReader["dateDeNaissanceAdherent"], (string)monReader["sexeAdherent"], (string)monReader["loginAdherent"], "null", (string)monReader["numTelAdherent"], (string)monReader["emailAdherent"], (string)monReader["numParentAdherent"], classe);
-                    Evenement evenement = new Evenement((int)monReader["idEvenement"], (string)monReader["libelleEvenement"], (DateTime)monReader["dateEvenement"], (string)monReader["lieuEvenement"], float.Parse(monReader["coutEvenement"].ToString()));
+                    Evenement evenement = new Evenement((int)monReader["idEvenement"], (string)monReader["libelleEvenement"], (DateTime)monReader["dateEvenement"], (string)monReader["lieuEvenement"]);
                     budget = new Budget((int)monReader["idBudget"], (string)monReader["libelleBudget"], float.Parse(monReader["montantBudget"].ToString()), (DateTime)monReader["dateBudget"]);
-                    Flux flux = new Flux((int)monReader["idFlux"], (string)monReader["libelleFlux"], (DateTime)monReader["dateFlux"], float.Parse(monReader["montantFlux"].ToString()), (string)monReader["prelevementFlux"], adherent, typeFlux, evenement, budget);
+                    Flux flux = new Flux((int)monReader["idFlux"], (string)monReader["libelleFlux"], (DateTime)monReader["dateFlux"], float.Parse(monReader["montantFlux"].ToString()), prelevementFlux, adherent, typeFlux, evenement, budget);
 
                     lesFlux.Add(flux);
                 }
@@ -114,9 +120,15 @@ namespace DAL
             // Connexion à la BD
             SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
 
+            int prelevementEffFlux = 0;
+            if (unFlux.PrelevementEff == true)
+            {
+                prelevementEffFlux = 1;
+            }
+
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = maConnexion;
-            cmd.CommandText = "INSERT INTO dbo.FLUX (Libelle_flux, Date_flux, Montant_flux, Prelevementeff_flux, #ID_adherent, #ID_typeflux, #ID_evenement) VALUES (@libelle, @date, @montant, @prelevementEff, @idAdherent, @idTypeFlux, @idEvenement)";
+            cmd.CommandText = "INSERT INTO dbo.FLUX (Libelle_flux, Date_flux, Montant_flux, Prelevementeff_flux, #ID_adherent, #ID_typeflux, #ID_evenement, #ID_budget) VALUES (@libelle, @date, @montant, @prelevementEff, @idAdherent, @idTypeFlux, @idEvenement, @idBudget)";
 
             // Création et bind des paramètres
             SqlParameter libelle = new SqlParameter("@libelle", SqlDbType.VarChar, 255);
@@ -126,13 +138,15 @@ namespace DAL
             SqlParameter idAdherent = new SqlParameter("@idAdherent", SqlDbType.Int);
             SqlParameter idTypeFlux = new SqlParameter("@idTypeFlux", SqlDbType.Int);
             SqlParameter idEvenement = new SqlParameter("@idEvenement", SqlDbType.Int);
+            SqlParameter idBudget = new SqlParameter("@idBudget", SqlDbType.Int);
             libelle.Value = unFlux.Libelle;
             date.Value = unFlux.Date;
             montant.Value = unFlux.Montant;
-            prelevementEff.Value = unFlux.PrelevementEff;
+            prelevementEff.Value = prelevementEffFlux;
             idAdherent.Value = unFlux.Adherent.Id;
             idTypeFlux.Value = unFlux.TypeFlux.Id;
             idEvenement.Value = unFlux.Evenement.Id;
+            idBudget.Value = unFlux.Budget.Id;
             cmd.Parameters.Add(libelle);
             cmd.Parameters.Add(date);
             cmd.Parameters.Add(montant);
@@ -140,6 +154,7 @@ namespace DAL
             cmd.Parameters.Add(idAdherent);
             cmd.Parameters.Add(idTypeFlux);
             cmd.Parameters.Add(idEvenement);
+            cmd.Parameters.Add(idBudget);
 
             // Execution de la requête
             cmd.ExecuteNonQuery();

@@ -44,12 +44,14 @@ namespace GUI
             this.lsbAdherant = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
             this.lsbEvenement = new System.Windows.Forms.ListBox();
+            this.lblEuro = new System.Windows.Forms.Label();
+            this.lblCommentAjouterDebit = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // cbxPrelevementEFF
             // 
             this.cbxPrelevementEFF.AutoSize = true;
-            this.cbxPrelevementEFF.Location = new System.Drawing.Point(35, 120);
+            this.cbxPrelevementEFF.Location = new System.Drawing.Point(35, 138);
             this.cbxPrelevementEFF.Name = "cbxPrelevementEFF";
             this.cbxPrelevementEFF.Size = new System.Drawing.Size(149, 17);
             this.cbxPrelevementEFF.TabIndex = 58;
@@ -62,15 +64,15 @@ namespace GUI
             this.tbxNom.Margin = new System.Windows.Forms.Padding(2);
             this.tbxNom.MaxLength = 50;
             this.tbxNom.Name = "tbxNom";
-            this.tbxNom.Size = new System.Drawing.Size(95, 20);
+            this.tbxNom.Size = new System.Drawing.Size(153, 20);
             this.tbxNom.TabIndex = 50;
             // 
             // lblErreur
             // 
-            this.lblErreur.Location = new System.Drawing.Point(32, 308);
+            this.lblErreur.Location = new System.Drawing.Point(34, 325);
             this.lblErreur.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblErreur.Name = "lblErreur";
-            this.lblErreur.Size = new System.Drawing.Size(237, 28);
+            this.lblErreur.Size = new System.Drawing.Size(237, 34);
             this.lblErreur.TabIndex = 72;
             this.lblErreur.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -101,7 +103,7 @@ namespace GUI
             this.dtpDate.Location = new System.Drawing.Point(75, 51);
             this.dtpDate.Margin = new System.Windows.Forms.Padding(2);
             this.dtpDate.Name = "dtpDate";
-            this.dtpDate.Size = new System.Drawing.Size(91, 20);
+            this.dtpDate.Size = new System.Drawing.Size(149, 20);
             this.dtpDate.TabIndex = 52;
             this.dtpDate.Value = new System.DateTime(2020, 12, 14, 0, 0, 0, 0);
             // 
@@ -121,13 +123,13 @@ namespace GUI
             this.tbxMontant.Margin = new System.Windows.Forms.Padding(2);
             this.tbxMontant.MaxLength = 50;
             this.tbxMontant.Name = "tbxMontant";
-            this.tbxMontant.Size = new System.Drawing.Size(106, 20);
+            this.tbxMontant.Size = new System.Drawing.Size(139, 20);
             this.tbxMontant.TabIndex = 54;
             // 
             // lblClasse
             // 
             this.lblClasse.AutoSize = true;
-            this.lblClasse.Location = new System.Drawing.Point(34, 276);
+            this.lblClasse.Location = new System.Drawing.Point(34, 294);
             this.lblClasse.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblClasse.Name = "lblClasse";
             this.lblClasse.Size = new System.Drawing.Size(47, 13);
@@ -137,15 +139,15 @@ namespace GUI
             // lsbBudget
             // 
             this.lsbBudget.FormattingEnabled = true;
-            this.lsbBudget.Location = new System.Drawing.Point(85, 270);
+            this.lsbBudget.Location = new System.Drawing.Point(85, 288);
             this.lsbBudget.Margin = new System.Windows.Forms.Padding(2);
             this.lsbBudget.Name = "lsbBudget";
-            this.lsbBudget.Size = new System.Drawing.Size(88, 30);
+            this.lsbBudget.Size = new System.Drawing.Size(141, 30);
             this.lsbBudget.TabIndex = 60;
             // 
             // btnValider
             // 
-            this.btnValider.Location = new System.Drawing.Point(32, 343);
+            this.btnValider.Location = new System.Drawing.Point(35, 361);
             this.btnValider.Margin = new System.Windows.Forms.Padding(2);
             this.btnValider.Name = "btnValider";
             this.btnValider.Size = new System.Drawing.Size(237, 56);
@@ -157,7 +159,7 @@ namespace GUI
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(32, 218);
+            this.label1.Location = new System.Drawing.Point(32, 236);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(56, 13);
@@ -167,7 +169,7 @@ namespace GUI
             // lsbAdherant
             // 
             this.lsbAdherant.FormattingEnabled = true;
-            this.lsbAdherant.Location = new System.Drawing.Point(92, 190);
+            this.lsbAdherant.Location = new System.Drawing.Point(92, 208);
             this.lsbAdherant.Margin = new System.Windows.Forms.Padding(2);
             this.lsbAdherant.Name = "lsbAdherant";
             this.lsbAdherant.Size = new System.Drawing.Size(134, 69);
@@ -176,7 +178,7 @@ namespace GUI
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(32, 156);
+            this.label2.Location = new System.Drawing.Point(32, 174);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(67, 13);
@@ -186,17 +188,39 @@ namespace GUI
             // lsbEvenement
             // 
             this.lsbEvenement.FormattingEnabled = true;
-            this.lsbEvenement.Location = new System.Drawing.Point(105, 149);
+            this.lsbEvenement.Location = new System.Drawing.Point(105, 167);
             this.lsbEvenement.Margin = new System.Windows.Forms.Padding(2);
             this.lsbEvenement.Name = "lsbEvenement";
             this.lsbEvenement.Size = new System.Drawing.Size(121, 30);
             this.lsbEvenement.TabIndex = 75;
             // 
+            // lblEuro
+            // 
+            this.lblEuro.AutoSize = true;
+            this.lblEuro.Location = new System.Drawing.Point(228, 91);
+            this.lblEuro.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblEuro.Name = "lblEuro";
+            this.lblEuro.Size = new System.Drawing.Size(13, 13);
+            this.lblEuro.TabIndex = 77;
+            this.lblEuro.Text = "€";
+            // 
+            // lblCommentAjouterDebit
+            // 
+            this.lblCommentAjouterDebit.AutoSize = true;
+            this.lblCommentAjouterDebit.Location = new System.Drawing.Point(29, 110);
+            this.lblCommentAjouterDebit.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblCommentAjouterDebit.Name = "lblCommentAjouterDebit";
+            this.lblCommentAjouterDebit.Size = new System.Drawing.Size(117, 13);
+            this.lblCommentAjouterDebit.TabIndex = 78;
+            this.lblCommentAjouterDebit.Text = "Débit = montant négatif";
+            // 
             // FormAjoutFlux
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(302, 410);
+            this.ClientSize = new System.Drawing.Size(302, 428);
+            this.Controls.Add(this.lblCommentAjouterDebit);
+            this.Controls.Add(this.lblEuro);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lsbEvenement);
             this.Controls.Add(this.label1);
@@ -240,5 +264,7 @@ namespace GUI
         protected System.Windows.Forms.ListBox lsbAdherant;
         protected System.Windows.Forms.Label label2;
         protected System.Windows.Forms.ListBox lsbEvenement;
+        protected System.Windows.Forms.Label lblEuro;
+        protected System.Windows.Forms.Label lblCommentAjouterDebit;
     }
 }

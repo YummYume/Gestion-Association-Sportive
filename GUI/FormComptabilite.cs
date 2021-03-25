@@ -307,7 +307,7 @@ namespace GUI
         private void btnFluxAjouter_Click(object sender, EventArgs e)
         {
             FormAjoutFlux newAjoutFlux;
-            newAjoutFlux = new FormAjoutFlux(leUtilisateur, this);
+            newAjoutFlux = new FormAjoutFlux(leUtilisateur, this, budgetASInitial, budgetEPSInitial);
             newAjoutFlux.ShowDialog();
         }
     }

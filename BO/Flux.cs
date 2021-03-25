@@ -12,7 +12,7 @@ namespace BO
         private string libelle;
         private DateTime date;
         private float montant;
-        private string prelevementEff;
+        private bool prelevementEff;
         private Adherent adherent;
         private TypeFlux typeFlux;
         private Evenement evenement;
@@ -23,7 +23,7 @@ namespace BO
             this.Id = id;
         }
 
-        public Flux(int id, string libelle, DateTime date, float montant, string prelevementEff, Adherent adherent, TypeFlux typeFlux, Evenement evenement, Budget budget)
+        public Flux(int id, string libelle, DateTime date, float montant, bool prelevementEff, Adherent adherent, TypeFlux typeFlux, Evenement evenement, Budget budget)
         {
             this.id = id;
             this.libelle = libelle;
@@ -40,7 +40,7 @@ namespace BO
         public string Libelle { get => libelle; set => libelle = value; }
         public DateTime Date { get => date; set => date = value; }
         public float Montant { get => montant; set => montant = value; }
-        public string PrelevementEff { get => prelevementEff; set => prelevementEff = value; }
+        public bool PrelevementEff { get => prelevementEff; set => prelevementEff = value; }
         public Adherent Adherent { get => adherent; set => adherent = value; }
         public TypeFlux TypeFlux { get => typeFlux; set => typeFlux = value; }
         public Evenement Evenement { get => evenement; set => evenement = value; }
