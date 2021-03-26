@@ -67,7 +67,7 @@ namespace GUI
             // cbxAfficherMdp
             // 
             this.cbxAfficherMdp.AutoSize = true;
-            this.cbxAfficherMdp.Location = new System.Drawing.Point(297, 252);
+            this.cbxAfficherMdp.Location = new System.Drawing.Point(219, 249);
             this.cbxAfficherMdp.Name = "cbxAfficherMdp";
             this.cbxAfficherMdp.Size = new System.Drawing.Size(137, 17);
             this.cbxAfficherMdp.TabIndex = 58;
@@ -77,7 +77,7 @@ namespace GUI
             // 
             // tbxNom
             // 
-            this.tbxNom.Location = new System.Drawing.Point(160, 16);
+            this.tbxNom.Location = new System.Drawing.Point(82, 13);
             this.tbxNom.Margin = new System.Windows.Forms.Padding(2);
             this.tbxNom.MaxLength = 50;
             this.tbxNom.Name = "tbxNom";
@@ -87,7 +87,7 @@ namespace GUI
             // 
             // lblErreur
             // 
-            this.lblErreur.Location = new System.Drawing.Point(121, 347);
+            this.lblErreur.Location = new System.Drawing.Point(43, 344);
             this.lblErreur.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblErreur.Name = "lblErreur";
             this.lblErreur.Size = new System.Drawing.Size(237, 28);
@@ -96,7 +96,7 @@ namespace GUI
             // 
             // tbxMdp
             // 
-            this.tbxMdp.Location = new System.Drawing.Point(202, 250);
+            this.tbxMdp.Location = new System.Drawing.Point(124, 247);
             this.tbxMdp.Margin = new System.Windows.Forms.Padding(2);
             this.tbxMdp.MaxLength = 50;
             this.tbxMdp.Name = "tbxMdp";
@@ -108,7 +108,7 @@ namespace GUI
             // lblMdp
             // 
             this.lblMdp.AutoSize = true;
-            this.lblMdp.Location = new System.Drawing.Point(121, 253);
+            this.lblMdp.Location = new System.Drawing.Point(43, 250);
             this.lblMdp.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMdp.Name = "lblMdp";
             this.lblMdp.Size = new System.Drawing.Size(77, 13);
@@ -117,7 +117,7 @@ namespace GUI
             // 
             // tbxLogin
             // 
-            this.tbxLogin.Location = new System.Drawing.Point(164, 218);
+            this.tbxLogin.Location = new System.Drawing.Point(86, 215);
             this.tbxLogin.Margin = new System.Windows.Forms.Padding(2);
             this.tbxLogin.MaxLength = 50;
             this.tbxLogin.Name = "tbxLogin";
@@ -129,7 +129,7 @@ namespace GUI
             // lblLogin
             // 
             this.lblLogin.AutoSize = true;
-            this.lblLogin.Location = new System.Drawing.Point(121, 221);
+            this.lblLogin.Location = new System.Drawing.Point(43, 218);
             this.lblLogin.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblLogin.Name = "lblLogin";
             this.lblLogin.Size = new System.Drawing.Size(39, 13);
@@ -139,7 +139,7 @@ namespace GUI
             // lblNom
             // 
             this.lblNom.AutoSize = true;
-            this.lblNom.Location = new System.Drawing.Point(121, 19);
+            this.lblNom.Location = new System.Drawing.Point(43, 16);
             this.lblNom.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNom.Name = "lblNom";
             this.lblNom.Size = new System.Drawing.Size(35, 13);
@@ -149,7 +149,7 @@ namespace GUI
             // lblPrenom
             // 
             this.lblPrenom.AutoSize = true;
-            this.lblPrenom.Location = new System.Drawing.Point(121, 53);
+            this.lblPrenom.Location = new System.Drawing.Point(43, 50);
             this.lblPrenom.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPrenom.Name = "lblPrenom";
             this.lblPrenom.Size = new System.Drawing.Size(49, 13);
@@ -158,7 +158,7 @@ namespace GUI
             // 
             // tbxPrenom
             // 
-            this.tbxPrenom.Location = new System.Drawing.Point(174, 50);
+            this.tbxPrenom.Location = new System.Drawing.Point(96, 47);
             this.tbxPrenom.Margin = new System.Windows.Forms.Padding(2);
             this.tbxPrenom.MaxLength = 50;
             this.tbxPrenom.Name = "tbxPrenom";
@@ -169,7 +169,7 @@ namespace GUI
             // lblDnd
             // 
             this.lblDnd.AutoSize = true;
-            this.lblDnd.Location = new System.Drawing.Point(121, 84);
+            this.lblDnd.Location = new System.Drawing.Point(43, 81);
             this.lblDnd.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDnd.Name = "lblDnd";
             this.lblDnd.Size = new System.Drawing.Size(102, 13);
@@ -180,7 +180,7 @@ namespace GUI
             // 
             this.dtpDn.CustomFormat = "dd/MM/yyyy";
             this.dtpDn.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpDn.Location = new System.Drawing.Point(227, 82);
+            this.dtpDn.Location = new System.Drawing.Point(149, 79);
             this.dtpDn.Margin = new System.Windows.Forms.Padding(2);
             this.dtpDn.Name = "dtpDn";
             this.dtpDn.Size = new System.Drawing.Size(83, 20);
@@ -191,7 +191,7 @@ namespace GUI
             // lblSexe
             // 
             this.lblSexe.AutoSize = true;
-            this.lblSexe.Location = new System.Drawing.Point(121, 120);
+            this.lblSexe.Location = new System.Drawing.Point(43, 117);
             this.lblSexe.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSexe.Name = "lblSexe";
             this.lblSexe.Size = new System.Drawing.Size(42, 13);
@@ -205,7 +205,7 @@ namespace GUI
             "Homme",
             "Femme",
             "Autre"});
-            this.lsbSexe.Location = new System.Drawing.Point(167, 115);
+            this.lsbSexe.Location = new System.Drawing.Point(89, 112);
             this.lsbSexe.Margin = new System.Windows.Forms.Padding(2);
             this.lsbSexe.Name = "lsbSexe";
             this.lsbSexe.Size = new System.Drawing.Size(62, 30);
@@ -215,7 +215,7 @@ namespace GUI
             // lblNumTel
             // 
             this.lblNumTel.AutoSize = true;
-            this.lblNumTel.Location = new System.Drawing.Point(121, 158);
+            this.lblNumTel.Location = new System.Drawing.Point(43, 155);
             this.lblNumTel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNumTel.Name = "lblNumTel";
             this.lblNumTel.Size = new System.Drawing.Size(115, 13);
@@ -224,7 +224,7 @@ namespace GUI
             // 
             // tbxNumTel
             // 
-            this.tbxNumTel.Location = new System.Drawing.Point(240, 158);
+            this.tbxNumTel.Location = new System.Drawing.Point(162, 155);
             this.tbxNumTel.Margin = new System.Windows.Forms.Padding(2);
             this.tbxNumTel.MaxLength = 50;
             this.tbxNumTel.Name = "tbxNumTel";
@@ -236,7 +236,7 @@ namespace GUI
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(121, 188);
+            this.lblEmail.Location = new System.Drawing.Point(43, 185);
             this.lblEmail.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(38, 13);
@@ -246,7 +246,7 @@ namespace GUI
             // tbxEmail
             // 
             this.tbxEmail.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
-            this.tbxEmail.Location = new System.Drawing.Point(163, 185);
+            this.tbxEmail.Location = new System.Drawing.Point(85, 182);
             this.tbxEmail.Margin = new System.Windows.Forms.Padding(2);
             this.tbxEmail.MaxLength = 50;
             this.tbxEmail.Name = "tbxEmail";
@@ -258,7 +258,7 @@ namespace GUI
             // lblNumTelParent
             // 
             this.lblNumTelParent.AutoSize = true;
-            this.lblNumTelParent.Location = new System.Drawing.Point(121, 284);
+            this.lblNumTelParent.Location = new System.Drawing.Point(43, 281);
             this.lblNumTelParent.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNumTelParent.Name = "lblNumTelParent";
             this.lblNumTelParent.Size = new System.Drawing.Size(148, 13);
@@ -267,7 +267,7 @@ namespace GUI
             // 
             // tbxNumTelParent
             // 
-            this.tbxNumTelParent.Location = new System.Drawing.Point(273, 281);
+            this.tbxNumTelParent.Location = new System.Drawing.Point(195, 278);
             this.tbxNumTelParent.Margin = new System.Windows.Forms.Padding(2);
             this.tbxNumTelParent.MaxLength = 50;
             this.tbxNumTelParent.Name = "tbxNumTelParent";
@@ -279,7 +279,7 @@ namespace GUI
             // lblClasse
             // 
             this.lblClasse.AutoSize = true;
-            this.lblClasse.Location = new System.Drawing.Point(121, 322);
+            this.lblClasse.Location = new System.Drawing.Point(43, 319);
             this.lblClasse.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblClasse.Name = "lblClasse";
             this.lblClasse.Size = new System.Drawing.Size(44, 13);
@@ -289,7 +289,7 @@ namespace GUI
             // lsbClasse
             // 
             this.lsbClasse.FormattingEnabled = true;
-            this.lsbClasse.Location = new System.Drawing.Point(167, 315);
+            this.lsbClasse.Location = new System.Drawing.Point(89, 312);
             this.lsbClasse.Margin = new System.Windows.Forms.Padding(2);
             this.lsbClasse.Name = "lsbClasse";
             this.lsbClasse.Size = new System.Drawing.Size(88, 30);
@@ -298,7 +298,7 @@ namespace GUI
             // 
             // btnValider
             // 
-            this.btnValider.Location = new System.Drawing.Point(121, 378);
+            this.btnValider.Location = new System.Drawing.Point(64, 375);
             this.btnValider.Margin = new System.Windows.Forms.Padding(2);
             this.btnValider.Name = "btnValider";
             this.btnValider.Size = new System.Drawing.Size(237, 56);
@@ -310,7 +310,7 @@ namespace GUI
             // lblNomModif
             // 
             this.lblNomModif.AutoSize = true;
-            this.lblNomModif.Location = new System.Drawing.Point(81, 19);
+            this.lblNomModif.Location = new System.Drawing.Point(67, 16);
             this.lblNomModif.Name = "lblNomModif";
             this.lblNomModif.Size = new System.Drawing.Size(0, 13);
             this.lblNomModif.TabIndex = 73;
@@ -318,7 +318,7 @@ namespace GUI
             // lblPrenomModif
             // 
             this.lblPrenomModif.AutoSize = true;
-            this.lblPrenomModif.Location = new System.Drawing.Point(81, 53);
+            this.lblPrenomModif.Location = new System.Drawing.Point(67, 50);
             this.lblPrenomModif.Name = "lblPrenomModif";
             this.lblPrenomModif.Size = new System.Drawing.Size(0, 13);
             this.lblPrenomModif.TabIndex = 74;
@@ -326,7 +326,7 @@ namespace GUI
             // lblDdnModif
             // 
             this.lblDdnModif.AutoSize = true;
-            this.lblDdnModif.Location = new System.Drawing.Point(81, 84);
+            this.lblDdnModif.Location = new System.Drawing.Point(67, 81);
             this.lblDdnModif.Name = "lblDdnModif";
             this.lblDdnModif.Size = new System.Drawing.Size(0, 13);
             this.lblDdnModif.TabIndex = 75;
@@ -334,7 +334,7 @@ namespace GUI
             // lblGenreModif
             // 
             this.lblGenreModif.AutoSize = true;
-            this.lblGenreModif.Location = new System.Drawing.Point(81, 120);
+            this.lblGenreModif.Location = new System.Drawing.Point(67, 117);
             this.lblGenreModif.Name = "lblGenreModif";
             this.lblGenreModif.Size = new System.Drawing.Size(0, 13);
             this.lblGenreModif.TabIndex = 76;
@@ -342,7 +342,7 @@ namespace GUI
             // lblNumModif
             // 
             this.lblNumModif.AutoSize = true;
-            this.lblNumModif.Location = new System.Drawing.Point(81, 158);
+            this.lblNumModif.Location = new System.Drawing.Point(67, 155);
             this.lblNumModif.Name = "lblNumModif";
             this.lblNumModif.Size = new System.Drawing.Size(0, 13);
             this.lblNumModif.TabIndex = 77;
@@ -350,7 +350,7 @@ namespace GUI
             // lblEmailModif
             // 
             this.lblEmailModif.AutoSize = true;
-            this.lblEmailModif.Location = new System.Drawing.Point(81, 188);
+            this.lblEmailModif.Location = new System.Drawing.Point(67, 185);
             this.lblEmailModif.Name = "lblEmailModif";
             this.lblEmailModif.Size = new System.Drawing.Size(0, 13);
             this.lblEmailModif.TabIndex = 78;
@@ -358,7 +358,7 @@ namespace GUI
             // lblLoginModif
             // 
             this.lblLoginModif.AutoSize = true;
-            this.lblLoginModif.Location = new System.Drawing.Point(81, 221);
+            this.lblLoginModif.Location = new System.Drawing.Point(67, 218);
             this.lblLoginModif.Name = "lblLoginModif";
             this.lblLoginModif.Size = new System.Drawing.Size(0, 13);
             this.lblLoginModif.TabIndex = 79;
@@ -366,7 +366,7 @@ namespace GUI
             // lblMdpModif
             // 
             this.lblMdpModif.AutoSize = true;
-            this.lblMdpModif.Location = new System.Drawing.Point(81, 252);
+            this.lblMdpModif.Location = new System.Drawing.Point(67, 249);
             this.lblMdpModif.Name = "lblMdpModif";
             this.lblMdpModif.Size = new System.Drawing.Size(0, 13);
             this.lblMdpModif.TabIndex = 80;
@@ -374,7 +374,7 @@ namespace GUI
             // lblNumParentModif
             // 
             this.lblNumParentModif.AutoSize = true;
-            this.lblNumParentModif.Location = new System.Drawing.Point(81, 284);
+            this.lblNumParentModif.Location = new System.Drawing.Point(67, 281);
             this.lblNumParentModif.Name = "lblNumParentModif";
             this.lblNumParentModif.Size = new System.Drawing.Size(0, 13);
             this.lblNumParentModif.TabIndex = 81;
@@ -382,7 +382,7 @@ namespace GUI
             // lblClasseModif
             // 
             this.lblClasseModif.AutoSize = true;
-            this.lblClasseModif.Location = new System.Drawing.Point(81, 322);
+            this.lblClasseModif.Location = new System.Drawing.Point(67, 319);
             this.lblClasseModif.Name = "lblClasseModif";
             this.lblClasseModif.Size = new System.Drawing.Size(0, 13);
             this.lblClasseModif.TabIndex = 82;
@@ -391,7 +391,7 @@ namespace GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(481, 442);
+            this.ClientSize = new System.Drawing.Size(377, 442);
             this.Controls.Add(this.lblClasseModif);
             this.Controls.Add(this.lblNumParentModif);
             this.Controls.Add(this.lblMdpModif);

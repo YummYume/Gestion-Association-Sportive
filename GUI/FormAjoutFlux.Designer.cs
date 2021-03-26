@@ -54,7 +54,7 @@ namespace GUI
             this.cbxPrelevementEFF.Location = new System.Drawing.Point(35, 138);
             this.cbxPrelevementEFF.Name = "cbxPrelevementEFF";
             this.cbxPrelevementEFF.Size = new System.Drawing.Size(149, 17);
-            this.cbxPrelevementEFF.TabIndex = 58;
+            this.cbxPrelevementEFF.TabIndex = 4;
             this.cbxPrelevementEFF.Text = "Prélèvement EFF effectué";
             this.cbxPrelevementEFF.UseVisualStyleBackColor = true;
             // 
@@ -65,7 +65,7 @@ namespace GUI
             this.tbxNom.MaxLength = 50;
             this.tbxNom.Name = "tbxNom";
             this.tbxNom.Size = new System.Drawing.Size(153, 20);
-            this.tbxNom.TabIndex = 50;
+            this.tbxNom.TabIndex = 1;
             // 
             // lblErreur
             // 
@@ -104,7 +104,7 @@ namespace GUI
             this.dtpDate.Margin = new System.Windows.Forms.Padding(2);
             this.dtpDate.Name = "dtpDate";
             this.dtpDate.Size = new System.Drawing.Size(149, 20);
-            this.dtpDate.TabIndex = 52;
+            this.dtpDate.TabIndex = 2;
             this.dtpDate.Value = new System.DateTime(2020, 12, 14, 0, 0, 0, 0);
             // 
             // lblNumTel
@@ -124,7 +124,9 @@ namespace GUI
             this.tbxMontant.MaxLength = 50;
             this.tbxMontant.Name = "tbxMontant";
             this.tbxMontant.Size = new System.Drawing.Size(139, 20);
-            this.tbxMontant.TabIndex = 54;
+            this.tbxMontant.TabIndex = 3;
+            this.tbxMontant.TextChanged += new System.EventHandler(this.tbxMontant_TextChanged);
+            this.tbxMontant.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxMontant_KeyPress);
             // 
             // lblClasse
             // 
@@ -143,7 +145,7 @@ namespace GUI
             this.lsbBudget.Margin = new System.Windows.Forms.Padding(2);
             this.lsbBudget.Name = "lsbBudget";
             this.lsbBudget.Size = new System.Drawing.Size(141, 30);
-            this.lsbBudget.TabIndex = 60;
+            this.lsbBudget.TabIndex = 7;
             // 
             // btnValider
             // 
@@ -151,7 +153,7 @@ namespace GUI
             this.btnValider.Margin = new System.Windows.Forms.Padding(2);
             this.btnValider.Name = "btnValider";
             this.btnValider.Size = new System.Drawing.Size(237, 56);
-            this.btnValider.TabIndex = 61;
+            this.btnValider.TabIndex = 8;
             this.btnValider.Text = "Ajouter le flux";
             this.btnValider.UseVisualStyleBackColor = true;
             this.btnValider.Click += new System.EventHandler(this.btnValider_Click);
@@ -173,7 +175,7 @@ namespace GUI
             this.lsbAdherant.Margin = new System.Windows.Forms.Padding(2);
             this.lsbAdherant.Name = "lsbAdherant";
             this.lsbAdherant.Size = new System.Drawing.Size(134, 69);
-            this.lsbAdherant.TabIndex = 73;
+            this.lsbAdherant.TabIndex = 6;
             // 
             // label2
             // 
@@ -192,7 +194,7 @@ namespace GUI
             this.lsbEvenement.Margin = new System.Windows.Forms.Padding(2);
             this.lsbEvenement.Name = "lsbEvenement";
             this.lsbEvenement.Size = new System.Drawing.Size(121, 30);
-            this.lsbEvenement.TabIndex = 75;
+            this.lsbEvenement.TabIndex = 5;
             // 
             // lblEuro
             // 
@@ -216,6 +218,7 @@ namespace GUI
             // 
             // FormAjoutFlux
             // 
+            this.AcceptButton = this.btnValider;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(302, 428);

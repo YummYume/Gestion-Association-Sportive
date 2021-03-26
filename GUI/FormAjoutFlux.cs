@@ -42,12 +42,25 @@ namespace GUI
             List<ListBox> lesListBox = new List<ListBox>();
             List<DataGridView> dgvCompta = new List<DataGridView>();
             List<Label> lblCompta = new List<Label>();
+            float montant = 0;
 
             foreach (Control unGridView in formCompta.Controls)
             {
                 if (unGridView is DataGridView)
                 {
                     dgvCompta.Add((DataGridView)unGridView);
+                }
+            }
+            foreach (Control leControle in this.Controls)
+            {
+                if (leControle is TextBox)
+                {
+                    lesTextBox.Add((TextBox)leControle);
+                }
+
+                if (leControle is ListBox)
+                {
+                    lesListBox.Add((ListBox)leControle);
                 }
             }
 
@@ -59,18 +72,97 @@ namespace GUI
                 }
             }
 
-            if (Int32.Parse(tbxMontant.Text) < 0)
+            if (Int32.TryParse(tbxMontant.Text, out int verifMontant) && verifMontant < 0)
             {
+                float.TryParse(tbxMontant.Text, out montant);
+                montant *= -1;
                 typeFlux = new TypeFlux(1, "Débit");
             }
             else
             {
+                float.TryParse(tbxMontant.Text, out montant);
                 typeFlux = new TypeFlux(2, "Crédit");
+            }
+
+            while (erreur == false && finRecherche == false)
+            {
+                foreach (TextBox tb in lesTextBox)
+                {
+                    if (tb.Text == "" && erreur == false)
+                    {
+                        erreur = true;
+                        tb.Focus();
+                        tb.BackColor = Color.Red;
+                        lblErreur.ForeColor = Color.Red;
+                        lblErreur.Text = "Veuillez remplir tous les champs.";
+                        t.Interval = 5000; // 5 secondes
+                        t.Tick += (s, error) =>
+                        {
+                            this.lblErreur.Text = "";
+                            tb.BackColor = Color.White;
+                            t.Stop();
+                        };
+                        t.Start();
+                    }
+                }
+                foreach (ListBox lb in lesListBox)
+                {
+                    if (lb.SelectedIndex == -1 && erreur == false)
+                    {
+                        erreur = true;
+                        lb.Focus();
+                        lb.BackColor = Color.Red;
+                        lblErreur.ForeColor = Color.Red;
+                        lblErreur.Text = "Veuillez sélectionner une option.";
+                        t.Interval = 5000; // 5 secondes
+                        t.Tick += (s, error) =>
+                        {
+                            this.lblErreur.Text = "";
+                            lb.BackColor = Color.White;
+                            t.Stop();
+                        };
+                        t.Start();
+                    }
+                }
+                if (dtpDate.Value.Year != DateTime.Now.Year && erreur == false)
+                {
+                    erreur = true;
+                    dtpDate.Focus();
+                    dtpDate.BackColor = Color.Red;
+                    lblErreur.ForeColor = Color.Red;
+                    lblErreur.Text = "Veuillez sélectionner une date valide.";
+                    t.Interval = 5000; // 5 secondes
+                    t.Tick += (s, error) =>
+                    {
+                        this.lblErreur.Text = "";
+                        dtpDate.BackColor = Color.White;
+                        t.Stop();
+                    };
+                    t.Start();
+                }
+                if (!System.Text.RegularExpressions.Regex.IsMatch(tbxMontant.Text, "^(-)?[0-9]+(,[0-9]{1,2})?$") && erreur == false)
+                {
+                    erreur = true;
+                    tbxMontant.Focus();
+                    tbxMontant.BackColor = Color.Red;
+                    lblErreur.ForeColor = Color.Red;
+                    lblErreur.Text = "Veuillez entrer un montant valide.";
+                    t.Interval = 5000; // 5 secondes
+                    t.Tick += (s, error) =>
+                    {
+                        this.lblErreur.Text = "";
+                        tbxMontant.BackColor = Color.White;
+                        t.Stop();
+                    };
+                    t.Start();
+                }
+
+                finRecherche = true;
             }
 
             if (erreur == false)
             {
-                Flux leFlux = new Flux(0, tbxNom.Text, dtpDate.Value, float.Parse(tbxMontant.Text), cbxPrelevementEFF.Checked, new Adherent(Int32.Parse(lsbAdherant.SelectedValue.ToString())), typeFlux, new Evenement(Int32.Parse(lsbEvenement.SelectedValue.ToString())), new Budget(Int32.Parse(lsbBudget.SelectedValue.ToString())));
+                Flux leFlux = new Flux(0, tbxNom.Text, dtpDate.Value, montant, cbxPrelevementEFF.Checked, new Adherent(Int32.Parse(lsbAdherant.SelectedValue.ToString())), typeFlux, new Evenement(Int32.Parse(lsbEvenement.SelectedValue.ToString())), new Budget(Int32.Parse(lsbBudget.SelectedValue.ToString())));
 
                 try
                 {
@@ -122,6 +214,7 @@ namespace GUI
             DateTime maxDate = new DateTime(DateTime.Now.Year, 12, 31);
             dtpDate.MinDate = minDate;
             dtpDate.MaxDate = maxDate;
+            dtpDate.Value = DateTime.Now;
 
             try
             {
@@ -143,6 +236,27 @@ namespace GUI
             catch (Exception)
             {
                 
+            }
+        }
+
+        private void tbxMontant_TextChanged(object sender, EventArgs e)
+        {
+            if (tbxMontant.Text.Contains(" "))
+            {
+                tbxMontant.Text.Replace(" ", "");
+            }
+
+            if (!System.Text.RegularExpressions.Regex.IsMatch(tbxMontant.Text, "^(-)?[0-9]+(,[0-9]{1,2})?$"))
+            {
+                tbxMontant.Text = System.Text.RegularExpressions.Regex.Replace(tbxMontant.Text, "[^0-9,-]", "");
+            }
+        }
+
+        private void tbxMontant_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 32)
+            {
+                e.Handled = true;
             }
         }
     }

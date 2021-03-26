@@ -99,6 +99,7 @@ namespace DAL
                 yearParam.Value = year;
                 cmd.Parameters.Add(yearParam);
             }
+            cmd.CommandText += "ORDER BY dateFlux DESC, idFlux DESC ";
             SqlDataReader monReader = cmd.ExecuteReader();
 
             if (monReader.HasRows)
@@ -165,6 +166,12 @@ namespace DAL
             // Connexion à la BD
             SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
 
+            int prelevementEffFlux = 0;
+            if (unFlux.PrelevementEff == true)
+            {
+                prelevementEffFlux = 1;
+            }
+
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = maConnexion;
             cmd.CommandText = "UPDATE dbo.FLUX SET Libelle_flux = @libelle, Date_flux = @date, Montant_flux = @montant, Prelevementeff_flux = @prelevementEff, #ID_adherent = @idAdherent, #ID_typeflux = @idTypeFlux, #ID_evenement = @idEvenement WHERE ID_flux = @id";
@@ -182,7 +189,7 @@ namespace DAL
             libelle.Value = unFlux.Libelle;
             date.Value = unFlux.Date;
             montant.Value = unFlux.Montant;
-            prelevementEff.Value = unFlux.PrelevementEff;
+            prelevementEff.Value = prelevementEffFlux;
             idAdherent.Value = unFlux.Adherent.Id;
             idTypeFlux.Value = unFlux.TypeFlux.Id;
             idEvenement.Value = unFlux.Evenement.Id;

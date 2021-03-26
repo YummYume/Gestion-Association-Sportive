@@ -71,6 +71,18 @@ namespace GUI
                 lblBudgetEPSInitial.Visible = true;
             }
 
+            try
+            {
+                this.lsbClasse.ValueMember = "id";
+                this.lsbClasse.DisplayMember = "libelle";
+                this.lsbClasse.DataSource = ClasseBLL.GetClasses();
+                this.lsbClasse.SelectedIndex = -1;
+            }
+            catch (Exception)
+            {
+
+            }
+
             this.dtgCredit.DataSource = FluxBLL.GetBaseFluxInfo(new TypeFlux(2, "Crédit"), currentYear.ToString());
             if (this.dtgCredit.Rows.Count > 0)
             {
@@ -268,17 +280,20 @@ namespace GUI
 
         private void btnFluxSupprimer_Click(object sender, EventArgs e)
         {
+            bool deleted = false;
+
             if (this.dtgCredit.SelectedRows.Count > 0)
             {
                 string nom = dtgCredit.CurrentRow.Cells[0].Value.ToString();
                 DateTime date = DateTime.Parse(dtgCredit.CurrentRow.Cells[1].Value.ToString());
                 DialogResult reponseMsgBox;
 
-                reponseMsgBox = MessageBox.Show("Voulez vous vraiment supprimer le flux " + nom + " du " + date + "?", "Suppression d'un flux", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                reponseMsgBox = MessageBox.Show("Voulez vous vraiment supprimer le flux " + nom + " du " + date.ToString("dd'/'MM'/'yyyy") + " ? ", "Suppression d'un flux", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (reponseMsgBox == DialogResult.Yes)
                 {
                     FluxBLL.SupprimerFlux((FluxMin)this.dtgCredit.SelectedRows[0].DataBoundItem);
                     this.dtgCredit.DataSource = FluxBLL.GetBaseFluxInfo(new TypeFlux(2, "Crédit"), currentYear.ToString());
+                    deleted = true;
                 }
             }
             else
@@ -289,19 +304,57 @@ namespace GUI
                     DateTime date = DateTime.Parse(dtgDebit.CurrentRow.Cells[1].Value.ToString());
                     DialogResult reponseMsgBox;
 
-                    reponseMsgBox = MessageBox.Show("Voulez vous vraiment supprimer le flux " + nom + " du " + date + "?", "Suppression d'un flux", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    reponseMsgBox = MessageBox.Show("Voulez vous vraiment supprimer le flux " + nom + " du " + date.ToString("dd'/'MM'/'yyyy") + "?", "Suppression d'un flux", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (reponseMsgBox == DialogResult.Yes)
                     {
                         FluxBLL.SupprimerFlux((FluxMin)this.dtgDebit.SelectedRows[0].DataBoundItem);
                         this.dtgDebit.DataSource = FluxBLL.GetBaseFluxInfo(new TypeFlux(1, "Débit"), currentYear.ToString());
+                        deleted = true;
                     }
                 }
+            }
+
+            if (deleted == true)
+            {
+                budgetAS = BLL.BudgetBLL.GetBudgetTotal(DateTime.Now.Year.ToString(), BLL.BudgetBLL.GetBudgetAS(currentYear.ToString()));
+                budgetEPS = BLL.BudgetBLL.GetBudgetTotal(DateTime.Now.Year.ToString(), BLL.BudgetBLL.GetBudgetEPS(currentYear.ToString()));
+                budgetASInitial = BLL.BudgetBLL.GetBudgetAS(currentYear.ToString());
+                budgetEPSInitial = BLL.BudgetBLL.GetBudgetEPS(currentYear.ToString());
+                lblBudgetAS.Text = budgetAS.MontantInitial.ToString() + "€";
+                lblBudgetEPS.Text = budgetEPS.MontantInitial.ToString() + "€";
+                lblBudgetASInitial.Text = budgetASInitial.MontantInitial.ToString() + "€";
+                lblBudgetEPSInitial.Text = budgetEPSInitial.MontantInitial.ToString() + "€";
             }
         }
 
         private void btnFluxModifier_Click(object sender, EventArgs e)
         {
+            if (this.dtgCredit.SelectedRows.Count > 0)
+            {
+                List<Flux> lesFluxCredits = new List<Flux>(FluxBLL.GetFluxCredit(currentYear.ToString()));
+                Int32.TryParse(dtgCredit.CurrentRow.Cells["Id"].Value.ToString(), out int id);
 
+                Flux leFlux = lesFluxCredits.Find(Flux => Flux.Id == id);
+
+                FormModifierFlux newModificationFlux;
+                newModificationFlux = new FormModifierFlux(leUtilisateur, this, budgetASInitial, budgetEPSInitial, leFlux);
+                newModificationFlux.ShowDialog();
+            }
+            else
+            {
+                if (this.dtgDebit.SelectedRows.Count > 0)
+                {
+                    List<Flux> lesFluxDebits = new List<Flux>(FluxBLL.GetFluxDebit(currentYear.ToString()));
+                    Int32.TryParse(dtgDebit.CurrentRow.Cells["Id"].Value.ToString(), out int id);
+
+                    Flux leFlux = lesFluxDebits.Find(Flux => Flux.Id == id);
+
+                    FormModifierFlux newModificationFlux;
+                    newModificationFlux = new FormModifierFlux(leUtilisateur, this, budgetASInitial, budgetEPSInitial, leFlux);
+                    newModificationFlux.ShowDialog();
+                }
+            }
+            //TODO : dtgFluxEleve
         }
 
         private void btnFluxAjouter_Click(object sender, EventArgs e)
@@ -309,6 +362,54 @@ namespace GUI
             FormAjoutFlux newAjoutFlux;
             newAjoutFlux = new FormAjoutFlux(leUtilisateur, this, budgetASInitial, budgetEPSInitial);
             newAjoutFlux.ShowDialog();
+        }
+
+        private void lblBudgetEPS_TextChanged(object sender, EventArgs e)
+        {
+            if (Int32.TryParse(lblBudgetEPS.Text.Replace("€", ""), out int budgetEPS) && budgetEPS < 0)
+            {
+                lblBudgetEPS.ForeColor = Color.Red;
+            }
+            else
+            {
+                lblBudgetEPS.ForeColor = Color.Black;
+            }
+        }
+
+        private void lblBudgetAS_TextChanged(object sender, EventArgs e)
+        {
+            if (Int32.TryParse(lblBudgetAS.Text.Replace("€", ""), out int budgetAS) && budgetAS < 0)
+            {
+                lblBudgetAS.ForeColor = Color.Red;
+            }
+            else
+            {
+                lblBudgetAS.ForeColor = Color.Black;
+            }
+        }
+
+        private void lblBudgetEPSInitial_TextChanged(object sender, EventArgs e)
+        {
+            if (Int32.TryParse(lblBudgetEPSInitial.Text.Replace("€", ""), out int budgetEPS) && budgetEPS < 0)
+            {
+                lblBudgetEPSInitial.ForeColor = Color.Red;
+            }
+            else
+            {
+                lblBudgetEPSInitial.ForeColor = Color.Black;
+            }
+        }
+
+        private void lblBudgetASInitial_TextChanged(object sender, EventArgs e)
+        {
+            if (Int32.TryParse(lblBudgetASInitial.Text.Replace("€", ""), out int budgetAS) && budgetAS < 0)
+            {
+                lblBudgetASInitial.ForeColor = Color.Red;
+            }
+            else
+            {
+                lblBudgetASInitial.ForeColor = Color.Black;
+            }
         }
     }
 }

@@ -84,11 +84,16 @@
             this.lblSetBudgetASInitial = new System.Windows.Forms.Label();
             this.lblBudgetAS = new System.Windows.Forms.Label();
             this.lblBudgetEPS = new System.Windows.Forms.Label();
+            this.pnlPrelevementAutorise = new System.Windows.Forms.Panel();
+            this.pnlSweetPris = new System.Windows.Forms.Panel();
+            this.lblNomPrenom = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dtgDebit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgCredit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgFiltres)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgFluxAdherant)).BeginInit();
             this.gbxInfoAdherant.SuspendLayout();
+            this.pnlPrelevementAutorise.SuspendLayout();
+            this.pnlSweetPris.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblSetBudgetAS
@@ -114,7 +119,7 @@
             this.txbBudgetEPS.Location = new System.Drawing.Point(250, 93);
             this.txbBudgetEPS.Name = "txbBudgetEPS";
             this.txbBudgetEPS.Size = new System.Drawing.Size(71, 20);
-            this.txbBudgetEPS.TabIndex = 2;
+            this.txbBudgetEPS.TabIndex = 1;
             this.txbBudgetEPS.Visible = false;
             this.txbBudgetEPS.TextChanged += new System.EventHandler(this.txbBudgetEPS_TextChanged);
             // 
@@ -123,7 +128,7 @@
             this.txbBudgetAS.Location = new System.Drawing.Point(250, 119);
             this.txbBudgetAS.Name = "txbBudgetAS";
             this.txbBudgetAS.Size = new System.Drawing.Size(71, 20);
-            this.txbBudgetAS.TabIndex = 3;
+            this.txbBudgetAS.TabIndex = 2;
             this.txbBudgetAS.Visible = false;
             this.txbBudgetAS.TextChanged += new System.EventHandler(this.txbBudgetAS_TextChanged);
             // 
@@ -166,6 +171,7 @@
             this.lblBudgetEPSInitial.Size = new System.Drawing.Size(13, 13);
             this.lblBudgetEPSInitial.TabIndex = 8;
             this.lblBudgetEPSInitial.Text = "0";
+            this.lblBudgetEPSInitial.TextChanged += new System.EventHandler(this.lblBudgetEPSInitial_TextChanged);
             // 
             // lblBudgetASInitial
             // 
@@ -175,6 +181,7 @@
             this.lblBudgetASInitial.Size = new System.Drawing.Size(13, 13);
             this.lblBudgetASInitial.TabIndex = 9;
             this.lblBudgetASInitial.Text = "0";
+            this.lblBudgetASInitial.TextChanged += new System.EventHandler(this.lblBudgetASInitial_TextChanged);
             // 
             // lblFiltreAdherant
             // 
@@ -188,10 +195,10 @@
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(18, 187);
+            this.textBox3.Location = new System.Drawing.Point(73, 188);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(165, 20);
-            this.textBox3.TabIndex = 11;
+            this.textBox3.Size = new System.Drawing.Size(134, 20);
+            this.textBox3.TabIndex = 12;
             // 
             // lblFiltreClasse
             // 
@@ -205,16 +212,16 @@
             // lsbClasse
             // 
             this.lsbClasse.FormattingEnabled = true;
-            this.lsbClasse.Location = new System.Drawing.Point(69, 216);
+            this.lsbClasse.Location = new System.Drawing.Point(73, 216);
             this.lsbClasse.Margin = new System.Windows.Forms.Padding(2);
             this.lsbClasse.Name = "lsbClasse";
-            this.lsbClasse.Size = new System.Drawing.Size(114, 30);
+            this.lsbClasse.Size = new System.Drawing.Size(134, 30);
             this.lsbClasse.TabIndex = 13;
             // 
             // lblFiltrePrelevementAutorise
             // 
             this.lblFiltrePrelevementAutorise.AutoSize = true;
-            this.lblFiltrePrelevementAutorise.Location = new System.Drawing.Point(20, 254);
+            this.lblFiltrePrelevementAutorise.Location = new System.Drawing.Point(3, 6);
             this.lblFiltrePrelevementAutorise.Name = "lblFiltrePrelevementAutorise";
             this.lblFiltrePrelevementAutorise.Size = new System.Drawing.Size(66, 26);
             this.lblFiltrePrelevementAutorise.TabIndex = 14;
@@ -223,7 +230,7 @@
             // lblFiltreSweetPris
             // 
             this.lblFiltreSweetPris.AutoSize = true;
-            this.lblFiltreSweetPris.Location = new System.Drawing.Point(20, 294);
+            this.lblFiltreSweetPris.Location = new System.Drawing.Point(3, 14);
             this.lblFiltreSweetPris.Name = "lblFiltreSweetPris";
             this.lblFiltreSweetPris.Size = new System.Drawing.Size(62, 13);
             this.lblFiltreSweetPris.TabIndex = 15;
@@ -232,10 +239,10 @@
             // rdbPrelevementAutoriseOui
             // 
             this.rdbPrelevementAutoriseOui.AutoSize = true;
-            this.rdbPrelevementAutoriseOui.Location = new System.Drawing.Point(92, 263);
+            this.rdbPrelevementAutoriseOui.Location = new System.Drawing.Point(75, 11);
             this.rdbPrelevementAutoriseOui.Name = "rdbPrelevementAutoriseOui";
             this.rdbPrelevementAutoriseOui.Size = new System.Drawing.Size(41, 17);
-            this.rdbPrelevementAutoriseOui.TabIndex = 16;
+            this.rdbPrelevementAutoriseOui.TabIndex = 14;
             this.rdbPrelevementAutoriseOui.TabStop = true;
             this.rdbPrelevementAutoriseOui.Text = "Oui";
             this.rdbPrelevementAutoriseOui.UseVisualStyleBackColor = true;
@@ -243,10 +250,10 @@
             // rdbPrelevementAutoriseNon
             // 
             this.rdbPrelevementAutoriseNon.AutoSize = true;
-            this.rdbPrelevementAutoriseNon.Location = new System.Drawing.Point(139, 263);
+            this.rdbPrelevementAutoriseNon.Location = new System.Drawing.Point(122, 11);
             this.rdbPrelevementAutoriseNon.Name = "rdbPrelevementAutoriseNon";
             this.rdbPrelevementAutoriseNon.Size = new System.Drawing.Size(45, 17);
-            this.rdbPrelevementAutoriseNon.TabIndex = 17;
+            this.rdbPrelevementAutoriseNon.TabIndex = 15;
             this.rdbPrelevementAutoriseNon.TabStop = true;
             this.rdbPrelevementAutoriseNon.Text = "Non";
             this.rdbPrelevementAutoriseNon.UseVisualStyleBackColor = true;
@@ -254,10 +261,10 @@
             // rdbSweetPrisNon
             // 
             this.rdbSweetPrisNon.AutoSize = true;
-            this.rdbSweetPrisNon.Location = new System.Drawing.Point(138, 294);
+            this.rdbSweetPrisNon.Location = new System.Drawing.Point(122, 13);
             this.rdbSweetPrisNon.Name = "rdbSweetPrisNon";
             this.rdbSweetPrisNon.Size = new System.Drawing.Size(45, 17);
-            this.rdbSweetPrisNon.TabIndex = 19;
+            this.rdbSweetPrisNon.TabIndex = 17;
             this.rdbSweetPrisNon.TabStop = true;
             this.rdbSweetPrisNon.Text = "Non";
             this.rdbSweetPrisNon.UseVisualStyleBackColor = true;
@@ -265,10 +272,10 @@
             // rdbSweetPrisOui
             // 
             this.rdbSweetPrisOui.AutoSize = true;
-            this.rdbSweetPrisOui.Location = new System.Drawing.Point(91, 294);
+            this.rdbSweetPrisOui.Location = new System.Drawing.Point(74, 13);
             this.rdbSweetPrisOui.Name = "rdbSweetPrisOui";
             this.rdbSweetPrisOui.Size = new System.Drawing.Size(41, 17);
-            this.rdbSweetPrisOui.TabIndex = 18;
+            this.rdbSweetPrisOui.TabIndex = 16;
             this.rdbSweetPrisOui.TabStop = true;
             this.rdbSweetPrisOui.Text = "Oui";
             this.rdbSweetPrisOui.UseVisualStyleBackColor = true;
@@ -317,7 +324,7 @@
             // 
             this.lblCredit.AutoSize = true;
             this.lblCredit.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCredit.Location = new System.Drawing.Point(651, 360);
+            this.lblCredit.Location = new System.Drawing.Point(651, 357);
             this.lblCredit.Name = "lblCredit";
             this.lblCredit.Size = new System.Drawing.Size(117, 25);
             this.lblCredit.TabIndex = 24;
@@ -346,7 +353,7 @@
             this.btnFluxAjouter.Location = new System.Drawing.Point(540, 142);
             this.btnFluxAjouter.Name = "btnFluxAjouter";
             this.btnFluxAjouter.Size = new System.Drawing.Size(110, 20);
-            this.btnFluxAjouter.TabIndex = 27;
+            this.btnFluxAjouter.TabIndex = 9;
             this.btnFluxAjouter.Text = "Ajouter un flux";
             this.btnFluxAjouter.UseVisualStyleBackColor = true;
             this.btnFluxAjouter.Click += new System.EventHandler(this.btnFluxAjouter_Click);
@@ -357,7 +364,7 @@
             this.btnFluxModifier.Location = new System.Drawing.Point(540, 168);
             this.btnFluxModifier.Name = "btnFluxModifier";
             this.btnFluxModifier.Size = new System.Drawing.Size(110, 20);
-            this.btnFluxModifier.TabIndex = 28;
+            this.btnFluxModifier.TabIndex = 10;
             this.btnFluxModifier.Text = "Modifier le flux";
             this.btnFluxModifier.UseVisualStyleBackColor = true;
             this.btnFluxModifier.Click += new System.EventHandler(this.btnFluxModifier_Click);
@@ -368,7 +375,7 @@
             this.btnFluxSupprimer.Location = new System.Drawing.Point(540, 194);
             this.btnFluxSupprimer.Name = "btnFluxSupprimer";
             this.btnFluxSupprimer.Size = new System.Drawing.Size(110, 20);
-            this.btnFluxSupprimer.TabIndex = 29;
+            this.btnFluxSupprimer.TabIndex = 11;
             this.btnFluxSupprimer.Text = "Supprimer le flux";
             this.btnFluxSupprimer.UseVisualStyleBackColor = true;
             this.btnFluxSupprimer.Click += new System.EventHandler(this.btnFluxSupprimer_Click);
@@ -538,7 +545,7 @@
             this.btnModifierBudgetEPS.Location = new System.Drawing.Point(325, 93);
             this.btnModifierBudgetEPS.Name = "btnModifierBudgetEPS";
             this.btnModifierBudgetEPS.Size = new System.Drawing.Size(75, 20);
-            this.btnModifierBudgetEPS.TabIndex = 37;
+            this.btnModifierBudgetEPS.TabIndex = 7;
             this.btnModifierBudgetEPS.Text = "Modifier";
             this.btnModifierBudgetEPS.UseVisualStyleBackColor = true;
             this.btnModifierBudgetEPS.Visible = false;
@@ -549,7 +556,7 @@
             this.btnModifierBudgetAS.Location = new System.Drawing.Point(325, 118);
             this.btnModifierBudgetAS.Name = "btnModifierBudgetAS";
             this.btnModifierBudgetAS.Size = new System.Drawing.Size(75, 20);
-            this.btnModifierBudgetAS.TabIndex = 38;
+            this.btnModifierBudgetAS.TabIndex = 8;
             this.btnModifierBudgetAS.Text = "Modifier";
             this.btnModifierBudgetAS.UseVisualStyleBackColor = true;
             this.btnModifierBudgetAS.Visible = false;
@@ -560,7 +567,7 @@
             this.btnEnvoyerModifEPS.Location = new System.Drawing.Point(325, 93);
             this.btnEnvoyerModifEPS.Name = "btnEnvoyerModifEPS";
             this.btnEnvoyerModifEPS.Size = new System.Drawing.Size(75, 20);
-            this.btnEnvoyerModifEPS.TabIndex = 39;
+            this.btnEnvoyerModifEPS.TabIndex = 3;
             this.btnEnvoyerModifEPS.Text = "Envoyer";
             this.btnEnvoyerModifEPS.UseVisualStyleBackColor = true;
             this.btnEnvoyerModifEPS.Visible = false;
@@ -571,7 +578,7 @@
             this.btnAnnulerModifEPS.Location = new System.Drawing.Point(405, 93);
             this.btnAnnulerModifEPS.Name = "btnAnnulerModifEPS";
             this.btnAnnulerModifEPS.Size = new System.Drawing.Size(75, 20);
-            this.btnAnnulerModifEPS.TabIndex = 40;
+            this.btnAnnulerModifEPS.TabIndex = 4;
             this.btnAnnulerModifEPS.Text = "Annuler";
             this.btnAnnulerModifEPS.UseVisualStyleBackColor = true;
             this.btnAnnulerModifEPS.Visible = false;
@@ -582,7 +589,7 @@
             this.btnEnvoyerModifAS.Location = new System.Drawing.Point(325, 118);
             this.btnEnvoyerModifAS.Name = "btnEnvoyerModifAS";
             this.btnEnvoyerModifAS.Size = new System.Drawing.Size(75, 20);
-            this.btnEnvoyerModifAS.TabIndex = 41;
+            this.btnEnvoyerModifAS.TabIndex = 5;
             this.btnEnvoyerModifAS.Text = "Envoyer";
             this.btnEnvoyerModifAS.UseVisualStyleBackColor = true;
             this.btnEnvoyerModifAS.Visible = false;
@@ -593,7 +600,7 @@
             this.btnAnnulerModifAS.Location = new System.Drawing.Point(405, 118);
             this.btnAnnulerModifAS.Name = "btnAnnulerModifAS";
             this.btnAnnulerModifAS.Size = new System.Drawing.Size(75, 20);
-            this.btnAnnulerModifAS.TabIndex = 42;
+            this.btnAnnulerModifAS.TabIndex = 6;
             this.btnAnnulerModifAS.Text = "Annuler";
             this.btnAnnulerModifAS.UseVisualStyleBackColor = true;
             this.btnAnnulerModifAS.Visible = false;
@@ -625,6 +632,7 @@
             this.lblBudgetAS.Size = new System.Drawing.Size(13, 13);
             this.lblBudgetAS.TabIndex = 46;
             this.lblBudgetAS.Text = "0";
+            this.lblBudgetAS.TextChanged += new System.EventHandler(this.lblBudgetAS_TextChanged);
             // 
             // lblBudgetEPS
             // 
@@ -634,12 +642,45 @@
             this.lblBudgetEPS.Size = new System.Drawing.Size(13, 13);
             this.lblBudgetEPS.TabIndex = 45;
             this.lblBudgetEPS.Text = "0";
+            this.lblBudgetEPS.TextChanged += new System.EventHandler(this.lblBudgetEPS_TextChanged);
+            // 
+            // pnlPrelevementAutorise
+            // 
+            this.pnlPrelevementAutorise.Controls.Add(this.lblFiltrePrelevementAutorise);
+            this.pnlPrelevementAutorise.Controls.Add(this.rdbPrelevementAutoriseOui);
+            this.pnlPrelevementAutorise.Controls.Add(this.rdbPrelevementAutoriseNon);
+            this.pnlPrelevementAutorise.Location = new System.Drawing.Point(16, 249);
+            this.pnlPrelevementAutorise.Name = "pnlPrelevementAutorise";
+            this.pnlPrelevementAutorise.Size = new System.Drawing.Size(191, 39);
+            this.pnlPrelevementAutorise.TabIndex = 47;
+            // 
+            // pnlSweetPris
+            // 
+            this.pnlSweetPris.Controls.Add(this.lblFiltreSweetPris);
+            this.pnlSweetPris.Controls.Add(this.rdbSweetPrisOui);
+            this.pnlSweetPris.Controls.Add(this.rdbSweetPrisNon);
+            this.pnlSweetPris.Location = new System.Drawing.Point(16, 289);
+            this.pnlSweetPris.Name = "pnlSweetPris";
+            this.pnlSweetPris.Size = new System.Drawing.Size(191, 41);
+            this.pnlSweetPris.TabIndex = 48;
+            // 
+            // lblNomPrenom
+            // 
+            this.lblNomPrenom.AutoSize = true;
+            this.lblNomPrenom.Location = new System.Drawing.Point(19, 184);
+            this.lblNomPrenom.Name = "lblNomPrenom";
+            this.lblNomPrenom.Size = new System.Drawing.Size(49, 26);
+            this.lblNomPrenom.TabIndex = 49;
+            this.lblNomPrenom.Text = "Nom et\r\nPrénom :";
             // 
             // FormComptabilite
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1112, 600);
+            this.Controls.Add(this.lblNomPrenom);
+            this.Controls.Add(this.pnlSweetPris);
+            this.Controls.Add(this.pnlPrelevementAutorise);
             this.Controls.Add(this.lblBudgetAS);
             this.Controls.Add(this.lblBudgetEPS);
             this.Controls.Add(this.lblSetBudgetEPSInitial);
@@ -664,12 +705,6 @@
             this.Controls.Add(this.lblDebit);
             this.Controls.Add(this.dtgDebit);
             this.Controls.Add(this.lblInformations);
-            this.Controls.Add(this.rdbSweetPrisNon);
-            this.Controls.Add(this.rdbSweetPrisOui);
-            this.Controls.Add(this.rdbPrelevementAutoriseNon);
-            this.Controls.Add(this.rdbPrelevementAutoriseOui);
-            this.Controls.Add(this.lblFiltreSweetPris);
-            this.Controls.Add(this.lblFiltrePrelevementAutorise);
             this.Controls.Add(this.lsbClasse);
             this.Controls.Add(this.lblFiltreClasse);
             this.Controls.Add(this.textBox3);
@@ -694,6 +729,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtgFluxAdherant)).EndInit();
             this.gbxInfoAdherant.ResumeLayout(false);
             this.gbxInfoAdherant.PerformLayout();
+            this.pnlPrelevementAutorise.ResumeLayout(false);
+            this.pnlPrelevementAutorise.PerformLayout();
+            this.pnlSweetPris.ResumeLayout(false);
+            this.pnlSweetPris.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -757,5 +796,8 @@
         private System.Windows.Forms.Label lblSetBudgetASInitial;
         private System.Windows.Forms.Label lblBudgetAS;
         private System.Windows.Forms.Label lblBudgetEPS;
+        private System.Windows.Forms.Panel pnlPrelevementAutorise;
+        private System.Windows.Forms.Panel pnlSweetPris;
+        private System.Windows.Forms.Label lblNomPrenom;
     }
 }
