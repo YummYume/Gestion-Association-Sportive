@@ -36,7 +36,7 @@ namespace GUI
             budgetEPS = BLL.BudgetBLL.GetBudgetTotal(DateTime.Now.Year.ToString(), BLL.BudgetBLL.GetBudgetEPS(currentYear.ToString()));
             budgetASInitial = BLL.BudgetBLL.GetBudgetAS(currentYear.ToString());
             budgetEPSInitial = BLL.BudgetBLL.GetBudgetEPS(currentYear.ToString());
-            lblBudgetAS.Text = budgetAS.MontantInitial.ToString()+ "€";
+            lblBudgetAS.Text = budgetAS.MontantInitial.ToString() + "€";
             lblBudgetEPS.Text = budgetEPS.MontantInitial.ToString() + "€";
             lblBudgetASInitial.Text = budgetASInitial.MontantInitial.ToString() + "€";
             lblBudgetEPSInitial.Text = budgetEPSInitial.MontantInitial.ToString() + "€";
@@ -47,6 +47,7 @@ namespace GUI
                 btnModifierBudgetAS.Visible = false;
                 txbBudgetAS.Visible = true;
                 lblBudgetASInitial.Visible = false;
+                btnSetBudgetAS.Enabled = false;
             }
             else
             {
@@ -62,6 +63,7 @@ namespace GUI
                 btnModifierBudgetEPS.Visible = false;
                 txbBudgetEPS.Visible = true;
                 lblBudgetEPSInitial.Visible = false;
+                btnSetBudgetEPS.Enabled = false;
             }
             else
             {
@@ -71,12 +73,17 @@ namespace GUI
                 lblBudgetEPSInitial.Visible = true;
             }
 
+            if (budgetAS.Id == 0 && budgetEPS.Id == 0)
+            {
+                btnFluxAjouter.Enabled = false;
+            }
+
             try
             {
                 this.lsbClasse.ValueMember = "id";
                 this.lsbClasse.DisplayMember = "libelle";
                 this.lsbClasse.DataSource = ClasseBLL.GetClasses();
-                this.lsbClasse.SelectedIndex = -1;
+                this.lsbClasse.SelectedIndex = 0;
             }
             catch (Exception)
             {
@@ -88,16 +95,28 @@ namespace GUI
             {
                 this.dtgCredit.Rows[0].Selected = false;
                 this.dtgCredit.CurrentCell = null;
-                this.dtgCredit.Columns["ID"].Visible = false;
             }
+            this.dtgCredit.Columns["ID"].Visible = false;
 
             this.dtgDebit.DataSource = FluxBLL.GetBaseFluxInfo(new TypeFlux(1, "Débit"), currentYear.ToString());
             if (this.dtgDebit.Rows.Count > 0)
             {
                 this.dtgDebit.Rows[0].Selected = false;
                 this.dtgDebit.CurrentCell = null;
-                this.dtgDebit.Columns["ID"].Visible = false;
             }
+            this.dtgDebit.Columns["ID"].Visible = false;
+
+            string recherche = this.tbxRechercheNomPrenom.Text;
+
+            Classe classe = new Classe(Int32.Parse(lsbClasse.SelectedValue.ToString()));
+            this.dtgFiltres.DataSource = AdherentBLL.RechercherMinAdherent(recherche, classe);
+
+            if (this.dtgFiltres.Rows.Count > 0)
+            {
+                this.dtgFiltres.Rows[0].Selected = false;
+                this.dtgFiltres.CurrentCell = null;
+            }
+            this.dtgFiltres.Columns["ID"].Visible = false;
         }
 
         private void btnModifierBudgetEPS_Click(object sender, EventArgs e)
@@ -154,15 +173,13 @@ namespace GUI
             BLL.BudgetBLL.AddBudget(new Budget("AS", Int32.Parse(txbBudgetAS.Text), currentDate));
 
             budgetAS = BLL.BudgetBLL.GetBudgetTotal(DateTime.Now.Year.ToString(), BLL.BudgetBLL.GetBudgetAS(currentYear.ToString()));
-            lblBudgetASInitial.Text = budgetAS.MontantInitial.ToString();
+            lblBudgetASInitial.Text = budgetAS.MontantInitial.ToString() + "€";
 
             btnSetBudgetAS.Visible = false;
             btnModifierBudgetAS.Visible = true;
             txbBudgetAS.Visible = false;
             lblBudgetASInitial.Visible = true;
             btnFluxAjouter.Enabled = true;
-            btnFluxModifier.Enabled = true;
-            btnFluxSupprimer.Enabled = true;
         }
 
         private void btnSetBudgetEPS_Click(object sender, EventArgs e)
@@ -170,15 +187,13 @@ namespace GUI
             BLL.BudgetBLL.AddBudget(new Budget("EPS", Int32.Parse(txbBudgetEPS.Text), currentDate));
 
             budgetEPS = BLL.BudgetBLL.GetBudgetTotal(DateTime.Now.Year.ToString(), BLL.BudgetBLL.GetBudgetEPS(currentYear.ToString()));
-            lblBudgetEPSInitial.Text = budgetEPS.MontantInitial.ToString();
+            lblBudgetEPSInitial.Text = budgetEPS.MontantInitial.ToString() + "€";
 
             btnSetBudgetEPS.Visible = false;
             btnModifierBudgetEPS.Visible = true;
             txbBudgetEPS.Visible = false;
             lblBudgetEPSInitial.Visible = true;
             btnFluxAjouter.Enabled = true;
-            btnFluxModifier.Enabled = true;
-            btnFluxSupprimer.Enabled = true;
         }
 
         private void btnEnvoyerModifAS_Click(object sender, EventArgs e)
@@ -410,6 +425,61 @@ namespace GUI
             {
                 lblBudgetASInitial.ForeColor = Color.Black;
             }
+        }
+
+        private void tbxRechercheNomPrenom_TextChanged(object sender, EventArgs e)
+        {
+            string recherche = this.tbxRechercheNomPrenom.Text;
+            Classe classe = new Classe(Int32.Parse(lsbClasse.SelectedValue.ToString()));
+
+            this.dtgFiltres.DataSource = AdherentBLL.RechercherMinAdherent(recherche, classe);
+
+            if (this.dtgFiltres.Rows.Count > 0)
+            {
+                this.dtgFiltres.Rows[0].Selected = false;
+                this.dtgFiltres.CurrentCell = null;
+            }
+        }
+
+        private void lsbClasse_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string recherche = this.tbxRechercheNomPrenom.Text;
+            Classe classe = new Classe(Int32.Parse(lsbClasse.SelectedValue.ToString()));
+
+            this.dtgFiltres.DataSource = AdherentBLL.RechercherMinAdherent(recherche, classe);
+
+            if (this.dtgFiltres.Rows.Count > 0)
+            {
+                this.dtgFiltres.Rows[0].Selected = false;
+                this.dtgFiltres.CurrentCell = null;
+            }
+        }
+
+        private void dtgFiltres_CellEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            if (this.dtgFiltres.SelectedCells.Count > 0)
+            {
+                this.dtgFiltres.SelectedCells[0].OwningRow.Selected = true;
+            }
+            List<Adherent> lesAdherents = new List<Adherent>(AdherentBLL.GetFullInfoAdherents());
+            Int32.TryParse(dtgFiltres.CurrentRow.Cells["Id"].Value.ToString(), out int id);
+
+            Adherent leAdherent = lesAdherents.Find(Adherent => Adherent.Id == id);
+            lblNom.Text = leAdherent.Nom;
+            lblPrenom.Text = leAdherent.Prenom;
+            lblClasse.Text = leAdherent.Classe.Libelle;
+
+            List<Flux> lesFluxAdherent = new List<Flux>();
+            lesFluxAdherent.AddRange(FluxBLL.GetFluxStudentYear(new TypeFlux(1), currentYear.ToString(), leAdherent));
+            lesFluxAdherent.AddRange(FluxBLL.GetFluxStudentYear(new TypeFlux(2), currentYear.ToString(), leAdherent));
+
+            this.dtgFluxAdherant.DataSource = lesFluxAdherent;
+            this.dtgFluxAdherant.Columns["ID"].Visible = false;
+            this.dtgFluxAdherant.Columns["Budget"].Visible = false;
+            this.dtgFluxAdherant.Columns["Evenement"].Visible = false;
+            this.dtgFluxAdherant.Columns["Typeflux"].Visible = false;
+            this.dtgFluxAdherant.Columns["Adherent"].Visible = false;
+            this.dtgFluxAdherant.Columns["Prelevementeff"].Visible = false;
         }
     }
 }

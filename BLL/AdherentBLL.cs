@@ -56,5 +56,10 @@ namespace BLL
         {
             return AdherentDAO.LoginExiste(login);
         }
+
+        public static List<AdherentMin> RechercherMinAdherent(string recherche, Classe classe)
+        {
+            return AdherentDAO.RechercherMinAdherent(recherche, classe);
+        }
     }
 }

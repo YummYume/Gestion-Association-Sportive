@@ -12,9 +12,11 @@ namespace BO
         private string nom;
         private string prenom;
 
-        public AdherentMin(int id)
+        public AdherentMin(int id, string nom, string prenom)
         {
             this.Id = id;
+            this.nom = nom;
+            this.prenom = prenom;
         }
 
         public AdherentMin(string nom, string prenom)

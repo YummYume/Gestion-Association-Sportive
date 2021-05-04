@@ -38,7 +38,7 @@
             this.lblBudgetEPSInitial = new System.Windows.Forms.Label();
             this.lblBudgetASInitial = new System.Windows.Forms.Label();
             this.lblFiltreAdherant = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.tbxRechercheNomPrenom = new System.Windows.Forms.TextBox();
             this.lblFiltreClasse = new System.Windows.Forms.Label();
             this.lsbClasse = new System.Windows.Forms.ListBox();
             this.lblFiltrePrelevementAutorise = new System.Windows.Forms.Label();
@@ -193,17 +193,18 @@
             this.lblFiltreAdherant.TabIndex = 10;
             this.lblFiltreAdherant.Text = "Filtre Adherant :";
             // 
-            // textBox3
+            // tbxRechercheNomPrenom
             // 
-            this.textBox3.Location = new System.Drawing.Point(73, 188);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(134, 20);
-            this.textBox3.TabIndex = 12;
+            this.tbxRechercheNomPrenom.Location = new System.Drawing.Point(73, 188);
+            this.tbxRechercheNomPrenom.Name = "tbxRechercheNomPrenom";
+            this.tbxRechercheNomPrenom.Size = new System.Drawing.Size(134, 20);
+            this.tbxRechercheNomPrenom.TabIndex = 12;
+            this.tbxRechercheNomPrenom.TextChanged += new System.EventHandler(this.tbxRechercheNomPrenom_TextChanged);
             // 
             // lblFiltreClasse
             // 
             this.lblFiltreClasse.AutoSize = true;
-            this.lblFiltreClasse.Location = new System.Drawing.Point(20, 224);
+            this.lblFiltreClasse.Location = new System.Drawing.Point(20, 232);
             this.lblFiltreClasse.Name = "lblFiltreClasse";
             this.lblFiltreClasse.Size = new System.Drawing.Size(44, 13);
             this.lblFiltreClasse.TabIndex = 12;
@@ -215,8 +216,9 @@
             this.lsbClasse.Location = new System.Drawing.Point(73, 216);
             this.lsbClasse.Margin = new System.Windows.Forms.Padding(2);
             this.lsbClasse.Name = "lsbClasse";
-            this.lsbClasse.Size = new System.Drawing.Size(134, 30);
+            this.lsbClasse.Size = new System.Drawing.Size(134, 43);
             this.lsbClasse.TabIndex = 13;
+            this.lsbClasse.SelectedIndexChanged += new System.EventHandler(this.lsbClasse_SelectedIndexChanged);
             // 
             // lblFiltrePrelevementAutorise
             // 
@@ -335,8 +337,11 @@
             this.dtgFiltres.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgFiltres.Location = new System.Drawing.Point(247, 189);
             this.dtgFiltres.Name = "dtgFiltres";
-            this.dtgFiltres.Size = new System.Drawing.Size(287, 130);
+            this.dtgFiltres.Size = new System.Drawing.Size(244, 130);
             this.dtgFiltres.TabIndex = 25;
+            this.dtgFiltres.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgFiltres_CellEnter);
+            this.dtgFiltres.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgFiltres_CellEnter);
+            this.dtgFiltres.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgFiltres_CellEnter);
             // 
             // lblResultats
             // 
@@ -649,9 +654,9 @@
             this.pnlPrelevementAutorise.Controls.Add(this.lblFiltrePrelevementAutorise);
             this.pnlPrelevementAutorise.Controls.Add(this.rdbPrelevementAutoriseOui);
             this.pnlPrelevementAutorise.Controls.Add(this.rdbPrelevementAutoriseNon);
-            this.pnlPrelevementAutorise.Location = new System.Drawing.Point(16, 249);
+            this.pnlPrelevementAutorise.Location = new System.Drawing.Point(16, 264);
             this.pnlPrelevementAutorise.Name = "pnlPrelevementAutorise";
-            this.pnlPrelevementAutorise.Size = new System.Drawing.Size(191, 39);
+            this.pnlPrelevementAutorise.Size = new System.Drawing.Size(191, 37);
             this.pnlPrelevementAutorise.TabIndex = 47;
             // 
             // pnlSweetPris
@@ -659,9 +664,9 @@
             this.pnlSweetPris.Controls.Add(this.lblFiltreSweetPris);
             this.pnlSweetPris.Controls.Add(this.rdbSweetPrisOui);
             this.pnlSweetPris.Controls.Add(this.rdbSweetPrisNon);
-            this.pnlSweetPris.Location = new System.Drawing.Point(16, 289);
+            this.pnlSweetPris.Location = new System.Drawing.Point(16, 295);
             this.pnlSweetPris.Name = "pnlSweetPris";
-            this.pnlSweetPris.Size = new System.Drawing.Size(191, 41);
+            this.pnlSweetPris.Size = new System.Drawing.Size(191, 36);
             this.pnlSweetPris.TabIndex = 48;
             // 
             // lblNomPrenom
@@ -707,7 +712,7 @@
             this.Controls.Add(this.lblInformations);
             this.Controls.Add(this.lsbClasse);
             this.Controls.Add(this.lblFiltreClasse);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.tbxRechercheNomPrenom);
             this.Controls.Add(this.lblFiltreAdherant);
             this.Controls.Add(this.lblBudgetASInitial);
             this.Controls.Add(this.lblBudgetEPSInitial);
@@ -750,7 +755,7 @@
         private System.Windows.Forms.Label lblBudgetEPSInitial;
         private System.Windows.Forms.Label lblBudgetASInitial;
         private System.Windows.Forms.Label lblFiltreAdherant;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox tbxRechercheNomPrenom;
         private System.Windows.Forms.Label lblFiltreClasse;
         protected System.Windows.Forms.ListBox lsbClasse;
         private System.Windows.Forms.Label lblFiltrePrelevementAutorise;

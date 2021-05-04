@@ -25,7 +25,8 @@ namespace GUI
         private void FormAdministrateur_Load(object sender, EventArgs e)
         {
             this.dtgListeAdherants.DataSource = AdherentBLL.GetInfoBaseAdherents();
-            if(this.dtgListeAdherants.Rows.Count > 0)
+            this.dtgListeAdherants.Columns["ID"].Visible = false;
+            if (this.dtgListeAdherants.Rows.Count > 0)
             {
                 this.dtgListeAdherants.Rows[0].Selected = false;
             }
@@ -60,10 +61,9 @@ namespace GUI
         private void btnModifierEleve_Click(object sender, EventArgs e)
         {
             List<Adherent> lesAdherents = new List<Adherent>(AdherentBLL.GetFullInfoAdherents());
-            string nom = dtgListeAdherants.CurrentRow.Cells[0].Value.ToString();
-            string prenom = dtgListeAdherants.CurrentRow.Cells[1].Value.ToString();
+            Int32.TryParse(dtgListeAdherants.CurrentRow.Cells[2].Value.ToString(), out int id);
 
-            Adherent leAdherent = lesAdherents.Find(Adherent => Adherent.Nom == nom && Adherent.Prenom == prenom);
+            Adherent leAdherent = lesAdherents.Find(Adherent => Adherent.Id == id);
 
             FormModificationAdherent newModificationAdherent;
             newModificationAdherent = new FormModificationAdherent(leUtilisateur, leAdherent, this);
@@ -77,10 +77,9 @@ namespace GUI
                 this.dtgListeAdherants.SelectedCells[0].OwningRow.Selected = true;
             }
             List<Adherent> lesAdherents = new List<Adherent>(AdherentBLL.GetFullInfoAdherents());
-            string nom = dtgListeAdherants.CurrentRow.Cells[0].Value.ToString();
-            string prenom = dtgListeAdherants.CurrentRow.Cells[1].Value.ToString();
+            Int32.TryParse(dtgListeAdherants.CurrentRow.Cells[2].Value.ToString(), out int id);
 
-            Adherent leAdherent = lesAdherents.Find(Adherent => Adherent.Nom == nom && Adherent.Prenom == prenom);
+            Adherent leAdherent = lesAdherents.Find(Adherent => Adherent.Id == id);
             lblNom.Text = leAdherent.Nom;
             lblPrenom.Text = leAdherent.Prenom;
             lblClasse.Text = leAdherent.Classe.Libelle;

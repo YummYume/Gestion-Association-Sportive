@@ -19,12 +19,12 @@ namespace DAL
             List<AdherentMin> lesAdherents = new List<AdherentMin>();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = maConnexion;
-            cmd.CommandText = "SELECT Nom_adherent AS nom, Prenom_adherent AS prenom FROM ADHERENT WHERE Archive_adherent = 0";
+            cmd.CommandText = "SELECT ID_adherent AS id, Nom_adherent AS nom, Prenom_adherent AS prenom FROM ADHERENT WHERE Archive_adherent = 0";
             SqlDataReader monReader = cmd.ExecuteReader();
 
             while (monReader.Read())
             {
-                AdherentMin unAdherent = new AdherentMin(monReader["nom"].ToString(), monReader["prenom"].ToString());
+                AdherentMin unAdherent = new AdherentMin((int)monReader["id"], monReader["nom"].ToString(), monReader["prenom"].ToString());
                 lesAdherents.Add(unAdherent);
             }
 
@@ -61,15 +61,12 @@ namespace DAL
 
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = maConnexion;
-            cmd.CommandText = "UPDATE dbo.ADHERENT SET Archive_adherent = 1 WHERE Nom_adherent = @nom AND Prenom_adherent = @prenom";
+            cmd.CommandText = "UPDATE dbo.ADHERENT SET Archive_adherent = 1 WHERE ID_adherent = @id";
 
             // Création et bind des paramètres
-            SqlParameter nom = new SqlParameter("@nom", SqlDbType.VarChar, 255);
-            SqlParameter prenom = new SqlParameter("@prenom", SqlDbType.VarChar, 255);
-            nom.Value = unAdherent.Nom;
-            prenom.Value = unAdherent.Prenom;
-            cmd.Parameters.Add(nom);
-            cmd.Parameters.Add(prenom);
+            SqlParameter id = new SqlParameter("@id", SqlDbType.Int);
+            id.Value = unAdherent.Id;
+            cmd.Parameters.Add(id);
 
             // Execution de la requête
             cmd.ExecuteNonQuery();
@@ -212,6 +209,37 @@ namespace DAL
 
             monReader.Close();
             return false;
+        }
+
+        public static List<AdherentMin> RechercherMinAdherent(string recherche, Classe classe)
+        {
+            // Connexion à la BD
+            SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
+
+            List<AdherentMin> lesAdherents = new List<AdherentMin>();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = maConnexion;
+            cmd.CommandText = "SELECT ID_adherent AS id, Nom_adherent AS nom, Prenom_adherent AS prenom, Archive_adherent as archive, nomPrenom, prenomNom FROM (SELECT ID_adherent, Nom_adherent, Prenom_adherent, Archive_adherent, Nom_adherent + ' ' + Prenom_adherent AS nomPrenom, Prenom_adherent + ' ' + Nom_adherent AS prenomNom FROM ADHERENT WHERE Archive_adherent = 0 AND #ID_classe = @classe) A WHERE (nomPrenom LIKE @recherche OR prenomNom LIKE @recherche) AND Archive_adherent = 0";
+
+            // Création et bind des paramètres
+            recherche = '%' + recherche + '%';
+            SqlParameter rechercheNomPrenom = new SqlParameter("@recherche", SqlDbType.VarChar, 255);
+            SqlParameter classeAdherent = new SqlParameter("@classe", SqlDbType.Int);
+            rechercheNomPrenom.Value = recherche;
+            classeAdherent.Value = classe.Id;
+            cmd.Parameters.Add(rechercheNomPrenom);
+            cmd.Parameters.Add(classeAdherent);
+
+            SqlDataReader monReader = cmd.ExecuteReader();
+
+            while (monReader.Read())
+            {
+                AdherentMin unAdherent = new AdherentMin((int)monReader["id"], monReader["nom"].ToString(), monReader["prenom"].ToString());
+                lesAdherents.Add(unAdherent);
+            }
+
+            monReader.Close();
+            return lesAdherents;
         }
     }
 }
