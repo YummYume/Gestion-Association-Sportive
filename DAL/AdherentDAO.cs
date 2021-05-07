@@ -241,5 +241,98 @@ namespace DAL
             monReader.Close();
             return lesAdherents;
         }
+
+        public static int GetNombreAdherents()
+        {
+            // Connexion à la BD
+            SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
+
+            int nombreAdherents = 0;
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = maConnexion;
+            cmd.CommandText = "SELECT COUNT(*) as nombreAdherents FROM ADHERENT WHERE ADHERENT.Archive_adherent = 0";
+
+            SqlDataReader monReader = cmd.ExecuteReader();
+
+            while (monReader.Read())
+            {
+                nombreAdherents = (int)monReader["nombreAdherents"];
+            }
+
+            monReader.Close();
+            return nombreAdherents;
+        }
+
+        public static int GetNombreAdherentsGenre(string genre)
+        {
+            // Connexion à la BD
+            SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
+
+            int nombreAdherents = 0;
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = maConnexion;
+            cmd.CommandText = "SELECT COUNT(*) as nombreAdherents FROM ADHERENT WHERE ADHERENT.Sexe_adherent = @genre AND ADHERENT.Archive_adherent = 0";
+            SqlParameter genreAdherent = new SqlParameter("@genre", SqlDbType.VarChar);
+            genreAdherent.Value = genre;
+            cmd.Parameters.Add(genreAdherent);
+
+            SqlDataReader monReader = cmd.ExecuteReader();
+
+            while (monReader.Read())
+            {
+                nombreAdherents = (int)monReader["nombreAdherents"];
+            }
+
+            monReader.Close();
+            return nombreAdherents;
+        }
+
+        public static List<List<string>> GetNombreAdherentsDdn()
+        {
+            // Connexion à la BD
+            SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
+
+            List<List<string>> lesAnnees = new List<List<string>>();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = maConnexion;
+            cmd.CommandText = "SELECT YEAR(ADHERENT.Ddn_adherent) as anneeNaissance, COUNT(*) as nombreAdherents FROM ADHERENT WHERE ADHERENT.Archive_adherent = 0 GROUP BY YEAR(ADHERENT.Ddn_adherent)";
+
+            SqlDataReader monReader = cmd.ExecuteReader();
+
+            while (monReader.Read())
+            {
+                List<string> uneAnnee = new List<string>();
+                uneAnnee.Add(monReader["anneeNaissance"].ToString());
+                uneAnnee.Add(monReader["nombreAdherents"].ToString());
+                lesAnnees.Add(uneAnnee);
+            }
+
+            monReader.Close();
+            return lesAnnees;
+        }
+
+        public static List<List<string>> GetNombreEvenementsAdherents()
+        {
+            // Connexion à la BD
+            SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
+
+            List<List<string>> lesAdherents = new List<List<string>>();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = maConnexion;
+            cmd.CommandText = "SELECT ADHERENT.ID_adherent, ADHERENT.Nom_adherent + ' ' + ADHERENT.Prenom_adherent as nomComplet, COUNT(*) as nombreInscriptions FROM ADHERENT LEFT JOIN FLUX ON ADHERENT.ID_adherent = FLUX.#ID_adherent WHERE FLUX.Libelle_flux = 'Inscription' GROUP BY ADHERENT.ID_adherent, ADHERENT.Nom_adherent + ' ' + ADHERENT.Prenom_adherent";
+
+            SqlDataReader monReader = cmd.ExecuteReader();
+
+            while (monReader.Read())
+            {
+                List<string> unAdherent = new List<string>();
+                unAdherent.Add(monReader["nomComplet"].ToString());
+                unAdherent.Add(monReader["nombreInscriptions"].ToString());
+                lesAdherents.Add(unAdherent);
+            }
+
+            monReader.Close();
+            return lesAdherents;
+        }
     }
 }

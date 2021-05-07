@@ -35,5 +35,29 @@ namespace DAL
             monReader.Close();
             return listeEvenements;
         }
+
+        public static List<List<string>> GetNombreAdherentsEvenements()
+        {
+            // Connexion à la BD
+            SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
+
+            List<List<string>> lesEvenements = new List<List<string>>();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = maConnexion;
+            cmd.CommandText = "SELECT EVENEMENT.ID_evenement, EVENEMENT.Libelle_evenement as libelleEvenement, COUNT(*) as nombreInscription FROM EVENEMENT, FLUX WHERE FLUX.Libelle_flux = 'Inscription' GROUP BY EVENEMENT.ID_evenement, EVENEMENT.Libelle_evenement";
+
+            SqlDataReader monReader = cmd.ExecuteReader();
+
+            while (monReader.Read())
+            {
+                List<string> unEvenement = new List<string>();
+                unEvenement.Add(monReader["libelleEvenement"].ToString());
+                unEvenement.Add(monReader["nombreInscription"].ToString());
+                lesEvenements.Add(unEvenement);
+            }
+
+            monReader.Close();
+            return lesEvenements;
+        }
     }
 }

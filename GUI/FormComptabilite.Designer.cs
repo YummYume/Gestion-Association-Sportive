@@ -41,12 +41,6 @@
             this.tbxRechercheNomPrenom = new System.Windows.Forms.TextBox();
             this.lblFiltreClasse = new System.Windows.Forms.Label();
             this.lsbClasse = new System.Windows.Forms.ListBox();
-            this.lblFiltrePrelevementAutorise = new System.Windows.Forms.Label();
-            this.lblFiltreSweetPris = new System.Windows.Forms.Label();
-            this.rdbPrelevementAutoriseOui = new System.Windows.Forms.RadioButton();
-            this.rdbPrelevementAutoriseNon = new System.Windows.Forms.RadioButton();
-            this.rdbSweetPrisNon = new System.Windows.Forms.RadioButton();
-            this.rdbSweetPrisOui = new System.Windows.Forms.RadioButton();
             this.lblInformations = new System.Windows.Forms.Label();
             this.dtgDebit = new System.Windows.Forms.DataGridView();
             this.lblDebit = new System.Windows.Forms.Label();
@@ -69,8 +63,6 @@
             this.lblPrenom = new System.Windows.Forms.Label();
             this.lblNom = new System.Windows.Forms.Label();
             this.lblMontantPrelevement = new System.Windows.Forms.Label();
-            this.lblPrelevementAutorise = new System.Windows.Forms.Label();
-            this.lblSweet = new System.Windows.Forms.Label();
             this.lblClasseAdherant = new System.Windows.Forms.Label();
             this.lblPrenomAdherant = new System.Windows.Forms.Label();
             this.lblNomAdherant = new System.Windows.Forms.Label();
@@ -84,16 +76,16 @@
             this.lblSetBudgetASInitial = new System.Windows.Forms.Label();
             this.lblBudgetAS = new System.Windows.Forms.Label();
             this.lblBudgetEPS = new System.Windows.Forms.Label();
-            this.pnlPrelevementAutorise = new System.Windows.Forms.Panel();
-            this.pnlSweetPris = new System.Windows.Forms.Panel();
             this.lblNomPrenom = new System.Windows.Forms.Label();
+            this.lblNumTel = new System.Windows.Forms.Label();
+            this.lblDdn = new System.Windows.Forms.Label();
+            this.lblNumeroTelephone = new System.Windows.Forms.Label();
+            this.lblMontantPrev = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dtgDebit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgCredit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgFiltres)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgFluxAdherant)).BeginInit();
             this.gbxInfoAdherant.SuspendLayout();
-            this.pnlPrelevementAutorise.SuspendLayout();
-            this.pnlSweetPris.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblSetBudgetAS
@@ -195,7 +187,7 @@
             // 
             // tbxRechercheNomPrenom
             // 
-            this.tbxRechercheNomPrenom.Location = new System.Drawing.Point(73, 188);
+            this.tbxRechercheNomPrenom.Location = new System.Drawing.Point(73, 212);
             this.tbxRechercheNomPrenom.Name = "tbxRechercheNomPrenom";
             this.tbxRechercheNomPrenom.Size = new System.Drawing.Size(134, 20);
             this.tbxRechercheNomPrenom.TabIndex = 12;
@@ -204,7 +196,7 @@
             // lblFiltreClasse
             // 
             this.lblFiltreClasse.AutoSize = true;
-            this.lblFiltreClasse.Location = new System.Drawing.Point(20, 232);
+            this.lblFiltreClasse.Location = new System.Drawing.Point(20, 256);
             this.lblFiltreClasse.Name = "lblFiltreClasse";
             this.lblFiltreClasse.Size = new System.Drawing.Size(44, 13);
             this.lblFiltreClasse.TabIndex = 12;
@@ -213,74 +205,12 @@
             // lsbClasse
             // 
             this.lsbClasse.FormattingEnabled = true;
-            this.lsbClasse.Location = new System.Drawing.Point(73, 216);
+            this.lsbClasse.Location = new System.Drawing.Point(73, 240);
             this.lsbClasse.Margin = new System.Windows.Forms.Padding(2);
             this.lsbClasse.Name = "lsbClasse";
             this.lsbClasse.Size = new System.Drawing.Size(134, 43);
             this.lsbClasse.TabIndex = 13;
             this.lsbClasse.SelectedIndexChanged += new System.EventHandler(this.lsbClasse_SelectedIndexChanged);
-            // 
-            // lblFiltrePrelevementAutorise
-            // 
-            this.lblFiltrePrelevementAutorise.AutoSize = true;
-            this.lblFiltrePrelevementAutorise.Location = new System.Drawing.Point(3, 6);
-            this.lblFiltrePrelevementAutorise.Name = "lblFiltrePrelevementAutorise";
-            this.lblFiltrePrelevementAutorise.Size = new System.Drawing.Size(66, 26);
-            this.lblFiltrePrelevementAutorise.TabIndex = 14;
-            this.lblFiltrePrelevementAutorise.Text = "Prélèvement\r\nautorisé :";
-            // 
-            // lblFiltreSweetPris
-            // 
-            this.lblFiltreSweetPris.AutoSize = true;
-            this.lblFiltreSweetPris.Location = new System.Drawing.Point(3, 14);
-            this.lblFiltreSweetPris.Name = "lblFiltreSweetPris";
-            this.lblFiltreSweetPris.Size = new System.Drawing.Size(62, 13);
-            this.lblFiltreSweetPris.TabIndex = 15;
-            this.lblFiltreSweetPris.Text = "Sweet pris :";
-            // 
-            // rdbPrelevementAutoriseOui
-            // 
-            this.rdbPrelevementAutoriseOui.AutoSize = true;
-            this.rdbPrelevementAutoriseOui.Location = new System.Drawing.Point(75, 11);
-            this.rdbPrelevementAutoriseOui.Name = "rdbPrelevementAutoriseOui";
-            this.rdbPrelevementAutoriseOui.Size = new System.Drawing.Size(41, 17);
-            this.rdbPrelevementAutoriseOui.TabIndex = 14;
-            this.rdbPrelevementAutoriseOui.TabStop = true;
-            this.rdbPrelevementAutoriseOui.Text = "Oui";
-            this.rdbPrelevementAutoriseOui.UseVisualStyleBackColor = true;
-            // 
-            // rdbPrelevementAutoriseNon
-            // 
-            this.rdbPrelevementAutoriseNon.AutoSize = true;
-            this.rdbPrelevementAutoriseNon.Location = new System.Drawing.Point(122, 11);
-            this.rdbPrelevementAutoriseNon.Name = "rdbPrelevementAutoriseNon";
-            this.rdbPrelevementAutoriseNon.Size = new System.Drawing.Size(45, 17);
-            this.rdbPrelevementAutoriseNon.TabIndex = 15;
-            this.rdbPrelevementAutoriseNon.TabStop = true;
-            this.rdbPrelevementAutoriseNon.Text = "Non";
-            this.rdbPrelevementAutoriseNon.UseVisualStyleBackColor = true;
-            // 
-            // rdbSweetPrisNon
-            // 
-            this.rdbSweetPrisNon.AutoSize = true;
-            this.rdbSweetPrisNon.Location = new System.Drawing.Point(122, 13);
-            this.rdbSweetPrisNon.Name = "rdbSweetPrisNon";
-            this.rdbSweetPrisNon.Size = new System.Drawing.Size(45, 17);
-            this.rdbSweetPrisNon.TabIndex = 17;
-            this.rdbSweetPrisNon.TabStop = true;
-            this.rdbSweetPrisNon.Text = "Non";
-            this.rdbSweetPrisNon.UseVisualStyleBackColor = true;
-            // 
-            // rdbSweetPrisOui
-            // 
-            this.rdbSweetPrisOui.AutoSize = true;
-            this.rdbSweetPrisOui.Location = new System.Drawing.Point(74, 13);
-            this.rdbSweetPrisOui.Name = "rdbSweetPrisOui";
-            this.rdbSweetPrisOui.Size = new System.Drawing.Size(41, 17);
-            this.rdbSweetPrisOui.TabIndex = 16;
-            this.rdbSweetPrisOui.TabStop = true;
-            this.rdbSweetPrisOui.Text = "Oui";
-            this.rdbSweetPrisOui.UseVisualStyleBackColor = true;
             // 
             // lblInformations
             // 
@@ -390,8 +320,9 @@
             this.dtgFluxAdherant.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgFluxAdherant.Location = new System.Drawing.Point(247, 365);
             this.dtgFluxAdherant.Name = "dtgFluxAdherant";
-            this.dtgFluxAdherant.Size = new System.Drawing.Size(287, 223);
+            this.dtgFluxAdherant.Size = new System.Drawing.Size(330, 223);
             this.dtgFluxAdherant.TabIndex = 33;
+            this.dtgFluxAdherant.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgFluxAdherant_CellEnter);
             // 
             // lblFluxAdherant
             // 
@@ -415,6 +346,10 @@
             // 
             // gbxInfoAdherant
             // 
+            this.gbxInfoAdherant.Controls.Add(this.lblMontantPrev);
+            this.gbxInfoAdherant.Controls.Add(this.lblNumeroTelephone);
+            this.gbxInfoAdherant.Controls.Add(this.lblDdn);
+            this.gbxInfoAdherant.Controls.Add(this.lblNumTel);
             this.gbxInfoAdherant.Controls.Add(this.lblDateNaissance);
             this.gbxInfoAdherant.Controls.Add(this.lblMail);
             this.gbxInfoAdherant.Controls.Add(this.lblTelParent);
@@ -423,8 +358,6 @@
             this.gbxInfoAdherant.Controls.Add(this.lblPrenom);
             this.gbxInfoAdherant.Controls.Add(this.lblNom);
             this.gbxInfoAdherant.Controls.Add(this.lblMontantPrelevement);
-            this.gbxInfoAdherant.Controls.Add(this.lblPrelevementAutorise);
-            this.gbxInfoAdherant.Controls.Add(this.lblSweet);
             this.gbxInfoAdherant.Controls.Add(this.lblClasseAdherant);
             this.gbxInfoAdherant.Controls.Add(this.lblPrenomAdherant);
             this.gbxInfoAdherant.Controls.Add(this.lblNomAdherant);
@@ -438,10 +371,11 @@
             // lblDateNaissance
             // 
             this.lblDateNaissance.AutoSize = true;
-            this.lblDateNaissance.Location = new System.Drawing.Point(112, 215);
+            this.lblDateNaissance.Location = new System.Drawing.Point(6, 120);
             this.lblDateNaissance.Name = "lblDateNaissance";
-            this.lblDateNaissance.Size = new System.Drawing.Size(0, 13);
+            this.lblDateNaissance.Size = new System.Drawing.Size(102, 13);
             this.lblDateNaissance.TabIndex = 13;
+            this.lblDateNaissance.Text = "Date de naissance :";
             // 
             // lblMail
             // 
@@ -494,29 +428,11 @@
             // lblMontantPrelevement
             // 
             this.lblMontantPrelevement.AutoSize = true;
-            this.lblMontantPrelevement.Location = new System.Drawing.Point(6, 183);
+            this.lblMontantPrelevement.Location = new System.Drawing.Point(6, 186);
             this.lblMontantPrelevement.Name = "lblMontantPrelevement";
             this.lblMontantPrelevement.Size = new System.Drawing.Size(113, 13);
             this.lblMontantPrelevement.TabIndex = 5;
             this.lblMontantPrelevement.Text = "Montant prélèvement :";
-            // 
-            // lblPrelevementAutorise
-            // 
-            this.lblPrelevementAutorise.AutoSize = true;
-            this.lblPrelevementAutorise.Location = new System.Drawing.Point(6, 117);
-            this.lblPrelevementAutorise.Name = "lblPrelevementAutorise";
-            this.lblPrelevementAutorise.Size = new System.Drawing.Size(112, 13);
-            this.lblPrelevementAutorise.TabIndex = 4;
-            this.lblPrelevementAutorise.Text = "Prélèvement autorisé :";
-            // 
-            // lblSweet
-            // 
-            this.lblSweet.AutoSize = true;
-            this.lblSweet.Location = new System.Drawing.Point(6, 151);
-            this.lblSweet.Name = "lblSweet";
-            this.lblSweet.Size = new System.Drawing.Size(43, 13);
-            this.lblSweet.TabIndex = 3;
-            this.lblSweet.Text = "Sweet :";
             // 
             // lblClasseAdherant
             // 
@@ -649,34 +565,47 @@
             this.lblBudgetEPS.Text = "0";
             this.lblBudgetEPS.TextChanged += new System.EventHandler(this.lblBudgetEPS_TextChanged);
             // 
-            // pnlPrelevementAutorise
-            // 
-            this.pnlPrelevementAutorise.Controls.Add(this.lblFiltrePrelevementAutorise);
-            this.pnlPrelevementAutorise.Controls.Add(this.rdbPrelevementAutoriseOui);
-            this.pnlPrelevementAutorise.Controls.Add(this.rdbPrelevementAutoriseNon);
-            this.pnlPrelevementAutorise.Location = new System.Drawing.Point(16, 264);
-            this.pnlPrelevementAutorise.Name = "pnlPrelevementAutorise";
-            this.pnlPrelevementAutorise.Size = new System.Drawing.Size(191, 37);
-            this.pnlPrelevementAutorise.TabIndex = 47;
-            // 
-            // pnlSweetPris
-            // 
-            this.pnlSweetPris.Controls.Add(this.lblFiltreSweetPris);
-            this.pnlSweetPris.Controls.Add(this.rdbSweetPrisOui);
-            this.pnlSweetPris.Controls.Add(this.rdbSweetPrisNon);
-            this.pnlSweetPris.Location = new System.Drawing.Point(16, 295);
-            this.pnlSweetPris.Name = "pnlSweetPris";
-            this.pnlSweetPris.Size = new System.Drawing.Size(191, 36);
-            this.pnlSweetPris.TabIndex = 48;
-            // 
             // lblNomPrenom
             // 
             this.lblNomPrenom.AutoSize = true;
-            this.lblNomPrenom.Location = new System.Drawing.Point(19, 184);
+            this.lblNomPrenom.Location = new System.Drawing.Point(19, 208);
             this.lblNomPrenom.Name = "lblNomPrenom";
             this.lblNomPrenom.Size = new System.Drawing.Size(49, 26);
             this.lblNomPrenom.TabIndex = 49;
             this.lblNomPrenom.Text = "Nom et\r\nPrénom :";
+            // 
+            // lblNumTel
+            // 
+            this.lblNumTel.AutoSize = true;
+            this.lblNumTel.Location = new System.Drawing.Point(6, 153);
+            this.lblNumTel.Name = "lblNumTel";
+            this.lblNumTel.Size = new System.Drawing.Size(115, 13);
+            this.lblNumTel.TabIndex = 14;
+            this.lblNumTel.Text = "Numéro de téléphone :";
+            // 
+            // lblDdn
+            // 
+            this.lblDdn.AutoSize = true;
+            this.lblDdn.Location = new System.Drawing.Point(110, 121);
+            this.lblDdn.Name = "lblDdn";
+            this.lblDdn.Size = new System.Drawing.Size(0, 13);
+            this.lblDdn.TabIndex = 15;
+            // 
+            // lblNumeroTelephone
+            // 
+            this.lblNumeroTelephone.AutoSize = true;
+            this.lblNumeroTelephone.Location = new System.Drawing.Point(123, 154);
+            this.lblNumeroTelephone.Name = "lblNumeroTelephone";
+            this.lblNumeroTelephone.Size = new System.Drawing.Size(0, 13);
+            this.lblNumeroTelephone.TabIndex = 16;
+            // 
+            // lblMontantPrev
+            // 
+            this.lblMontantPrev.AutoSize = true;
+            this.lblMontantPrev.Location = new System.Drawing.Point(121, 186);
+            this.lblMontantPrev.Name = "lblMontantPrev";
+            this.lblMontantPrev.Size = new System.Drawing.Size(0, 13);
+            this.lblMontantPrev.TabIndex = 17;
             // 
             // FormComptabilite
             // 
@@ -684,8 +613,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1112, 600);
             this.Controls.Add(this.lblNomPrenom);
-            this.Controls.Add(this.pnlSweetPris);
-            this.Controls.Add(this.pnlPrelevementAutorise);
             this.Controls.Add(this.lblBudgetAS);
             this.Controls.Add(this.lblBudgetEPS);
             this.Controls.Add(this.lblSetBudgetEPSInitial);
@@ -734,10 +661,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtgFluxAdherant)).EndInit();
             this.gbxInfoAdherant.ResumeLayout(false);
             this.gbxInfoAdherant.PerformLayout();
-            this.pnlPrelevementAutorise.ResumeLayout(false);
-            this.pnlPrelevementAutorise.PerformLayout();
-            this.pnlSweetPris.ResumeLayout(false);
-            this.pnlSweetPris.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -758,12 +681,6 @@
         private System.Windows.Forms.TextBox tbxRechercheNomPrenom;
         private System.Windows.Forms.Label lblFiltreClasse;
         protected System.Windows.Forms.ListBox lsbClasse;
-        private System.Windows.Forms.Label lblFiltrePrelevementAutorise;
-        private System.Windows.Forms.Label lblFiltreSweetPris;
-        private System.Windows.Forms.RadioButton rdbPrelevementAutoriseOui;
-        private System.Windows.Forms.RadioButton rdbPrelevementAutoriseNon;
-        private System.Windows.Forms.RadioButton rdbSweetPrisNon;
-        private System.Windows.Forms.RadioButton rdbSweetPrisOui;
         private System.Windows.Forms.Label lblInformations;
         private System.Windows.Forms.DataGridView dtgDebit;
         private System.Windows.Forms.Label lblDebit;
@@ -786,8 +703,6 @@
         private System.Windows.Forms.Label lblPrenom;
         private System.Windows.Forms.Label lblNom;
         private System.Windows.Forms.Label lblMontantPrelevement;
-        private System.Windows.Forms.Label lblPrelevementAutorise;
-        private System.Windows.Forms.Label lblSweet;
         private System.Windows.Forms.Label lblClasseAdherant;
         private System.Windows.Forms.Label lblPrenomAdherant;
         private System.Windows.Forms.Label lblNomAdherant;
@@ -801,8 +716,10 @@
         private System.Windows.Forms.Label lblSetBudgetASInitial;
         private System.Windows.Forms.Label lblBudgetAS;
         private System.Windows.Forms.Label lblBudgetEPS;
-        private System.Windows.Forms.Panel pnlPrelevementAutorise;
-        private System.Windows.Forms.Panel pnlSweetPris;
         private System.Windows.Forms.Label lblNomPrenom;
+        private System.Windows.Forms.Label lblNumTel;
+        private System.Windows.Forms.Label lblDdn;
+        private System.Windows.Forms.Label lblMontantPrev;
+        private System.Windows.Forms.Label lblNumeroTelephone;
     }
 }

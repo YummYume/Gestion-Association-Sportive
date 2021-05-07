@@ -61,5 +61,25 @@ namespace BLL
         {
             return AdherentDAO.RechercherMinAdherent(recherche, classe);
         }
+
+        public static int GetNombreAdherents()
+        {
+            return AdherentDAO.GetNombreAdherents();
+        }
+
+        public static int GetNombreAdherentsGenre(string genre)
+        {
+            return AdherentDAO.GetNombreAdherentsGenre(genre);
+        }
+
+        public static List<List<string>> GetNombreAdherentsDdn()
+        {
+            return AdherentDAO.GetNombreAdherentsDdn();
+        }
+
+        public static List<List<string>> GetNombreEvenementsAdherents()
+        {
+            return AdherentDAO.GetNombreEvenementsAdherents();
+        }
     }
 }

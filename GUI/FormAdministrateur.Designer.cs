@@ -265,6 +265,7 @@
             this.btnAccesStatistique.TabIndex = 5;
             this.btnAccesStatistique.Text = "Accès statistique";
             this.btnAccesStatistique.UseVisualStyleBackColor = true;
+            this.btnAccesStatistique.Click += new System.EventHandler(this.btnAccesStatistique_Click);
             // 
             // lblAdministrateurInfo
             // 

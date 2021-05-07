@@ -280,6 +280,7 @@ namespace GUI
                 btnFluxSupprimer.Enabled = true;
             }
             this.dtgCredit.ClearSelection();
+            this.dtgFluxAdherant.ClearSelection();
         }
 
         private void dtgCredit_CellEnter(object sender, DataGridViewCellEventArgs e)
@@ -291,6 +292,7 @@ namespace GUI
                 btnFluxSupprimer.Enabled = true;
             }
             this.dtgDebit.ClearSelection();
+            this.dtgFluxAdherant.ClearSelection();
         }
 
         private void btnFluxSupprimer_Click(object sender, EventArgs e)
@@ -325,6 +327,37 @@ namespace GUI
                         FluxBLL.SupprimerFlux((FluxMin)this.dtgDebit.SelectedRows[0].DataBoundItem);
                         this.dtgDebit.DataSource = FluxBLL.GetBaseFluxInfo(new TypeFlux(1, "Débit"), currentYear.ToString());
                         deleted = true;
+                    }
+                }
+                else
+                {
+                    if (this.dtgFluxAdherant.SelectedRows.Count > 0)
+                    {
+                        string nom = dtgFluxAdherant.CurrentRow.Cells["Libelle"].Value.ToString();
+                        DateTime date = DateTime.Parse(dtgFluxAdherant.CurrentRow.Cells["Date"].Value.ToString());
+                        DialogResult reponseMsgBox;
+
+                        reponseMsgBox = MessageBox.Show("Voulez vous vraiment supprimer le flux " + nom + " du " + date.ToString("dd'/'MM'/'yyyy") + "?", "Suppression d'un flux", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        if (reponseMsgBox == DialogResult.Yes)
+                        {
+                            Flux leFlux = (Flux)this.dtgFluxAdherant.SelectedRows[0].DataBoundItem;
+                            FluxMin leFluxMin = new FluxMin(leFlux.Id);
+                            FluxBLL.SupprimerFlux(leFluxMin);
+                            List<Adherent> lesAdherents = new List<Adherent>(AdherentBLL.GetFullInfoAdherents());
+                            Int32.TryParse(dtgFiltres.CurrentRow.Cells["Id"].Value.ToString(), out int id);
+
+                            Adherent leAdherent = lesAdherents.Find(Adherent => Adherent.Id == id);
+                            lblNom.Text = leAdherent.Nom;
+                            lblPrenom.Text = leAdherent.Prenom;
+                            lblClasse.Text = leAdherent.Classe.Libelle;
+
+                            List<Flux> lesFluxAdherent = new List<Flux>();
+                            lesFluxAdherent.AddRange(FluxBLL.GetFluxStudentYear(new TypeFlux(1), currentYear.ToString(), leAdherent));
+                            lesFluxAdherent.AddRange(FluxBLL.GetFluxStudentYear(new TypeFlux(2), currentYear.ToString(), leAdherent));
+
+                            this.dtgFluxAdherant.DataSource = lesFluxAdherent;
+                            deleted = true;
+                        }
                     }
                 }
             }
@@ -368,8 +401,28 @@ namespace GUI
                     newModificationFlux = new FormModifierFlux(leUtilisateur, this, budgetASInitial, budgetEPSInitial, leFlux);
                     newModificationFlux.ShowDialog();
                 }
+                else
+                {
+                    if (this.dtgFluxAdherant.SelectedRows.Count > 0)
+                    {
+                        List<Adherent> lesAdherents = new List<Adherent>(AdherentBLL.GetFullInfoAdherents());
+                        Int32.TryParse(dtgFiltres.CurrentRow.Cells["Id"].Value.ToString(), out int idAdherent);
+
+                        Adherent leAdherent = lesAdherents.Find(Adherent => Adherent.Id == idAdherent);
+
+                        List<Flux> lesFluxAdherent = new List<Flux>();
+                        lesFluxAdherent.AddRange(FluxBLL.GetFluxStudentYear(new TypeFlux(1), currentYear.ToString(), leAdherent));
+                        lesFluxAdherent.AddRange(FluxBLL.GetFluxStudentYear(new TypeFlux(2), currentYear.ToString(), leAdherent));
+                        Int32.TryParse(dtgFluxAdherant.CurrentRow.Cells["Id"].Value.ToString(), out int idFlux);
+
+                        Flux leFlux = lesFluxAdherent.Find(Flux => Flux.Id == idFlux);
+
+                        FormModifierFlux newModificationFlux;
+                        newModificationFlux = new FormModifierFlux(leUtilisateur, this, budgetASInitial, budgetEPSInitial, leFlux);
+                        newModificationFlux.ShowDialog();
+                    }
+                }
             }
-            //TODO : dtgFluxEleve
         }
 
         private void btnFluxAjouter_Click(object sender, EventArgs e)
@@ -468,10 +521,26 @@ namespace GUI
             lblNom.Text = leAdherent.Nom;
             lblPrenom.Text = leAdherent.Prenom;
             lblClasse.Text = leAdherent.Classe.Libelle;
+            lblDdn.Text = leAdherent.DateDeNaissance.ToString("dd'/'MM'/'yyyy");
+            lblNumeroTelephone.Text = leAdherent.NumTel;
 
             List<Flux> lesFluxAdherent = new List<Flux>();
             lesFluxAdherent.AddRange(FluxBLL.GetFluxStudentYear(new TypeFlux(1), currentYear.ToString(), leAdherent));
             lesFluxAdherent.AddRange(FluxBLL.GetFluxStudentYear(new TypeFlux(2), currentYear.ToString(), leAdherent));
+
+            float montantPrev = 0;
+            foreach (Flux leFlux in lesFluxAdherent)
+            {
+                if (leFlux.TypeFlux.Id == 1)
+                {
+                    montantPrev -= leFlux.Montant;
+                }
+                else
+                {
+                    montantPrev += leFlux.Montant;
+                }
+            }
+            lblMontantPrev.Text = montantPrev.ToString() + "€";
 
             this.dtgFluxAdherant.DataSource = lesFluxAdherent;
             this.dtgFluxAdherant.Columns["ID"].Visible = false;
@@ -480,6 +549,18 @@ namespace GUI
             this.dtgFluxAdherant.Columns["Typeflux"].Visible = false;
             this.dtgFluxAdherant.Columns["Adherent"].Visible = false;
             this.dtgFluxAdherant.Columns["Prelevementeff"].Visible = false;
+        }
+
+        private void dtgFluxAdherant_CellEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            if (this.dtgFluxAdherant.SelectedCells.Count > 0)
+            {
+                this.dtgFluxAdherant.SelectedCells[0].OwningRow.Selected = true;
+                btnFluxModifier.Enabled = true;
+                btnFluxSupprimer.Enabled = true;
+            }
+            this.dtgDebit.ClearSelection();
+            this.dtgCredit.ClearSelection();
         }
     }
 }

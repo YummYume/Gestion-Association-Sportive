@@ -88,5 +88,12 @@ namespace GUI
             lblMail.Text = leAdherent.Email;
             lblDateNaissance.Text = leAdherent.DateDeNaissance.GetDateTimeFormats('d')[0];
         }
+
+        private void btnAccesStatistique_Click(object sender, EventArgs e)
+        {
+            FormStatistiques newFormStatistiques;
+            newFormStatistiques = new FormStatistiques(leUtilisateur);
+            newFormStatistiques.ShowDialog();
+        }
     }
 }

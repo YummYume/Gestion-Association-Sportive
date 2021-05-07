@@ -14,5 +14,10 @@ namespace BLL
         {
             return EvenementDAO.GetEvenement();
         }
+
+        public static List<List<string>> GetNombreAdherentsEvenements()
+        {
+            return EvenementDAO.GetNombreAdherentsEvenements();
+        }
     }
 }

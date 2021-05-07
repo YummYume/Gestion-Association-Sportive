@@ -171,7 +171,6 @@ namespace GUI
                     dgvCompta[2].Columns["ID"].Visible = false;
                     dgvCompta[3].DataSource = FluxBLL.GetBaseFluxInfo(new TypeFlux(1, "Débit"), DateTime.Now.Year.ToString());
                     dgvCompta[3].Columns["ID"].Visible = false;
-                    // TODO : dgvCompta[1];
 
                     budgetAS = BLL.BudgetBLL.GetBudgetTotal(DateTime.Now.Year.ToString(), BLL.BudgetBLL.GetBudgetAS(currentYear.ToString()));
                     budgetEPS = BLL.BudgetBLL.GetBudgetTotal(DateTime.Now.Year.ToString(), BLL.BudgetBLL.GetBudgetEPS(currentYear.ToString()));
