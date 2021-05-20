@@ -55,6 +55,10 @@
             this.lblFluxAdherant = new System.Windows.Forms.Label();
             this.lblAnnee = new System.Windows.Forms.Label();
             this.gbxInfoAdherant = new System.Windows.Forms.GroupBox();
+            this.lblMontantPrev = new System.Windows.Forms.Label();
+            this.lblNumeroTelephone = new System.Windows.Forms.Label();
+            this.lblDdn = new System.Windows.Forms.Label();
+            this.lblNumTel = new System.Windows.Forms.Label();
             this.lblDateNaissance = new System.Windows.Forms.Label();
             this.lblMail = new System.Windows.Forms.Label();
             this.lblTelParent = new System.Windows.Forms.Label();
@@ -77,10 +81,6 @@
             this.lblBudgetAS = new System.Windows.Forms.Label();
             this.lblBudgetEPS = new System.Windows.Forms.Label();
             this.lblNomPrenom = new System.Windows.Forms.Label();
-            this.lblNumTel = new System.Windows.Forms.Label();
-            this.lblDdn = new System.Windows.Forms.Label();
-            this.lblNumeroTelephone = new System.Windows.Forms.Label();
-            this.lblMontantPrev = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dtgDebit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgCredit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgFiltres)).BeginInit();
@@ -183,7 +183,7 @@
             this.lblFiltreAdherant.Name = "lblFiltreAdherant";
             this.lblFiltreAdherant.Size = new System.Drawing.Size(182, 25);
             this.lblFiltreAdherant.TabIndex = 10;
-            this.lblFiltreAdherant.Text = "Filtre Adherant :";
+            this.lblFiltreAdherant.Text = "Filtre Adherent :";
             // 
             // tbxRechercheNomPrenom
             // 
@@ -332,7 +332,7 @@
             this.lblFluxAdherant.Name = "lblFluxAdherant";
             this.lblFluxAdherant.Size = new System.Drawing.Size(173, 25);
             this.lblFluxAdherant.TabIndex = 34;
-            this.lblFluxAdherant.Text = "Flux Adhérant :";
+            this.lblFluxAdherant.Text = "Flux Adhérent :";
             // 
             // lblAnnee
             // 
@@ -367,6 +367,39 @@
             this.gbxInfoAdherant.TabIndex = 36;
             this.gbxInfoAdherant.TabStop = false;
             this.gbxInfoAdherant.Text = "Info Adherant";
+            // 
+            // lblMontantPrev
+            // 
+            this.lblMontantPrev.AutoSize = true;
+            this.lblMontantPrev.Location = new System.Drawing.Point(121, 186);
+            this.lblMontantPrev.Name = "lblMontantPrev";
+            this.lblMontantPrev.Size = new System.Drawing.Size(0, 13);
+            this.lblMontantPrev.TabIndex = 17;
+            // 
+            // lblNumeroTelephone
+            // 
+            this.lblNumeroTelephone.AutoSize = true;
+            this.lblNumeroTelephone.Location = new System.Drawing.Point(123, 154);
+            this.lblNumeroTelephone.Name = "lblNumeroTelephone";
+            this.lblNumeroTelephone.Size = new System.Drawing.Size(0, 13);
+            this.lblNumeroTelephone.TabIndex = 16;
+            // 
+            // lblDdn
+            // 
+            this.lblDdn.AutoSize = true;
+            this.lblDdn.Location = new System.Drawing.Point(110, 121);
+            this.lblDdn.Name = "lblDdn";
+            this.lblDdn.Size = new System.Drawing.Size(0, 13);
+            this.lblDdn.TabIndex = 15;
+            // 
+            // lblNumTel
+            // 
+            this.lblNumTel.AutoSize = true;
+            this.lblNumTel.Location = new System.Drawing.Point(6, 153);
+            this.lblNumTel.Name = "lblNumTel";
+            this.lblNumTel.Size = new System.Drawing.Size(115, 13);
+            this.lblNumTel.TabIndex = 14;
+            this.lblNumTel.Text = "Numéro de téléphone :";
             // 
             // lblDateNaissance
             // 
@@ -573,39 +606,6 @@
             this.lblNomPrenom.Size = new System.Drawing.Size(49, 26);
             this.lblNomPrenom.TabIndex = 49;
             this.lblNomPrenom.Text = "Nom et\r\nPrénom :";
-            // 
-            // lblNumTel
-            // 
-            this.lblNumTel.AutoSize = true;
-            this.lblNumTel.Location = new System.Drawing.Point(6, 153);
-            this.lblNumTel.Name = "lblNumTel";
-            this.lblNumTel.Size = new System.Drawing.Size(115, 13);
-            this.lblNumTel.TabIndex = 14;
-            this.lblNumTel.Text = "Numéro de téléphone :";
-            // 
-            // lblDdn
-            // 
-            this.lblDdn.AutoSize = true;
-            this.lblDdn.Location = new System.Drawing.Point(110, 121);
-            this.lblDdn.Name = "lblDdn";
-            this.lblDdn.Size = new System.Drawing.Size(0, 13);
-            this.lblDdn.TabIndex = 15;
-            // 
-            // lblNumeroTelephone
-            // 
-            this.lblNumeroTelephone.AutoSize = true;
-            this.lblNumeroTelephone.Location = new System.Drawing.Point(123, 154);
-            this.lblNumeroTelephone.Name = "lblNumeroTelephone";
-            this.lblNumeroTelephone.Size = new System.Drawing.Size(0, 13);
-            this.lblNumeroTelephone.TabIndex = 16;
-            // 
-            // lblMontantPrev
-            // 
-            this.lblMontantPrev.AutoSize = true;
-            this.lblMontantPrev.Location = new System.Drawing.Point(121, 186);
-            this.lblMontantPrev.Name = "lblMontantPrev";
-            this.lblMontantPrev.Size = new System.Drawing.Size(0, 13);
-            this.lblMontantPrev.TabIndex = 17;
             // 
             // FormComptabilite
             // 

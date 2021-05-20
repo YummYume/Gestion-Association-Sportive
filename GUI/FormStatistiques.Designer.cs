@@ -150,18 +150,18 @@ namespace GUI
             // lblDdn
             // 
             this.lblDdn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDdn.Location = new System.Drawing.Point(43, 346);
+            this.lblDdn.Location = new System.Drawing.Point(43, 325);
             this.lblDdn.Name = "lblDdn";
-            this.lblDdn.Size = new System.Drawing.Size(251, 59);
+            this.lblDdn.Size = new System.Drawing.Size(251, 80);
             this.lblDdn.TabIndex = 25;
-            this.lblDdn.Text = "Nombre d\'adhérents par date de naissance :";
+            this.lblDdn.Text = "Nombre d\'adhérents par année de naissance :";
             // 
             // lblEvenements
             // 
             this.lblEvenements.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEvenements.Location = new System.Drawing.Point(449, 94);
+            this.lblEvenements.Location = new System.Drawing.Point(449, 73);
             this.lblEvenements.Name = "lblEvenements";
-            this.lblEvenements.Size = new System.Drawing.Size(249, 59);
+            this.lblEvenements.Size = new System.Drawing.Size(249, 80);
             this.lblEvenements.TabIndex = 26;
             this.lblEvenements.Text = "Nombre d\'adhérents pour chaque évenements :";
             // 
@@ -192,7 +192,9 @@ namespace GUI
             this.Controls.Add(this.lblNbFilles);
             this.Controls.Add(this.lblNbAdherents);
             this.Controls.Add(this.lblTitreStatistiques);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "FormStatistiques";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Statistiques";
             this.Load += new System.EventHandler(this.FormStatistiques_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgDdn)).EndInit();
